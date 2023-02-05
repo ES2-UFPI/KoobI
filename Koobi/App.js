@@ -1,12 +1,13 @@
+import React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View,} from 'react-native';
+
+import AppRoutes from './src/routers/app.routes';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>
-        Hello World!!
-      </Text>
+      <AppRoutes />
       <StatusBar style="auto" />
     </View>
   );
@@ -15,8 +16,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#FFFDEA',
+    paddingTop: 60,
   },
 });
