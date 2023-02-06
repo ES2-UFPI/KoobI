@@ -7,6 +7,7 @@ export function MyRequests() {
             flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
+            backgroundColor: '#342456'
         }}>
             <Text>Pedidos</Text>
         </View>

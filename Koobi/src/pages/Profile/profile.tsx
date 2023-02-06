@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image} from 'react-native'
+import { View, Text, Image, TouchableOpacity} from 'react-native'
 import BackButton from '../../components/BackButton';
 import styles from './styles'
 
@@ -18,6 +18,10 @@ export function Profile() {
                 <Text style={styles.aboutText}>Sobre</Text>
                 <Text style={styles.description} >Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text>
             </View>
+            <TouchableOpacity>
+                <Image/>
+                
+            </TouchableOpacity>
         </View>
     );
 }

@@ -7,8 +7,9 @@ export function MainPage() {
             flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
+            backgroundColor: '#f71313',
         }}>
-            <Text>Página principal</Text>
+            <Text>Página inicial</Text>
         </View>
     )
 }
