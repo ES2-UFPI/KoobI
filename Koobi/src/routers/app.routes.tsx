@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { Profile } from '../pages/Profile/profile'
+import { SearchPage } from '../pages/Search/search'
 import { MyProducts } from '../pages/myProducts/myProducts';
 import { MyRequests } from '../pages/myRequests/myRequests';
 import { MainPage } from '../pages/PrincipalPage/mainPage';
@@ -10,6 +12,7 @@ import { MainPage } from '../pages/PrincipalPage/mainPage';
 import { Feather } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function AppRoutes() {
   return (
@@ -27,7 +30,7 @@ export default function AppRoutes() {
         
         <Tab.Screen
         name="Search"
-        component={MyProducts} 
+        component={SearchPage} 
         options={{ 
           tabBarIcon: () => {
             return <Feather name='search' size={25} color="#000"/>;

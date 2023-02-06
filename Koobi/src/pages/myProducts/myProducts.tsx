@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View } from 'react-native'
 
 
-export function MyProducts() {
+export function MyProducts({ navigation }) {
     return (
         <View style={{
             flex: 1,

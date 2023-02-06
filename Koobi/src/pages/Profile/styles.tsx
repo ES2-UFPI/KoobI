@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        bottom: -26,
+        top: -60,
     },
 
     textName: {
@@ -24,10 +24,11 @@ const styles = StyleSheet.create({
     },
 
     boxAbout: {
-        marginTop: 20,
         width: '100%',
         padding: 30,
         // backgroundColor: '#00ff00',
+        position: 'relative',
+        top: -60,
     },
 
     aboutText: {
@@ -37,7 +38,22 @@ const styles = StyleSheet.create({
 
     description: {
         fontSize: 18,
+        marginBottom: 20
+    },
+
+    line: {
+        height: '25%',
+        width: '100%',
+        borderTopWidth: 1,
+        borderStyle: 'solid',
+        marginTop: 20,
+        paddingTop: 20,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
     }
+
+
 
 })
 
