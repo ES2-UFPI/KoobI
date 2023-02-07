@@ -10,12 +10,14 @@ export default function App() {
       <AppRoutes />
       <StatusBar style="auto" />
     </View>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     paddingTop: 45,
   },
 });
