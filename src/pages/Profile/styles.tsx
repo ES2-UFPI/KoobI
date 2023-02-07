@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     boxHeadProfile: {
         width: '100%',
         height: 153,
-        backgroundColor: '#FF8B4E',
+        backgroundColor: '#16262E',
     },
 
     imageProfile: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     },
 
     line: {
-        height: '25%',
+        height: '24%',
         width: '100%',
         borderTopWidth: 1,
         borderStyle: 'solid',

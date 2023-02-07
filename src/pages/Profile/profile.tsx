@@ -1,18 +1,22 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity} from 'react-native'
 import BackButton from '../../components/BackButton';
+import { MyProducts } from '../myProducts/myProducts';
+import { useNavigation } from '@react-navigation/native';
 import styles from './styles'
 
 
 export function Profile({ navigation }) {
     return (
-        <View style={{ backgroundColor: '#FFFDEA', height: '100%' }}>
-            <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.boxHeadProfile}
-            >
-                <BackButton/>
-            </TouchableOpacity>
+        <View style={{ backgroundColor: '#F4EEA9', height: '100%' }}>
+            <View style={styles.boxHeadProfile}>
+                <TouchableOpacity
+                onPress={() => navigation.goBack()}
+                style={{ width: 77,}}
+                >
+                    <BackButton />
+                </TouchableOpacity>
+            </View>
             <View style={styles.imageProfile}>
                 <Image
                 source={require('../../../assets/IconeDePerfil.png')}
@@ -22,10 +26,15 @@ export function Profile({ navigation }) {
             <View style={styles.boxAbout}>
                 <Text style={styles.aboutText}>Sobre</Text>
                 <Text style={styles.description} >Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text>
-                <TouchableOpacity style={styles.line}>
+                <TouchableOpacity
+                    style={styles.line}
+                    onPress={() => navigation.navigate('Produtos')}
+                    >
+                    
                     <Image
                     source={require('../../../assets/prod.png')}
                     />
+
                     <Text style={{
                         marginLeft: 20,
                         fontSize: 25,

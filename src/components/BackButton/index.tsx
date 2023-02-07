@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     trownBackButton: {
         width: 77,
         height: 64,
-        backgroundColor: '#A45F21',
+        backgroundColor: '#2E4756',
         alignItems: 'center',
         justifyContent: 'center',
     },

@@ -7,7 +7,7 @@ export function MainPage() {
             flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#f71313',
+            backgroundColor: '#a77713',
         }}>
             <Text>Página inicial</Text>
         </View>

@@ -14,6 +14,15 @@ import { Feather } from '@expo/vector-icons'
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
+function StackPages() {
+  return (
+    <Stack.Navigator initialRouteName="Profile Options" screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Perfil" component={Profile} />
+      <Stack.Screen name="Produtos" component={MyProducts} />
+    </Stack.Navigator>
+  );
+}
+
 export default function AppRoutes() {
   return (
     <NavigationContainer>
@@ -49,7 +58,7 @@ export default function AppRoutes() {
         />
         <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={StackPages}
         options={{
           tabBarIcon: () => {
             return <Feather name='user' size={25} color="#000"/>;
