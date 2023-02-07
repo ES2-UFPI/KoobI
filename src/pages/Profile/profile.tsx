@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity} from 'react-native'
 import BackButton from '../../components/BackButton';
-import { MyProducts } from '../myProducts/myProducts';
-import { useNavigation } from '@react-navigation/native';
+// import { MyProducts } from '../myProducts/myProducts';
+// import { useNavigation } from '@react-navigation/native';
 import styles from './styles'
 
 
@@ -21,7 +21,7 @@ export function Profile({ navigation }) {
                 <Image
                 source={require('../../../assets/IconeDePerfil.png')}
                 />
-                <Text style={styles.textName}> Nome de Usuário </Text>
+                <Text style={styles.textName}> Usuário comprador </Text>
             </View>
             <View style={styles.boxAbout}>
                 <Text style={styles.aboutText}>Sobre</Text>

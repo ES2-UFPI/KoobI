@@ -7,7 +7,9 @@ export function MyProducts({ navigation }) {
     return (
         <View style={{backgroundColor: '#F4EEA9', height: '100%', alignItems: 'center'}}>
             <View style={styles.headerBox}>
-                <BackButton/>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <BackButton/>
+                </TouchableOpacity>
             </View>
             {/* <Text>Produtos que eu estou vendendo</Text> */}
             <View></View>
