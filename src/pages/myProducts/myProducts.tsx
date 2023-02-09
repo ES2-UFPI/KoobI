@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import BackButton from '../../components/BackButton/index'
 
 
 export function MyProducts({ navigation }) {
+
+    const [views, setViews] = useState([]);
+
     return (
         <View style={{backgroundColor: '#F4EEA9', height: '100%', alignItems: 'center'}}>
             <View style={styles.headerBox}>
@@ -11,11 +14,22 @@ export function MyProducts({ navigation }) {
                     <BackButton/>
                 </TouchableOpacity>
             </View>
-            {/* <Text>Produtos que eu estou vendendo</Text> */}
-            <View></View>
-            <TouchableOpacity style={styles.addLivro}>
+
+            <View>
+                {views}
+            </View>
+
+            <TouchableOpacity
+            style={styles.addLivro}
+            onPress={() => setViews([...views,
+                <View key={views.length} style={{ backgroundColor: 'yellow', width: 400, borderBottomWidth: 2,}}>
+                <Text>Livro {views.length + 1}</Text>
+                <Text>Autor do livro / Nenhum</Text>
+                </View>
+            ])}>    
                 <Text style={styles.textAdd}>Adicionar Livro</Text>
             </TouchableOpacity>
+
         </View>
     )
 }
@@ -29,7 +43,7 @@ const styles = StyleSheet.create({
 
     addLivro: {
         width: 200,
-        height: 100,
+        height: 80,
         
         margin: 20,
         padding: 20,
