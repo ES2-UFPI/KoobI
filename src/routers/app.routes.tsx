@@ -3,11 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import { Profile } from '../pages/Profile/profile'
-import { SearchPage } from '../pages/Search/search'
-import { MyProducts } from '../pages/myProducts/myProducts';
-import { MyRequests } from '../pages/myRequests/myRequests';
-import { MainPage } from '../pages/PrincipalPage/mainPage';
+import { Profile } from '../pages/Profile'
+import { SearchPage } from '../pages/Search'
+import { MyProducts } from '../pages/myProducts';
+import { MyRequests } from '../pages/myRequests';
+import { MainPage } from '../pages/PrincipalPage';
 
 import { Feather } from '@expo/vector-icons'
 

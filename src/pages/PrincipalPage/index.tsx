@@ -9,6 +9,7 @@ export function MainPage() {
             justifyContent: 'center',
             backgroundColor: '#a77713',
         }}>
+            
             <Text>Página inicial</Text>
         </View>
     )
