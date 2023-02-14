@@ -3,13 +3,25 @@ import { View, Text, Image, StyleSheet } from 'react-native'
 
 export default function Header(){
     return (
-        <View>
-            <Image source={require("../../../assets/ItemImageIcon.png")} />
+        <View style={styles.cabecalho}>
             <View>
-                <Text>Livro </Text>
-                <Text>Autor do livro / Nenhum</Text>
+                <Text style={styles.textCabecalho}>KoobI </Text>
+                
             </View>
-            <Image source={require("../../../assets/editItem.png")} />
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    cabecalho:{
+        flexDirection: 'row',
+        width: '100%',
+        height: 50,
+        backgroundColor: '#16262E'
+    },
+
+    textCabecalho: {
+      color: '#e7e4e4',
+      fontSize: (25),
+    }
+})
