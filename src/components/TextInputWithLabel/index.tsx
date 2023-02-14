@@ -25,6 +25,14 @@ export default function TextInputWithLabel({...props}:textInputProps){
                 {props.name}
             </Text>
         </View>
+        <InputMask
+            multiline = {props.multiline}
+            style = {[styles.textInput, props.style]}
+            keyboardType = {props.ktype}
+            value = {props.value}
+            onChangeText = {text => props.onChangeText(text)}
+            mask = {props.mask}
+        />
     </View>
     )
 }

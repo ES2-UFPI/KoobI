@@ -20,6 +20,13 @@ const styles = StyleSheet.create({
       fontFamily: "Inter",
       fontSize: 18,
       fontWeight: "bold"
+    },
+    textInput: {
+      width: '80%',
+      borderRadius: 12,
+      backgroundColor: "#F6F6F6",
+      fontSize: 11,
+      fontFamily: 'Raleway_400Regular'
     }
 });
 

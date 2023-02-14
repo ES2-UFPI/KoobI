@@ -13,7 +13,7 @@ export function MyProducts({ navigation }) {
             </View>
             {/* <Text>Produtos que eu estou vendendo</Text> */}
             <View></View>
-            <TouchableOpacity style={styles.addLivro}>
+            <TouchableOpacity onPress={() => navigation.navigate('BookRegister')} style={styles.addLivro}>
                 <Text style={styles.textAdd}>Adicionar Livro</Text>
             </TouchableOpacity>
         </View>
