@@ -15,16 +15,25 @@ export function BookRegister({ navigation }){
     return (
     <View style={styles.container}>
         <View>
-            <TextInputWithLabel 
-                name="Título"
+            <TextInputWithLabel
+                name="Título" 
                 value={title}
                 onChangeText={setTitle}
                 ktype="default"
             />
-            
-            <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Produtos')}>
-
-            </TouchableOpacity>
+            <View style={styles.row}>
+            <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.navigate('Produtos')}>
+                    <Text style={styles.cancelButtonText}>
+                        Cancelar
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Produtos')}>
+                    <Text style={styles.addButtonText}>
+                        Adicionar
+                    </Text>
+                </TouchableOpacity>
+                
+            </View>
 
         </View>
     </View>

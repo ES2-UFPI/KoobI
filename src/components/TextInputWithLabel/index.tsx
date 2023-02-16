@@ -20,8 +20,8 @@ interface textInputProps{
 export default function TextInputWithLabel({...props}:textInputProps){
     return(
     <View>
-        <View>
-            <Text>
+        <View style={styles.textLabelArea}>
+            <Text style={styles.textLabel}>
                 {props.name}
             </Text>
         </View>

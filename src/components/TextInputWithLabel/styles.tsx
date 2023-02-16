@@ -1,8 +1,6 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-
-
-
+import { StyleSheet, Dimensions } from "react-native";
+import { useFonts, Inter_700Bold } from '@expo-google-fonts/inter';
 
 const styles = StyleSheet.create({
     touchableOpacityStyle: {  
@@ -22,11 +20,22 @@ const styles = StyleSheet.create({
       fontWeight: "bold"
     },
     textInput: {
-      width: '80%',
-      borderRadius: 12,
+      width: Dimensions.get('window').width * 0.85,
+      borderRadius: 15,
       backgroundColor: "#F6F6F6",
-      fontSize: 11,
-      fontFamily: 'Raleway_400Regular'
+      fontSize: 15,
+      fontFamily: 'Nunito_400Regular',
+      padding: 10,
+      marginTop: 5
+    },
+    textLabelArea: {
+      width: '100%',
+      justifyContent: 'flex-start',
+      paddingLeft: 5
+    },  
+    textLabel: {
+      fontFamily: "Inter_700Bold",
+      fontSize: 18
     }
 });
 
