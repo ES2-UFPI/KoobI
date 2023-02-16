@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
       fontSize: 15,
       fontFamily: 'Nunito_400Regular',
       padding: 10,
-      marginTop: 5
+      marginTop: 5,
+      marginBottom: 10
     },
     textLabelArea: {
       width: '100%',
