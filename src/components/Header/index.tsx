@@ -16,12 +16,17 @@ const styles = StyleSheet.create({
     cabecalho:{
         flexDirection: 'row',
         width: '100%',
-        height: 50,
+        height: 'auto',
+        maxHeight: 100,
+        padding: 20,
+        alignItems: 'center',
         backgroundColor: '#16262E'
     },
 
     textCabecalho: {
       color: '#e7e4e4',
-      fontSize: (25),
+      fontStyle: 'italic',
+      fontSize: 30,
+      fontWeight: 'bold'
     }
 })

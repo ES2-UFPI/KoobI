@@ -1,12 +1,5 @@
 import React, { useState, useRef } from "react";
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  ScrollView,
-} from "react-native";
+import { Text, View, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
 import BookToSell from "../../components/BookToSell";
 import BackButton from "../../components/BackButton/index";
 
@@ -17,7 +10,7 @@ export function MyProducts({ navigation }) {
   return (
     <View
       style={{
-        backgroundColor: "#e6e0a1",
+        backgroundColor: "#E5CF96",
         height: "100%",
         width: "100%",
         alignItems: "center",
@@ -25,7 +18,7 @@ export function MyProducts({ navigation }) {
     >
       <View style={styles.headerBox}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <BackButton />
+          <BackButton/>
         </TouchableOpacity>
       </View>
       <ScrollView
@@ -39,14 +32,7 @@ export function MyProducts({ navigation }) {
         <View>{views}</View>
         <TouchableOpacity
           style={styles.addLivro}
-          onPress={() =>
-            setViews([
-              ...views,
-              <View key={views.length} style={{alignItems: 'center'}}>
-                <BookToSell/>
-              </View>,
-            ])
-          }
+          onPress={() => navigation.navigate('BookRegister')}
         >
           <Text style={styles.textAdd}>Adicionar Livro</Text>
         </TouchableOpacity>
@@ -89,3 +75,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+
+// setViews([
+//   ...views,
+//   <View key={views.length} style={{alignItems: 'center'}}>
+//     <BookToSell/>
+//   </View>,
+// ])

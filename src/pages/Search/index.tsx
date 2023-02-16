@@ -7,7 +7,7 @@ export function SearchPage({ navigation }) {
     return (
         <View style={{
             height: '100%',
-            backgroundColor: "#F4EEA9"
+            backgroundColor: "#E5CF96"
         }}>
             <View style={styles.headerBox}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>

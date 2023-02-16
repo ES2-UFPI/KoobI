@@ -8,7 +8,7 @@ import styles from './styles'
 
 export function Profile({ navigation }) {
     return (
-        <View style={{ backgroundColor: '#F4EEA9', height: '100%' }}>
+        <View style={{ backgroundColor: '#E5CF96', height: '100%' }}>
             <View style={styles.boxHeadProfile}>
                 <TouchableOpacity
                 onPress={() => navigation.goBack()}

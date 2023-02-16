@@ -8,6 +8,7 @@ import { SearchPage } from '../pages/Search'
 import { MyProducts } from '../pages/myProducts';
 import { MyRequests } from '../pages/myRequests';
 import { MainPage } from '../pages/PrincipalPage';
+import { BookRegister } from '../pages/BookRegister';
 
 import { Feather } from '@expo/vector-icons'
 
@@ -19,6 +20,7 @@ function StackPages() {
     <Stack.Navigator initialRouteName="Profile Options" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Perfil" component={Profile} />
       <Stack.Screen name="Produtos" component={MyProducts} />
+      <Stack.Screen name="BookRegister" component={BookRegister} />
     </Stack.Navigator>
   );
 }
