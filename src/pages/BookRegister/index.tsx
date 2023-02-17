@@ -1,9 +1,10 @@
 import React , {useState} from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 import styles from "../BookRegister/styles"
+import BackButton from "../../components/BackButton";
 
 
 export function BookRegister({ navigation }){
@@ -29,7 +30,16 @@ export function BookRegister({ navigation }){
 
     return (
     <View style={styles.container}>
-        <View>
+        <View style={{backgroundColor: '#16262E', width: '100%', }}>
+            <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={{}}
+            >
+                <BackButton/>
+            </TouchableOpacity>
+        </View>
+        <ScrollView 
+        contentContainerStyle={styles.form}>
             <TextInputWithLabel
                 name="Título" 
                 value={title}
@@ -43,7 +53,7 @@ export function BookRegister({ navigation }){
                 ktype="default"
             />
 
-            <View style={styles.row}>
+            <View style={styles.rowLine}>
                 
                 <DateTimePickerModal
                     isVisible = {isDatePickerVisible}
@@ -60,7 +70,7 @@ export function BookRegister({ navigation }){
                 />
             </View>
 
-            <View style={styles.row}>
+            <View style={styles.rowLine}>
                 <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.goBack()}>
                     <Text style={styles.cancelButtonText}>
                         Cancelar
@@ -74,7 +84,7 @@ export function BookRegister({ navigation }){
                 
             </View>
 
-        </View>
+        </ScrollView>
     </View>
 
 

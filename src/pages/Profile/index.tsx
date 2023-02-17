@@ -12,7 +12,7 @@ export function Profile({ navigation }) {
             <View style={styles.boxHeadProfile}>
                 <TouchableOpacity
                 onPress={() => navigation.goBack()}
-                style={{ width: 77,}}
+                // style={{ width: 77,}}
                 >
                     <BackButton />
                 </TouchableOpacity>
