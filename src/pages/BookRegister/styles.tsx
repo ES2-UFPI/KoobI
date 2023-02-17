@@ -5,8 +5,8 @@ import { useFonts, Inter_700Bold } from "@expo-google-fonts/inter";
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#FFFDEA",
         flex: 1,
+        backgroundColor: "#FFFDEA",
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -49,11 +49,20 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: "row",
-        textAlign: "center",
+        alignItems: "center",
         justifyContent: "space-between",
         width: Dimensions.get("window").width * 0.85
-        }
-
+    },
+    genderInput: {
+        width: 155,
+        height: "auto",
+        padding: 10
+    },
+    languageInput: {
+        width: 155,
+        height: "auto",
+        padding: 10, 
+    }
 
 
 })
