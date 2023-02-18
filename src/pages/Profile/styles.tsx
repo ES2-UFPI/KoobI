@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     },
 
     imageProfile: {
-        // backgroundColor: '#00ff00',
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
@@ -26,7 +25,6 @@ const styles = StyleSheet.create({
     boxAbout: {
         width: '100%',
         padding: 30,
-        // backgroundColor: '#00ff00',
         position: 'relative',
         top: -60,
     },
