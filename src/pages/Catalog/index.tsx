@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 import Header from '../../components/Header'
-import styles from '../PrincipalPage/styles'
+import styles from './styles'
 
 export function MainPage() {
     return (
