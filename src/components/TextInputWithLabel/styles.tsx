@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
 import { useFonts, Inter_700Bold } from '@expo-google-fonts/inter';
+import themes from "../../themes";
+
 
 const styles = StyleSheet.create({
     touchableOpacityStyle: {  
@@ -11,18 +13,20 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       left: 20,
       bottom: 28,
-      backgroundColor: '#B4C5E4',
+      backgroundColor: themes.colors.cancelButton,
       borderRadius: 12,
     },
+
     buttonText: {
       fontFamily: "Inter",
       fontSize: 18,
       fontWeight: "bold"
     },
+
     textInput: {
       width: Dimensions.get('window').width * 0.85,
       borderRadius: 15,
-      backgroundColor: "#F6F6F6",
+      backgroundColor: themes.colors.inputColorBackground,
       fontSize: 15,
       fontFamily: 'Nunito_400Regular',
       padding: 10,

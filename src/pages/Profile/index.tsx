@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity} from 'react-native'
 import BackButton from '../../components/BackButton';
+import themes from '../../themes';
 // import { MyProducts } from '../myProducts/myProducts';
 // import { useNavigation } from '@react-navigation/native';
 import styles from './styles'
@@ -8,7 +9,7 @@ import styles from './styles'
 
 export function Profile({ navigation }) {
     return (
-        <View style={{ backgroundColor: '#E5CF96', height: '100%' }}>
+        <View style={{ backgroundColor: themes.colors.primaryBackground, height: '100%' }}>
             <View style={styles.boxHeadProfile}>
                 <TouchableOpacity
                 onPress={() => navigation.goBack()}

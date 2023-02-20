@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
+import themes from '../../themes';
 
 export default function Header(){
     return (
@@ -20,11 +21,11 @@ const styles = StyleSheet.create({
         maxHeight: 100,
         padding: 20,
         alignItems: 'center',
-        backgroundColor: '#16262E'
+        backgroundColor: themes.colors.principalHeaderColor
     },
 
     textCabecalho: {
-      color: '#e7e4e4',
+      color: themes.colors.colorTextClear,
       fontStyle: 'italic',
       fontSize: 30,
       fontWeight: 'bold'

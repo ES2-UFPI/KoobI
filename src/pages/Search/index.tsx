@@ -1,13 +1,14 @@
 import React from 'react'
 import { TextInput, TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 import BackButton from '../../components/BackButton'
+import themes from '../../themes';
 
 
 export function SearchPage({ navigation }) {
     return (
         <View style={{
             height: '100%',
-            backgroundColor: "#E5CF96"
+            backgroundColor: themes.colors.primaryBackground
         }}>
             <View style={styles.headerBox}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -29,11 +30,10 @@ export function SearchPage({ navigation }) {
 
 const styles = StyleSheet.create({
     headerBox: {
-        backgroundColor: '#16262E'
+        backgroundColor: themes.colors.principalHeaderColor
     },
 
     labelPesquisa: {
-        // backgroundColor: '#909',
         fontSize: 20,
         // height: 100,
 
@@ -46,6 +46,6 @@ const styles = StyleSheet.create({
         margin: 15,
         padding: 15,
         borderRadius: 15,
-        backgroundColor: '#FFFDEA'
+        backgroundColor: themes.colors.inputColorBackground
     }
 })

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import themes from '../../themes'
 
 export function MyRequests() {
     return (
@@ -7,7 +8,7 @@ export function MyRequests() {
             flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#342456'
+            backgroundColor: themes.colors.primaryBackground
         }}>
             <Text>Pedidos</Text>
         </View>
