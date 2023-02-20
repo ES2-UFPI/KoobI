@@ -1,11 +1,13 @@
 import React from "react";
 import { StyleSheet , Dimensions} from 'react-native';
 import { useFonts, Inter_700Bold } from "@expo-google-fonts/inter";
+import themes from "../../themes"
+
 
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#E5CF96",
+        backgroundColor: themes.colors.primaryBackground,
         flex: 1,
         alignItems: "center",
     },
@@ -16,7 +18,7 @@ const styles = StyleSheet.create({
 
     addButton: {
         flex: 2,
-        backgroundColor: "#2E4756",
+        backgroundColor: themes.colors.addButtonsColor,
         borderRadius: 12,
         alignItems: "center",
         justifyContent: "center",
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
 
     cancelButton: {
         flex: 2,
-        backgroundColor: "#B4C5E4",
+        backgroundColor: themes.colors.cancelButton,
         borderRadius: 12,
         alignItems: "center",
         justifyContent: "center",
@@ -44,14 +46,14 @@ const styles = StyleSheet.create({
     addButtonText: {
         fontFamily: 'Inter_700Bold',
         fontWeight: "bold",
-        color: "#F6F6F6",
+        color: themes.colors.colorTextClear,
         fontSize: 18
     },
 
     cancelButtonText: {
         fontFamily: 'Inter_700Bold',
         fontWeight: "bold",
-        color: "#000000",
+        color: themes.colors.colorTextDark,
         fontSize: 18
     },
 

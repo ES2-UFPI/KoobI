@@ -7,7 +7,7 @@ import { Profile } from '../pages/Profile'
 import { SearchPage } from '../pages/Search'
 import { MyProducts } from '../pages/myProducts';
 import { MyRequests } from '../pages/myRequests';
-import { MainPage } from '../pages/PrincipalPage';
+import { MainPage } from '../pages/Catalog';
 import { BookRegister } from '../pages/BookRegister';
 
 import { Feather } from '@expo/vector-icons'

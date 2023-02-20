@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
 import { Text, View, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
-import BookToSell from "../../components/BookToSell";
 import BackButton from "../../components/BackButton/index";
+import BookToSell from "../../components/BookToSell";
+import themes from "../../themes"
+
 
 export function MyProducts({ navigation }) {
   const [views, setViews] = useState([]);
@@ -10,7 +12,7 @@ export function MyProducts({ navigation }) {
   return (
     <View
       style={{
-        backgroundColor: "#E5CF96",
+        backgroundColor: themes.colors.primaryBackground,
         height: "100%",
         width: "100%",
         alignItems: "center",
@@ -43,7 +45,7 @@ export function MyProducts({ navigation }) {
 
 const styles = StyleSheet.create({
   headerBox: {
-    backgroundColor: "#16262E",
+    backgroundColor: themes.colors.principalHeaderColor,
     justifyContent: "flex-start",
     width: "100%",
   },
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
 
     borderRadius: 15,
     elevation: 2,
-    backgroundColor: "#E7E9D9",
+    backgroundColor: themes.colors.addButtonsColor,
 
     position: 'relative',
   },
@@ -71,7 +73,7 @@ const styles = StyleSheet.create({
 
   textAdd: {
     fontSize: 18,
-    color: '#383235',
+    color: themes.colors.colorTextClear,
     fontWeight: "bold",
   },
 });

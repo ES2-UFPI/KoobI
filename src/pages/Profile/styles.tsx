@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
+import themes from "../../themes";
 
 
 const styles = StyleSheet.create({
     boxHeadProfile: {
         width: '100%',
         height: 153,
-        backgroundColor: '#16262E',
+        backgroundColor: themes.colors.principalHeaderColor,
     },
 
     imageProfile: {
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     },
 
     textName: {
-        color: '#000',
+        color: themes.colors.colorTextDark,
         fontSize: 30,
         fontWeight: 'bold',
     },
