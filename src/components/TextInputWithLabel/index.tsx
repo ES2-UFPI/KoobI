@@ -15,6 +15,7 @@ interface textInputProps{
     onChangeText: Function,
     ktype: "default" | "email-address" | "numeric" | "phone-pad" | "number-pad" | "decimal-pad" | "visible-password" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | undefined,
     mask?: Mask,
+    placeholder?: string
 }
 
 export default function TextInputWithLabel({...props}:textInputProps){
@@ -32,6 +33,7 @@ export default function TextInputWithLabel({...props}:textInputProps){
             value = {props.value}
             onChangeText = {text => props.onChangeText(text)}
             mask = {props.mask}
+            placeholder={props.placeholder}
         />
     </View>
     )

@@ -1,12 +1,11 @@
 import React , {useState} from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Modal, View, Text, TouchableOpacity } from "react-native";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DatePicker from "../../components/DatePicker";
-
+import  Radio  from "../../components/Radio/index"
+ 
 import styles from "../BookRegister/styles"
-import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
-
 
 export function BookRegister({ navigation }){
     const [title, setTitle] = useState('');
@@ -14,8 +13,12 @@ export function BookRegister({ navigation }){
     const [gender, setGender] = useState('');
     const [language, setLanguage] = useState('');
     const [debutDate, setDebutDate] = useState('');
+    const [description, setDescription] = useState('');
+    const [prize, setPrize] = useState('');
 
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+    const [selected, setSelected] = useState(0);
 
     const showDatePicker = () => {
         setDatePickerVisibility(true);
@@ -79,8 +82,52 @@ export function BookRegister({ navigation }){
                     onConfirm={handleConfirm}
                 />
 
+                <View>
+
+                    <Text style={styles.labelText}>
+                        Tipo
+                    </Text>
+
+                    <Radio
+                        selected={selected}
+                        options={["Novo", "Usado"]}
+                        horizontal={true}
+                        onChangeSelect={ (opt:any, i:any) => {setSelected(i)}}
+                    />
+                </View>
+
             </View>
 
+            <View style={{marginTop: 10}}>
+                <TextInputWithLabel
+                    name="Descrição"
+                    value={description}
+                    onChangeText={setDescription}
+                    ktype="default"
+                    multiline={true}
+                />
+            </View>
+
+            <View style={ styles.row }>
+                <TextInputWithLabel
+                    name="Preço"
+                    value={prize}
+                    onChangeText={setPrize}
+                    ktype="numeric"
+                    mask={["R$", /\d/, /\d/, ",", /\d/, /\d/]}
+                    placeholder="R$"
+                    style={{width: 130}}
+                />
+                
+                <TouchableOpacity 
+                    style={styles.paymentButton}
+                    //onPress={}
+                >
+                    <Text style={styles.paymentText}>
+                        Forma de Pagamento
+                    </Text>
+                </TouchableOpacity>
+            </View>
 
             <View style={styles.row}>
                 <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.goBack()}>

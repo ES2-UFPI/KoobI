@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet , Dimensions} from 'react-native';
-import { useFonts, Inter_700Bold } from "@expo-google-fonts/inter";
+import { useFonts, Inter_700Bold, Inter_400Regular } from "@expo-google-fonts/inter";
 
 
 const styles = StyleSheet.create({
@@ -62,9 +62,27 @@ const styles = StyleSheet.create({
         width: 155,
         height: "auto",
         padding: 10, 
+    },
+    labelText: {
+        fontFamily: "Inter_700Bold",
+        fontSize: 18,
+        marginBottom: 20,
+    },
+    paymentButton: {
+        elevation: 2,
+        backgroundColor: "#D5D5D5",
+        borderRadius: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        width: 155,
+        height: 38,
+        marginTop: 18
+    },
+    paymentText: {
+        fontFamily: "Inter_400Regular",
+        fontSize: 12,
+        padding: 10
     }
-
-
 })
 
 export default styles
