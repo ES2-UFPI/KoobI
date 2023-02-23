@@ -7,6 +7,7 @@ export default {
         
         // Cores para botões e entradas
         inputColorBackground: '#f5f5f5',
+        elementToSelect: '#eee9ca',
         addButtonsColor: "#2b404d",
         cancelButton: '#B4C5E4',
 

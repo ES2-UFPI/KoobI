@@ -4,13 +4,12 @@ import themes from "../../themes"
 const styles = StyleSheet.create({
     principalPage: {
         backgroundColor: themes.colors.primaryBackground,
-        alignItems: 'center',
         width: '100%',
         height: '100%'
     },
 
     viewPrincipal: {
-        backgroundColor: themes.colors.inputColorBackground,
+        backgroundColor: themes.colors.elementToSelect,
         width: '90%',
         height: 150,
 
@@ -20,8 +19,20 @@ const styles = StyleSheet.create({
         elevation: 5
     },
 
+    scrollOfElements: {
+        alignItems: 'center',
+        flexGrow: 1,
+    },
+
     elementProduct: {
-        
+        width: '90%',
+        height: 70,
+        marginTop: 8,
+        marginBottom: 8,
+        backgroundColor: themes.colors.elementToSelect,
+        borderBottomLeftRadius: 30,
+        borderTopRightRadius: 30,
+        elevation: 5
     }
 
 })
