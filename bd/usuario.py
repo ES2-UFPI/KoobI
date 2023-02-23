@@ -1,7 +1,7 @@
 import requests
 import json
 
-BD = "https://koobi-v1-default-jrtdb.firebaseio.com/"
+BD = "https://koobi-v1-default-rtdb.firebaseio.com/"
 
 def cadastrar(nome, cpf, email, contato, senha):
     """if (buscaChave(email, senha) != None):
