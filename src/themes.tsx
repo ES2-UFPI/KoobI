@@ -13,6 +13,7 @@ export default {
 
         // Cores de texto
         colorTextDark: '#252525',
-        colorTextClear: '#ececec'
+        colorTextClear: '#ececec',
+        labelsText: '#686868'
     }
 }

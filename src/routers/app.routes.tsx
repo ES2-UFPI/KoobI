@@ -7,15 +7,16 @@ import { Profile } from '../pages/Profile'
 import { SearchPage } from '../pages/Search'
 import { MyProducts } from '../pages/myProducts';
 import { MyRequests } from '../pages/myRequests';
-import { MainPage } from '../pages/Catalog';
+import { Catalog } from '../pages/Catalog';
 import { BookRegister } from '../pages/BookRegister';
+import { ProductPurchase } from '../pages/ProductPurchase';
 
 import { Feather } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-function StackPages() {
+function StackPagesProfile() {
   return (
     <Stack.Navigator initialRouteName="Profile Options" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Perfil" component={Profile} />
@@ -25,13 +26,22 @@ function StackPages() {
   );
 }
 
+function StackPagesCat() {
+  return (
+    <Stack.Navigator initialRouteName="Catalog Options" screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Catalogo" component={Catalog} />
+      <Stack.Screen name="CompraProduto" component={ProductPurchase} />
+    </Stack.Navigator>
+  );
+}
+
 export default function AppRoutes() {
   return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={{headerShown: false, }}>
         <Tab.Screen
-        name="Home"
-        component={MainPage}
+        name="Início"
+        component={StackPagesCat}
         options={{ 
           tabBarIcon: () => {
             return <Feather name='home' size={25} color="#000"/>;
@@ -40,7 +50,7 @@ export default function AppRoutes() {
         />
         
         <Tab.Screen
-        name="Search"
+        name="Pesquisa"
         component={SearchPage} 
         options={{ 
           tabBarIcon: () => {
@@ -50,7 +60,7 @@ export default function AppRoutes() {
         />
 
         <Tab.Screen
-        name="My requests"
+        name="Pedidos"
         component={MyRequests}
         options={{
           tabBarIcon: () => {
@@ -59,8 +69,8 @@ export default function AppRoutes() {
         }}
         />
         <Tab.Screen
-        name="Profile"
-        component={StackPages}
+        name="Perfil"
+        component={StackPagesProfile}
         options={{
           tabBarIcon: () => {
             return <Feather name='user' size={25} color="#000"/>;
