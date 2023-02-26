@@ -7,20 +7,37 @@ import BackButton from "../../components/BackButton";
 
 const images = [
     {
-        id: '1',
+        id: 1,
         url: 'https://images.pexels.com/photos/15212791/pexels-photo-15212791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
 
     {
-        id: '2',
+        id: 2,
         url: 'https://images.pexels.com/photos/15579372/pexels-photo-15579372.jpeg',
+    },
+
+    {
+        id: 3,
+        url: 'https://images.pexels.com/photos/14446665/pexels-photo-14446665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+
+    {
+        id: 4,
+        url: 'https://images.pexels.com/photos/14790095/pexels-photo-14790095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
 
 ]
 
+// useEffect(() => {
+//     fetch('https://sua-api-firebase.com/images')
+//       .then(response => response.json())
+//       .then(data => setData(images))
+//       .catch(error => console.log(error));
+//   }, []);
+
 const OnBoardingItem = ( {item} ) => {
     return (
-        <Image key={item.id} source={{ uri: item.url }} style={styles.imageList}/>
+        <Image source={{ uri: item.url }} style={{ width: 353, height: 300 }}/>
     )
 }
 
@@ -53,10 +70,8 @@ export function ProductPurchase( {navigation} ){
                         style={styles.imageList}
                         pagingEnabled
                         horizontal
-                        onMomentumScrollEnd={(event)=> {
-                            setActiveIndex(event.nativeEvent.contentOffset.x/360)
-                        }}
-                        scrollEventThrottle={16}
+                        onMomentumScrollEnd={(event)=> { setActiveIndex(event.nativeEvent.contentOffset.x/360) }}
+                        scrollEventThrottle={10}
                         showsHorizontalScrollIndicator={false}
                         keyExtractor={ (item)=> String(item?.id)}
                         renderItem={({item}) => <OnBoardingItem item={item}/>}

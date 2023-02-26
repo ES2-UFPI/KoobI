@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
 
         alignItems: 'center',
-        padding: 10,
+        padding: 8,
 
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
@@ -162,13 +162,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         marginTop: 10,
+        elevation: 5,
+
     },
 
     dot: {
         width: 8,
         height: 8,
         borderRadius: 4,
-        marginHorizontal: 1
+        marginHorizontal: 1,
+        marginBottom: 2,
+        // elevation: 5,
     }
 
 
