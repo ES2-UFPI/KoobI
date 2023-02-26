@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         justifyContent: "space-between",
         width: Dimensions.get("window").width * 0.85
-        }
+    },
 
 
 
