@@ -7,12 +7,12 @@ import BackButton from "../../components/BackButton";
 
 const images = [
     {
-        id: 'photo1',
+        id: '1',
         url: 'https://images.pexels.com/photos/15212791/pexels-photo-15212791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
 
     {
-        id: 'photo2',
+        id: '2',
         url: 'https://images.pexels.com/photos/15579372/pexels-photo-15579372.jpeg',
     },
 
@@ -20,7 +20,7 @@ const images = [
 
 const OnBoardingItem = ( {item} ) => {
     return (
-        <Image source={{ uri: item.url }} style={styles.imageList}/>
+        <Image key={item.id} source={{ uri: item.url }} style={styles.imageList}/>
     )
 }
 

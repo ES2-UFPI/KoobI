@@ -9,9 +9,6 @@ export function Catalog( {navigation} ) {
         <TouchableOpacity key="view2" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
         <TouchableOpacity key="view3" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
         <TouchableOpacity key="view4" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
-        <TouchableOpacity key="view5" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
-        <TouchableOpacity key="view6" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
-        <TouchableOpacity key="view7" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
     ];
 
     return (
