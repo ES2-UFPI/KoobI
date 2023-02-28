@@ -3,8 +3,7 @@ import { Modal, View, Text, TouchableOpacity } from "react-native";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DatePicker from "../../components/DatePicker";
-import  Radio  from "../../components/Radio/index"
- 
+import  Radio  from "../../components/Radio/index" 
 import styles from "../BookRegister/styles"
 
 export function BookRegister({ navigation }){
@@ -92,7 +91,7 @@ export function BookRegister({ navigation }){
                         selected={selected}
                         options={["Novo", "Usado"]}
                         horizontal={true}
-                        onChangeSelect={ (opt:any, i:any) => {setSelected(i)}}
+                        onChangeSelect={ (i:any) => {setSelected(i)}}
                     />
                 </View>
 
@@ -114,7 +113,6 @@ export function BookRegister({ navigation }){
                     value={prize}
                     onChangeText={setPrize}
                     ktype="numeric"
-                    mask={["R$", /\d/, /\d/, ",", /\d/, /\d/]}
                     placeholder="R$"
                     style={{width: 130}}
                 />

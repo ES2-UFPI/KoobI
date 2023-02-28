@@ -27,6 +27,7 @@
     "react-native": "0.70.5",
     "react-native-elements": "^3.4.3",
     "react-native-mask-input": "^1.2.3",
+    "react-native-masked-text": "^1.13.0",
     "react-native-modal-datetime-picker": "^14.0.1",
     "react-native-paper": "^5.2.0",
     "react-native-radio-button": "^2.0.1",
