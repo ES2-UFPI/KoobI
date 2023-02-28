@@ -22,11 +22,10 @@ const styles = StyleSheet.create({
       fontSize: 18,
       fontWeight: "bold"
     },
-
     textInput: {
       width: Dimensions.get('window').width * 0.85,
       borderRadius: 15,
-      backgroundColor: themes.colors.inputColorBackground,
+      backgroundColor: "#F6F6F6",
       fontSize: 15,
       fontFamily: 'Nunito_400Regular',
       padding: 10,

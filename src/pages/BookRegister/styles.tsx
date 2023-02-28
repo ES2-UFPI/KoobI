@@ -1,24 +1,18 @@
 import React from "react";
 import { StyleSheet , Dimensions} from 'react-native';
-import { useFonts, Inter_700Bold } from "@expo-google-fonts/inter";
-import themes from "../../themes"
-
+import { useFonts, Inter_700Bold, Inter_400Regular } from "@expo-google-fonts/inter";
 
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: themes.colors.primaryBackground,
         flex: 1,
-        alignItems: "center",
+        backgroundColor: "#FFFDEA",
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-
-    form: {
-        marginTop: 20
-    },
-
     addButton: {
         flex: 2,
-        backgroundColor: themes.colors.addButtonsColor,
+        backgroundColor: "#2E4756",
         borderRadius: 12,
         alignItems: "center",
         justifyContent: "center",
@@ -28,10 +22,9 @@ const styles = StyleSheet.create({
         marginTop: 30,
         marginLeft: 15
     },
-
     cancelButton: {
         flex: 2,
-        backgroundColor: themes.colors.cancelButton,
+        backgroundColor: "#B4C5E4",
         borderRadius: 12,
         alignItems: "center",
         justifyContent: "center",
@@ -42,30 +35,54 @@ const styles = StyleSheet.create({
         marginRight: 15,
         marginLeft: 0
     },
-
     addButtonText: {
         fontFamily: 'Inter_700Bold',
         fontWeight: "bold",
-        color: themes.colors.colorTextClear,
+        color: "#F6F6F6",
         fontSize: 18
     },
-
     cancelButtonText: {
         fontFamily: 'Inter_700Bold',
         fontWeight: "bold",
-        color: themes.colors.colorTextDark,
+        color: "#000000",
         fontSize: 18
     },
-
-    rowLine: {
+    row: {
         flexDirection: "row",
-        textAlign: "center",
+        alignItems: "center",
         justifyContent: "space-between",
         width: Dimensions.get("window").width * 0.85
-        }
-
-
-
+    },
+    genderInput: {
+        width: 155,
+        height: "auto",
+        padding: 10
+    },
+    languageInput: {
+        width: 155,
+        height: "auto",
+        padding: 10, 
+    },
+    labelText: {
+        fontFamily: "Inter_700Bold",
+        fontSize: 18,
+        marginBottom: 20,
+    },
+    paymentButton: {
+        elevation: 2,
+        backgroundColor: "#D5D5D5",
+        borderRadius: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        width: 155,
+        height: 38,
+        marginTop: 18
+    },
+    paymentText: {
+        fontFamily: "Inter_400Regular",
+        fontSize: 12,
+        padding: 10
+    }
 })
 
 export default styles

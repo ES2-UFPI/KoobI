@@ -3,12 +3,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import { Profile } from '../pages/Profile'
-import { SearchPage } from '../pages/Search'
-import { MyProducts } from '../pages/myProducts';
-import { MyRequests } from '../pages/myRequests';
-import { MainPage } from '../pages/Catalog';
-import { BookRegister } from '../pages/BookRegister';
+import { Profile } from '../pages/Profile/index'
+import { SearchPage } from '../pages/Search/index'
+import { MyProducts } from '../pages/myProducts/index';
+import { MyRequests } from '../pages/myRequests/index';
+import { MainPage } from '../pages/Catalog/index';
+import { BookRegister } from '../pages/BookRegister/index';
 
 import { Feather } from '@expo/vector-icons'
 
