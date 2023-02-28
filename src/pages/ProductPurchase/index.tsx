@@ -70,8 +70,8 @@ export function ProductPurchase( {navigation} ){
                         style={styles.imageList}
                         pagingEnabled
                         horizontal
-                        onMomentumScrollEnd={(event)=> { setActiveIndex(event.nativeEvent.contentOffset.x/360) }}
-                        scrollEventThrottle={10}
+                        onMomentumScrollEnd={(event)=> { setActiveIndex((event.nativeEvent?.contentOffset.x/360)) }}
+                        scrollEventThrottle={16}
                         showsHorizontalScrollIndicator={false}
                         keyExtractor={ (item)=> String(item?.id)}
                         renderItem={({item}) => <OnBoardingItem item={item}/>}

@@ -24,6 +24,7 @@
     "expo-font": "~11.0.1",
     "expo-linear-gradient": "~12.0.1",
     "expo-status-bar": "~1.4.2",
+    "firebase": "^9.17.1",
     "mongodb": "^5.0.1",
     "nativewind": "^2.0.11",
     "react": "18.1.0",

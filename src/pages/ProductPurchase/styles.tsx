@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     },
 
     botaoAddCar: {
-        backgroundColor: themes.colors.addButtonsColor,
+        backgroundColor: '#2173EE',
         width: 140,
         height: 66,
 
