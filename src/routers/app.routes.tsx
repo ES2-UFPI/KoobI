@@ -40,7 +40,7 @@ export default function AppRoutes() {
     <NavigationContainer>
       <Tab.Navigator screenOptions={{headerShown: false, }}>
         <Tab.Screen
-        name="Início"
+        name="Home"
         component={StackPagesCat}
         options={{ 
           tabBarIcon: () => {
@@ -50,7 +50,7 @@ export default function AppRoutes() {
         />
         
         <Tab.Screen
-        name="Pesquisa"
+        name="Search"
         component={SearchPage} 
         options={{ 
           tabBarIcon: () => {
@@ -60,7 +60,7 @@ export default function AppRoutes() {
         />
 
         <Tab.Screen
-        name="Pedidos"
+        name="Requests"
         component={MyRequests}
         options={{
           tabBarIcon: () => {
@@ -69,7 +69,7 @@ export default function AppRoutes() {
         }}
         />
         <Tab.Screen
-        name="Perfil"
+        name="Profile"
         component={StackPagesProfile}
         options={{
           tabBarIcon: () => {

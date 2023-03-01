@@ -3,7 +3,7 @@ import { Modal, View, Text, TouchableOpacity, Dimensions, Image } from "react-na
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DatePicker from "../../components/DatePicker";
-import  Radio  from "../../components/Radio/index" 
+import Radio from "../../components/Radio/index" 
 import styles from "../BookRegister/styles"
 
 export function BookRegister({ navigation }){
@@ -32,33 +32,6 @@ export function BookRegister({ navigation }){
     }
 
     
-    const SLIDER_WIDTH = Dimensions.get('window').width
-    const ITEM_WIDTH = SLIDER_WIDTH * 0.88
-
-    const carouselItems = [
-        {
-            tittle: '1',
-            imageUrl: "https://images.pexels.com/photos/15212791/pexels-photo-15212791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        {
-            tittle: '2',
-            imageUrl: "https://images.pexels.com/photos/15579372/pexels-photo-15579372.jpeg"
-        },
-        {
-            tittle: '3',
-            imageUrl: "https://images.pexels.com/photos/13291135/pexels-photo-13291135.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        }
-    ]
-
-    function carouselCardItem({item}) {
-        return (
-            <View style={{width: ITEM_WIDTH}}>
-                <Text> {item.title} </Text>
-                <Image style={{height: 250, borderRadius: 8}} source={{ uri: `${item.imageUrl}` }} />
-
-            </View>
-        )
-    }
 
     return (
     <View style={styles.container}>
