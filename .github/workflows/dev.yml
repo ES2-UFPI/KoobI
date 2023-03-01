@@ -19,7 +19,7 @@ jobs:
     - name: Install Packages
       run: yarn install   
     - name: Build project
-      run: yarn build
+      run: yarn run
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2
       with:
