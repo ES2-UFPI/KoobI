@@ -1,12 +1,13 @@
 import React from "react";
 import { StyleSheet , Dimensions} from 'react-native';
 import { useFonts, Inter_700Bold, Inter_400Regular } from "@expo-google-fonts/inter";
+import themes from "../../themes";
 
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FFFDEA",
+        backgroundColor: themes.colors.primaryBackground,
         alignItems: 'center',
         justifyContent: 'center'
     },

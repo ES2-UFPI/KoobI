@@ -3,15 +3,12 @@ import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import Header from '../../components/Header'
 import styles from './styles'
 
-export function MainPage() {
+export function Catalog( {navigation} ) {
     const views = [
-        <TouchableOpacity key="view1" style={styles.elementProduct} />,
-        <TouchableOpacity key="view2" style={styles.elementProduct} />,
-        <TouchableOpacity key="view3" style={styles.elementProduct} />,
-        <TouchableOpacity key="view4" style={styles.elementProduct} />,
-        <TouchableOpacity key="view5" style={styles.elementProduct} />,
-        <TouchableOpacity key="view6" style={styles.elementProduct} />,
-        <TouchableOpacity key="view7" style={styles.elementProduct} />,
+        <TouchableOpacity key="view1" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
+        <TouchableOpacity key="view2" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
+        <TouchableOpacity key="view3" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
+        <TouchableOpacity key="view4" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}/>,
     ];
 
     return (

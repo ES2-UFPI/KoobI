@@ -1,9 +1,9 @@
 import React , {useState} from "react";
-import { Modal, View, Text, TouchableOpacity } from "react-native";
+import { Modal, View, Text, TouchableOpacity, Dimensions, Image } from "react-native";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DatePicker from "../../components/DatePicker";
-import  Radio  from "../../components/Radio/index" 
+import Radio from "../../components/Radio/index" 
 import styles from "../BookRegister/styles"
 
 import { collection, addDoc } from "firebase/firestore";
@@ -33,6 +33,8 @@ export function BookRegister({ navigation }){
     const handleConfirm = (date) => {
         console.warn("Data escolhida!");
     }
+
+    
 
     return (
     <View style={styles.container}>
