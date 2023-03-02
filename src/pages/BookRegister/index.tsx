@@ -6,6 +6,9 @@ import DatePicker from "../../components/DatePicker";
 import Radio from "../../components/Radio/index" 
 import styles from "../BookRegister/styles"
 
+import { collection, addDoc } from "firebase/firestore";
+import db from "../../services/firebaseConfig"
+
 export function BookRegister({ navigation }){
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
