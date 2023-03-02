@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
     elementProduct: {
         width: '90%',
-        height: 70,
+        height: 150,
         marginTop: 8,
         marginBottom: 8,
         backgroundColor: themes.colors.elementToSelect,
