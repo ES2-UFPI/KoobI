@@ -6,16 +6,24 @@ import styles from './styles'
 export function Catalog( {navigation} ) {
     const views = [
         <TouchableOpacity key="view1" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}>
+            <View>
 
+            </View>
         </TouchableOpacity>,
         <TouchableOpacity key="view2" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}>
-
+            <View>
+                
+            </View>
         </TouchableOpacity>,
         <TouchableOpacity key="view3" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}>
-
+            <View>
+                
+            </View>
         </TouchableOpacity>,
         <TouchableOpacity key="view4" style={styles.elementProduct} onPress={() => navigation.navigate('CompraProduto')}>
-            
+            <View>
+                
+            </View>
         </TouchableOpacity>,
     ];
 
