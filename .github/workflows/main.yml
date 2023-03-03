@@ -1,4 +1,4 @@
-name: DEV - Build
+name: Main - Build
 on:
   push:
     branches:
