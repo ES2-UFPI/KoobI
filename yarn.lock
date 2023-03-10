@@ -63,7 +63,6 @@
     "@babel/helpers" "^7.21.0"
     "@babel/parser" "^7.21.0"
     "@babel/template" "^7.20.7"
-    "@babel/traverse" "^7.21.0"
     "@babel/types" "^7.21.0"
     convert-source-map "^1.7.0"
     debug "^4.1.0"
