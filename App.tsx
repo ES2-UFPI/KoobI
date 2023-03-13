@@ -20,7 +20,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <AppRoutes />
-      <StatusBar style="auto" />
+      <StatusBar hidden />
     </View>
 
   );
@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
 
-    paddingTop: 45,
+    // paddingTop: 45,
   },
 });

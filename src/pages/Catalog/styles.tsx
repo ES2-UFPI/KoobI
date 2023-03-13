@@ -8,31 +8,39 @@ const styles = StyleSheet.create({
         height: '100%'
     },
 
-    viewPrincipal: {
-        backgroundColor: themes.colors.elementToSelect,
-        width: '90%',
-        height: 150,
-
-        marginTop: 20,
-        marginBottom: 20,
-        borderRadius: 30,
-        elevation: 5
-    },
-
     scrollOfElements: {
         alignItems: 'center',
         flexGrow: 1,
     },
 
     elementProduct: {
-        width: '90%',
-        height: 70,
-        marginTop: 8,
-        marginBottom: 8,
+        justifyContent: 'flex-end',
         backgroundColor: themes.colors.elementToSelect,
-        borderBottomLeftRadius: 30,
-        borderTopRightRadius: 30,
+        width: '95%',
+        height: 200,
+
+        marginTop: 14,
+        marginBottom: 4,
+        borderRadius: 15,
         elevation: 5
+    },
+
+    viewElementProduct: {
+        backgroundColor: '#F7F7F7',
+        height: 'auto',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        
+        padding: 10,
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15,
+    },
+
+    textLinksLibs:{
+        width: '50%',
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: themes.colors.colorTextDark,
     }
 
 })
