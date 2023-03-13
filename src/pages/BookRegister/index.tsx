@@ -1,13 +1,13 @@
 import React , {useState} from "react";
-import { Modal, View, Text, TouchableOpacity } from "react-native";
+import { Modal, View, Text, TouchableOpacity, Dimensions, Image } from "react-native";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DatePicker from "../../components/DatePicker";
-import  Radio  from "../../components/Radio/index" 
+import Radio from "../../components/Radio/index" 
 import styles from "../BookRegister/styles"
 
-import { collection, addDoc } from "firebase/firestore";
-import db from "../../services/firebaseConfig"
+import addBook from "../../services/addBook"
+
 
 export function BookRegister({ navigation }){
     const [title, setTitle] = useState('');
@@ -34,6 +34,18 @@ export function BookRegister({ navigation }){
         console.warn("Data escolhida!");
     }
 
+
+    const book = { 
+        title: title,
+        author: author,
+        gender: gender,
+        language: language,
+        debutDate: debutDate,
+        description: description,
+        prize: prize 
+    };
+
+
     return (
     <View style={styles.container}>
         <View>
@@ -45,8 +57,8 @@ export function BookRegister({ navigation }){
             />
             <TextInputWithLabel
                 name="Autor" 
-                value={title}
-                onChangeText={setTitle}
+                value={author}
+                onChangeText={setAuthor}
                 ktype="default"
             />
 
@@ -136,9 +148,12 @@ export function BookRegister({ navigation }){
                         Cancelar
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Produtos')}>
+                <TouchableOpacity style={styles.addButton} 
+                    onPress={() => {
+                        console.log(book);
+                        addBook(book);}}>
                     <Text style={styles.addButtonText}>
-                        Adicionar
+                        Adicionar                        
                     </Text>
                 </TouchableOpacity>
                 
