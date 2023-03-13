@@ -23,7 +23,7 @@ export function StorePage( { navigation } ) {
         },
     ]
     const items = [
-        <TouchableOpacity key="v1" style={styles.itemsToSell}>
+        <TouchableOpacity key="v1" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
             <ImageBackground source={img[1]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
                 <View style={styles.labelImgSell}>
                     <View style={styles.labelTittle}>
@@ -38,7 +38,7 @@ export function StorePage( { navigation } ) {
             </ImageBackground>
         </TouchableOpacity>,
 
-        <TouchableOpacity key="v2" style={styles.itemsToSell}>
+        <TouchableOpacity key="v2" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
             <ImageBackground source={img[2]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
                 <View style={styles.labelImgSell}>
                     <View style={styles.labelTittle}>
@@ -53,7 +53,7 @@ export function StorePage( { navigation } ) {
             </ImageBackground>
         </TouchableOpacity>,
 
-        <TouchableOpacity key="v3" style={styles.itemsToSell}>
+        <TouchableOpacity key="v3" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
             <ImageBackground source={img[3]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
                 <View style={styles.labelImgSell}>
                     <View style={styles.labelTittle}>
