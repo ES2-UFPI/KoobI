@@ -7,20 +7,30 @@ import { Profile } from '../pages/Profile/index'
 import { SearchPage } from '../pages/Search/index'
 import { MyProducts } from '../pages/myProducts/index';
 import { MyRequests } from '../pages/myRequests/index';
-import { MainPage } from '../pages/Catalog/index';
+import { Catalog } from '../pages/Catalog/index';
 import { BookRegister } from '../pages/BookRegister/index';
+import { ProductPurchase } from '../pages/ProductPurchase/index';
 
 import { Feather } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-function StackPages() {
+function StackPagesProfile() {
   return (
     <Stack.Navigator initialRouteName="Profile Options" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Perfil" component={Profile} />
       <Stack.Screen name="Produtos" component={MyProducts} />
       <Stack.Screen name="BookRegister" component={BookRegister} />
+    </Stack.Navigator>
+  );
+}
+
+function StackPagesCat() {
+  return (
+    <Stack.Navigator initialRouteName="Catalog Options" screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Catalogo" component={Catalog} />
+      <Stack.Screen name="CompraProduto" component={ProductPurchase} />
     </Stack.Navigator>
   );
 }
@@ -31,7 +41,7 @@ export default function AppRoutes() {
       <Tab.Navigator screenOptions={{headerShown: false, }}>
         <Tab.Screen
         name="Home"
-        component={MainPage}
+        component={StackPagesCat}
         options={{ 
           tabBarIcon: () => {
             return <Feather name='home' size={25} color="#000"/>;
@@ -50,7 +60,7 @@ export default function AppRoutes() {
         />
 
         <Tab.Screen
-        name="My requests"
+        name="Requests"
         component={MyRequests}
         options={{
           tabBarIcon: () => {
@@ -60,7 +70,7 @@ export default function AppRoutes() {
         />
         <Tab.Screen
         name="Profile"
-        component={StackPages}
+        component={StackPagesProfile}
         options={{
           tabBarIcon: () => {
             return <Feather name='user' size={25} color="#000"/>;
