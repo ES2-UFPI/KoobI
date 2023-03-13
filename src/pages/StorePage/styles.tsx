@@ -9,6 +9,12 @@ const styles = StyleSheet.create({
 
     },
 
+    scrollContainer: {
+        // alignItems: 'center',
+        flexGrow: 1,
+        height: '120%',
+    },
+
     headerImgStore: {
         // flex: 1,
         backgroundColor: "#565",
@@ -64,6 +70,55 @@ const styles = StyleSheet.create({
     textMenuOptions: {
         fontFamily: "Nunito_400Regular",
         fontSize: 18,
+    },
+
+    itemsToSell: {
+        width: '95%',
+        height: 200,
+        
+        marginTop: 18,
+        
+    },
+
+    blockImgBook: {
+        flex: 1,
+        justifyContent: 'flex-end',
+    },
+
+    imageBooktoSell: {
+        height: '100%',
+        borderRadius: 15,
+    },
+
+    labelImgSell: {
+        maxHeight: 68,
+        backgroundColor: themes.colors.colorTextClear,
+        borderBottomRightRadius: 15,
+        borderBottomLeftRadius: 15,
+        
+    },
+
+    labelTittle:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingLeft: 15,
+        paddingRight: 15,
+        marginBottom: 2.5
+    },
+
+    titulo: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 15,
+        fontWeight: "bold",
+        width: "60%",
+        
+    },
+
+    estadoUso: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 15,
+        fontWeight: "bold",
+        textAlign: "right",
     }
 })
 
