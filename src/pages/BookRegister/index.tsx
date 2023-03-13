@@ -34,7 +34,7 @@ export function BookRegister({ navigation }){
         console.warn("Data escolhida!");
     }
 
-
+// ESTRUTURA DO LIVRO NO BD
     const book = { 
         title: title,
         author: author,
@@ -150,7 +150,6 @@ export function BookRegister({ navigation }){
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.addButton} 
                     onPress={() => {
-                        console.log(book);
                         addBook(book);}}>
                     <Text style={styles.addButtonText}>
                         Adicionar                        
