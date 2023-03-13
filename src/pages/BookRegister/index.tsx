@@ -109,25 +109,15 @@ export function BookRegister({ navigation }){
                 />
             </View>
 
-            <View style={ styles.row }>
-                <TextInputWithLabel
-                    name="Preço"
-                    value={prize}
-                    onChangeText={setPrize}
-                    ktype="numeric"
-                    placeholder="R$"
-                    style={{width: 130}}
-                />
-                
-                <TouchableOpacity 
-                    style={styles.paymentButton}
-                    //onPress={}
-                >
-                    <Text style={styles.paymentText}>
-                        Forma de Pagamento
-                    </Text>
-                </TouchableOpacity>
-            </View>
+            <TextInputWithLabel
+                name="Preço"
+                value={prize}
+                onChangeText={setPrize}
+                ktype="numeric"
+                placeholder="R$"
+                style={{width: 180}}
+            />
+            
 
             <View style={styles.row}>
                 <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.goBack()}>
