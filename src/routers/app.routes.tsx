@@ -10,6 +10,7 @@ import { MyRequests } from '../pages/myRequests/index';
 import { Catalog } from '../pages/Catalog/index';
 import { BookRegister } from '../pages/BookRegister/index';
 import { ProductPurchase } from '../pages/ProductPurchase/index';
+import { StorePage } from '../pages/StorePage/index';
 
 import { Feather } from '@expo/vector-icons'
 
@@ -30,7 +31,8 @@ function StackPagesCat() {
   return (
     <Stack.Navigator initialRouteName="Catalog Options" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Catalogo" component={Catalog} />
-      <Stack.Screen name="CompraProduto" component={ProductPurchase} />
+      <Stack.Screen name="Loja" component={StorePage}/>
+      <Stack.Screen name="CompraProduto" component={ProductPurchase}/>
     </Stack.Navigator>
   );
 }
