@@ -7,7 +7,7 @@ interface radioProps {
     options: Array<string>,
     horizontal: boolean,
     onChangeSelect: Function,
-    selected: Number
+    selected: number
 }
 
 export default function Radio({...props}:radioProps){
@@ -15,7 +15,7 @@ export default function Radio({...props}:radioProps){
         <View style={styles.horizontal}>
             {props.options.map((opt, index) => 
                 <TouchableOpacity
-                    onPress={() => props.onChangeSelect(opt, index)}
+                    onPress={() => props.onChangeSelect(index)}
                     style={styles.optContainer}>
                     <View style={styles.outlineCircle}>
                         {props.selected === index && <View style={styles.innerCircle} />}
