@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     },
 
     textValor: {
-        colot: themes.colors.colorTextDark,
+        color: themes.colors.colorTextDark,
         fontWeight: 'bold',
         fontSize: 20
     },

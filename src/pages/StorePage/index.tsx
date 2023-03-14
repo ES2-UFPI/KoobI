@@ -89,7 +89,7 @@ export function StorePage( { navigation } ) {
                         <Text style={[styles.textMenuOptions, {fontWeight: "bold"}]}>Produtos</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[styles.optionMenu, {paddingLeft: 25}]}>
+                    <TouchableOpacity style={[styles.optionMenu, {paddingLeft: 25}]} onPress={() => navigation.navigate("PesquisaProdutoLoja")}>
                         <Text style={[styles.textMenuOptions, {justifyContent: 'center'}]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
                     </TouchableOpacity>
                 </View>
