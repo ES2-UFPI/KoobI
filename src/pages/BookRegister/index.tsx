@@ -3,10 +3,10 @@ import { Modal, View, Text, TouchableOpacity, Dimensions, Image } from "react-na
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DatePicker from "../../components/DatePicker";
-import Radio from "../../components/Radio/index" 
-import styles from "../BookRegister/styles"
+import Radio from "../../components/Radio/index" ;
+import styles from "../BookRegister/styles";
 
-import addBook from "../../services/addBook"
+import addBook from "../../services/addBook";
 
 
 export function BookRegister({ navigation }){
