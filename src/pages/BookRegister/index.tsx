@@ -6,8 +6,8 @@ import DatePicker from "../../components/DatePicker";
 import Radio from "../../components/Radio/index" 
 import styles from "../BookRegister/styles"
 
-import { collection, addDoc } from "firebase/firestore";
-import db from "../../services/firebaseConfig"
+import addBook from "../../services/addBook"
+
 
 export function BookRegister({ navigation }){
     const [title, setTitle] = useState('');
@@ -34,7 +34,17 @@ export function BookRegister({ navigation }){
         console.warn("Data escolhida!");
     }
 
-    
+// ESTRUTURA DO LIVRO NO BD
+    const book = { 
+        title: title,
+        author: author,
+        gender: gender,
+        language: language,
+        debutDate: debutDate,
+        description: description,
+        prize: prize 
+    };
+
 
     return (
     <View style={styles.container}>
@@ -47,8 +57,8 @@ export function BookRegister({ navigation }){
             />
             <TextInputWithLabel
                 name="Autor" 
-                value={title}
-                onChangeText={setTitle}
+                value={author}
+                onChangeText={setAuthor}
                 ktype="default"
             />
 
@@ -128,9 +138,11 @@ export function BookRegister({ navigation }){
                         Cancelar
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Produtos')}>
+                <TouchableOpacity style={styles.addButton} 
+                    onPress={() => {
+                        addBook(book);}}>
                     <Text style={styles.addButtonText}>
-                        Adicionar
+                        Adicionar                        
                     </Text>
                 </TouchableOpacity>
                 
