@@ -5,6 +5,7 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DatePicker from "../../components/DatePicker";
 import Radio from "../../components/Radio/index" 
 import styles from "../BookRegister/styles"
+import { Masks } from "react-native-mask-input";
 
 export function BookRegister({ navigation }){
     const [title, setTitle] = useState('');
@@ -116,6 +117,7 @@ export function BookRegister({ navigation }){
                     onChangeText={setPrize}
                     ktype="numeric"
                     placeholder="R$"
+                    mask={Masks.BRL_CURRENCY}
                     style={{width: 130}}
                 />
                 
