@@ -112,15 +112,14 @@ export function BookRegister({ navigation }){
 
             </View>
 
-            <View style={{marginTop: 10}}>
-                <TextInputWithLabel
-                    name="Descrição"
-                    value={description}
-                    onChangeText={setDescription}
-                    ktype="default"
-                    multiline={true}
-                />
-            </View>
+            <TextInputWithLabel
+                name="Descrição"
+                value={description}
+                onChangeText={setDescription}
+                ktype="default"
+                multiline={true}
+                style={{marginTop: 10}}
+            />
 
             <TextInputWithLabel
                 name="Preço"
