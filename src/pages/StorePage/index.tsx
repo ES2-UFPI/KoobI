@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView, ImageBackground } from "react-native"
 import { AntDesign, Ionicons } from '@expo/vector-icons';
-
 import styles from "./styles";
 
 const nameStore = "Leitura Livraria"
@@ -38,35 +37,20 @@ export function StorePage( { navigation } ) {
             </ImageBackground>
         </TouchableOpacity>,
 
-        <TouchableOpacity key="v2" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
-            <ImageBackground source={img[2]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
-                <View style={styles.labelImgSell}>
-                    <View style={styles.labelTittle}>
-                        <Text style={styles.titulo}>Dom Quixote</Text>
-                        <Text style={styles.estadoUso}>Novo</Text>
-                    </View>
-                    <View style={styles.labelTittle}>
-                        <Text style={[styles.titulo, {color: "#515050"}]}>R$ 49,90</Text>
-                        <Text style={styles.estadoUso}>Avaliação fica aqui</Text>
-                    </View>
-                </View>
-            </ImageBackground>
-        </TouchableOpacity>,
-
-        <TouchableOpacity key="v3" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
-            <ImageBackground source={img[3]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
-                <View style={styles.labelImgSell}>
-                    <View style={styles.labelTittle}>
-                        <Text style={styles.titulo}>Vade Mercum</Text>
-                        <Text style={styles.estadoUso}>Novo</Text>
-                    </View>
-                    <View style={styles.labelTittle}>
-                        <Text style={[styles.titulo, {color: "#515050"}]}>R$ 129,90</Text>
-                        <Text style={styles.estadoUso}>Avaliação fica aqui</Text>
-                    </View>
-                </View>
-            </ImageBackground>
-        </TouchableOpacity>,
+        // <TouchableOpacity key="v2" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
+        //     <ImageBackground source={img[2]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
+        //         <View style={styles.labelImgSell}>
+        //             <View style={styles.labelTittle}>
+        //                 <Text style={styles.titulo}>Dom Quixote</Text>
+        //                 <Text style={styles.estadoUso}>Novo</Text>
+        //             </View>
+        //             <View style={styles.labelTittle}>
+        //                 <Text style={[styles.titulo, {color: "#515050"}]}>R$ 49,90</Text>
+        //                 <Text style={styles.estadoUso}>Avaliação fica aqui</Text>
+        //             </View>
+        //         </View>
+        //     </ImageBackground>
+        // </TouchableOpacity>,
 
     ];
 
