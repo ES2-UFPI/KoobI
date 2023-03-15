@@ -7,6 +7,8 @@ import Radio from "../../components/Radio/index"
 import styles from "../BookRegister/styles"
 import { Masks } from "react-native-mask-input";
 
+import addBook from "../../services/addBook";
+
 export function BookRegister({ navigation }){
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
@@ -32,7 +34,17 @@ export function BookRegister({ navigation }){
         console.warn("Data escolhida!");
     }
 
-    
+// ESTRUTURA DO LIVRO NO BD
+    const book = { 
+        title: title,
+        author: author,
+        gender: gender,
+        language: language,
+        debutDate: debutDate,
+        description: description,
+        prize: prize 
+    };
+
 
     return (
     <View style={styles.container}>
@@ -45,8 +57,8 @@ export function BookRegister({ navigation }){
             />
             <TextInputWithLabel
                 name="Autor" 
-                value={title}
-                onChangeText={setTitle}
+                value={author}
+                onChangeText={setAuthor}
                 ktype="default"
             />
 
@@ -100,17 +112,16 @@ export function BookRegister({ navigation }){
 
             </View>
 
-            <View style={{marginTop: 10}}>
-                <TextInputWithLabel
-                    name="Descrição"
-                    value={description}
-                    onChangeText={setDescription}
-                    ktype="default"
-                    multiline={true}
-                />
-            </View>
+            <TextInputWithLabel
+                name="Descrição"
+                value={description}
+                onChangeText={setDescription}
+                ktype="default"
+                multiline={true}
+                style={{marginTop: 10}}
+            />
 
-            <View style={ styles.row }>
+
                 <TextInputWithLabel
                     name="Preço"
                     value={prize}
@@ -119,17 +130,8 @@ export function BookRegister({ navigation }){
                     placeholder="R$"
                     mask={Masks.BRL_CURRENCY}
                     style={{width: 130}}
-                />
-                
-                <TouchableOpacity 
-                    style={styles.paymentButton}
-                    //onPress={}
-                >
-                    <Text style={styles.paymentText}>
-                        Forma de Pagamento
-                    </Text>
-                </TouchableOpacity>
-            </View>
+                />   
+
 
             <View style={styles.row}>
                 <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.goBack()}>
@@ -137,9 +139,11 @@ export function BookRegister({ navigation }){
                         Cancelar
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Produtos')}>
+                <TouchableOpacity style={styles.addButton} 
+                    onPress={() => {
+                        addBook(book);}}>
                     <Text style={styles.addButtonText}>
-                        Adicionar
+                        Adicionar                        
                     </Text>
                 </TouchableOpacity>
                 
