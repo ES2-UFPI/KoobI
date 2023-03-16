@@ -3,11 +3,11 @@ import { Modal, View, Text, TouchableOpacity, Dimensions, Image } from "react-na
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DatePicker from "../../components/DatePicker";
-import Radio from "../../components/Radio/index" ;
-import styles from "../BookRegister/styles";
+import Radio from "../../components/Radio/index" 
+import styles from "../BookRegister/styles"
+import { Masks } from "react-native-mask-input";
 
 import addBook from "../../services/addBook";
-
 
 export function BookRegister({ navigation }){
     const [title, setTitle] = useState('');
@@ -112,35 +112,26 @@ export function BookRegister({ navigation }){
 
             </View>
 
-            <View style={{marginTop: 10}}>
-                <TextInputWithLabel
-                    name="Descrição"
-                    value={description}
-                    onChangeText={setDescription}
-                    ktype="default"
-                    multiline={true}
-                />
-            </View>
+            <TextInputWithLabel
+                name="Descrição"
+                value={description}
+                onChangeText={setDescription}
+                ktype="default"
+                multiline={true}
+                style={{marginTop: 10}}
+            />
 
-            <View style={ styles.row }>
+
                 <TextInputWithLabel
                     name="Preço"
                     value={prize}
                     onChangeText={setPrize}
                     ktype="numeric"
                     placeholder="R$"
+                    mask={Masks.BRL_CURRENCY}
                     style={{width: 130}}
-                />
-                
-                <TouchableOpacity 
-                    style={styles.paymentButton}
-                    //onPress={}
-                >
-                    <Text style={styles.paymentText}>
-                        Forma de Pagamento
-                    </Text>
-                </TouchableOpacity>
-            </View>
+                />   
+
 
             <View style={styles.row}>
                 <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.goBack()}>

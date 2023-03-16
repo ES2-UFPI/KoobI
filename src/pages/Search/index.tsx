@@ -4,7 +4,7 @@ import BackButton from '../../components/BackButton'
 import themes from '../../themes';
 
 import getBook from '../../services/getBook';
-import deleteBook from '../../services/deleteBook'
+import deleteBook from '../../services/deleteBook';
 
 export function SearchPage({ navigation }) {
 
@@ -35,8 +35,9 @@ export function SearchPage({ navigation }) {
             <View style={styles.row}>
                 <TouchableOpacity style={styles.addButton} 
                     onPress={() => {
-                       // getBook(text);
-                       deleteBook(text);
+                       let json = getBook(text);
+                       console.log(json);
+                      // deleteBook(text);
                         }}>
                     <Text style={styles.addButtonText}>
                         Pesquisar                       
