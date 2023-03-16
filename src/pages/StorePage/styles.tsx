@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     scrollContainer: {
         // alignItems: 'center',
         flexGrow: 1,
+        width: "100%",
         height: '120%',
     },
 
@@ -119,6 +120,18 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "bold",
         textAlign: "right",
+    },
+
+    styTextInput: {
+        width: "90%",
+        height: 60,
+        
+        backgroundColor: "#d9d9d9",
+        padding: 15,
+        borderRadius: 30,
+
+        marginLeft: 'auto',
+        marginRight: 'auto'
     }
 })
 

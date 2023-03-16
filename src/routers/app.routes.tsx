@@ -11,7 +11,6 @@ import { Catalog } from '../pages/Catalog/index';
 import { BookRegister } from '../pages/BookRegister/index';
 import { ProductPurchase } from '../pages/ProductPurchase/index';
 import { StorePage } from '../pages/StorePage/index';
-import { StoreSearchPage } from '../pages/StoreSearchPage/index';
 
 import { Feather } from '@expo/vector-icons'
 
@@ -34,7 +33,6 @@ function StackPagesCat() {
       <Stack.Screen name="Catalogo" component={Catalog} />
       <Stack.Screen name="Loja" component={StorePage}/>
       <Stack.Screen name="CompraProduto" component={ProductPurchase}/>
-      <Stack.Screen name="PesquisaProdutoLoja" component={StoreSearchPage}/>
     </Stack.Navigator>
   );
 }

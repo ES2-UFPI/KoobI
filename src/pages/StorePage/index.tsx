@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView, ImageBackground } from "react-native"
+import { View, TextInput, Text, TouchableOpacity, Image, ScrollView, ImageBackground } from "react-native"
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 import styles from "./styles";
 
@@ -37,22 +37,32 @@ export function StorePage( { navigation } ) {
             </ImageBackground>
         </TouchableOpacity>,
 
-        // <TouchableOpacity key="v2" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
-        //     <ImageBackground source={img[2]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
-        //         <View style={styles.labelImgSell}>
-        //             <View style={styles.labelTittle}>
-        //                 <Text style={styles.titulo}>Dom Quixote</Text>
-        //                 <Text style={styles.estadoUso}>Novo</Text>
-        //             </View>
-        //             <View style={styles.labelTittle}>
-        //                 <Text style={[styles.titulo, {color: "#515050"}]}>R$ 49,90</Text>
-        //                 <Text style={styles.estadoUso}>Avaliação fica aqui</Text>
-        //             </View>
-        //         </View>
-        //     </ImageBackground>
-        // </TouchableOpacity>,
+        <TouchableOpacity key="v2" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
+            <ImageBackground source={img[2]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
+                <View style={styles.labelImgSell}>
+                    <View style={styles.labelTittle}>
+                        <Text style={styles.titulo}>Dom Quixote</Text>
+                        <Text style={styles.estadoUso}>Novo</Text>
+                    </View>
+                    <View style={styles.labelTittle}>
+                        <Text style={[styles.titulo, {color: "#515050"}]}>R$ 49,90</Text>
+                        <Text style={styles.estadoUso}>Avaliação fica aqui</Text>
+                    </View>
+                </View>
+            </ImageBackground>
+        </TouchableOpacity>,
 
     ];
+
+    const [isFirstButtonPressed, setIsFirstButtonPressed] = useState(false);
+
+    const handleFirstButtonPress = () => {
+        setIsFirstButtonPressed(true);
+    }
+
+    const handleSecondButtonPress = () => {
+        setIsFirstButtonPressed(false)
+    }
 
     return (
         <View style={styles.container}>
@@ -68,17 +78,50 @@ export function StorePage( { navigation } ) {
                         <AntDesign name="shoppingcart" size={40} color="black" />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.menuOptions}>
-                    <TouchableOpacity style={[styles.optionMenu, {borderRightWidth: 1}]}>
-                        <Text style={[styles.textMenuOptions, {fontWeight: "bold"}]}>Produtos</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={[styles.optionMenu, {paddingLeft: 25}]} onPress={() => navigation.navigate("PesquisaProdutoLoja")}>
-                        <Text style={[styles.textMenuOptions, {justifyContent: 'center'}]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={{alignItems: 'center'}}>
-                    {items}
+                
+                    {isFirstButtonPressed ? 
+                        (
+                        <View style={styles.menuOptions}>
+                            <TouchableOpacity style={[styles.optionMenu, { borderRightWidth: 1 }]} onPress={handleFirstButtonPress}>
+                                <Text style={[styles.textMenuOptions, { fontWeight: "bold" }]}>Produtos</Text>
+                            </TouchableOpacity><TouchableOpacity style={[styles.optionMenu, { paddingLeft: 25 }]} onPress={handleSecondButtonPress}>
+                                <Text style={[styles.textMenuOptions, { justifyContent: 'center' }]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
+                            </TouchableOpacity>
+                        </View>
+                        )
+                        :
+                        (
+                        <View style={styles.menuOptions}>
+                            <TouchableOpacity style={[styles.optionMenu, { borderRightWidth: 1 }]} onPress={handleFirstButtonPress}>
+                                <Text style={[styles.textMenuOptions]}>Produtos</Text>
+                            </TouchableOpacity><TouchableOpacity style={[styles.optionMenu, { paddingLeft: 25 }]} onPress={handleSecondButtonPress}>
+                                <Text style={[styles.textMenuOptions, { justifyContent: 'center', fontWeight: "bold" }]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
+                            </TouchableOpacity>
+                        </View>
+                        )
+                    }
+                    
+                
+                <View style={{alignItems: 'center',}}>
+                    {isFirstButtonPressed ? 
+                        items
+                        :
+                        <ScrollView contentContainerStyle={{width: 400}}>
+                            <View style={{alignItems: 'flex-start', paddingTop: 15}}>
+                                <Text style={[styles.textLabel, {fontStyle: 'normal', fontSize: 20, paddingLeft: 30, paddingBottom: 10}]}>Pesquisar</Text>
+                                <TextInput
+                                style={{width: "90%", height: 60, backgroundColor: "#d9d9d9", padding: 15, borderRadius: 30, marginLeft: 'auto', marginRight: 'auto'}}
+                                placeholder="Pesquisar"
+                                >
+                                    {}
+                                </TextInput>
+                            </View>
+                        </ScrollView>
+                        
+                        
+                        
+                        
+                    }
                 </View>
 
             </ScrollView>
