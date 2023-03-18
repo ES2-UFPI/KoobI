@@ -3,44 +3,35 @@ import { db } from "./firebaseConfig";
 
 const livros = collection(db, "livros");
 
-async function getBook(value) {
+let book = {}
+
+async function getBook(text) {
 
   try {
-    const queryTitle = query(livros, where("title", "==", value));
+    const queryTitle = query(livros, where("title", "==", text));
     const querySnapshotTitle = await getDocs(queryTitle);
     querySnapshotTitle.forEach((doc) => {
     console.warn("Por Titulo =  ", doc.id, " => ", doc.data());
-    return doc.data()
+    book = doc.data();
   });
   } catch (e) {
-    console.error("Error adding document: ", e);
+    console.error("Error getting document: ", e);
   }
 
   
   try {
-    const queryAuthor = query(livros, where("author", "==", value));
+    const queryAuthor = query(livros, where("author", "==", text));
     const querySnapshotAuthor = await getDocs(queryAuthor);
     querySnapshotAuthor.forEach((doc) => {
     console.warn("Por Autor =  ", doc.id, " => ", doc.data());
-    return doc.data()
+    book = doc.data();
   });
   } catch (e) {
-    console.error("Error adding document: ", e);
+    console.error("Error getting document: ", e);
   }
   
-/*  
-  const querySnapshotTitle = await getDocs(queryTitle);
-  querySnapshotTitle.forEach((doc) => {
-    console.warn("Por Titulo =  ", doc.id, " => ", doc.data());
-    //return doc.data()
-  });
+return book;
 
-  const querySnapshotAuthor = await getDocs(queryAuthor);
-  querySnapshotAuthor.forEach((doc) => {
-    console.warn("Por Autor =  ", doc.id, " => ", doc.data());
-    //return doc.data()
-  });
-  */
 }
 
 export default getBook;

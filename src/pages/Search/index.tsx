@@ -1,14 +1,29 @@
 import React, { useState } from 'react'
-import { TextInput, TouchableOpacity, View, Text, StyleSheet, Dimensions } from 'react-native'
+import { TextInput, TouchableOpacity, View, Text, StyleSheet, Dimensions, Button } from 'react-native'
 import BackButton from '../../components/BackButton'
 import themes from '../../themes';
 
 import getBook from '../../services/getBook';
-import deleteBook from '../../services/deleteBook';
+import deleteBook from "../../services/deleteBook"
 
 export function SearchPage({ navigation }) {
 
-    const [text, setText] = useState('');
+    const [text, setText] = useState("");
+    const [book, setBook] = useState(null);
+    const [error, setError] = useState(null);
+
+    async function handleSearch() {
+    try {
+      const result = await getBook(text);
+      setBook(result);
+      setError(null);
+      console.log("RESULT = ", result);
+      console.log("BOOK = ", book)
+    } catch (e) {
+      console.error(e);
+      setError("Error searching for book");
+    }
+  }
 
     return (
         <View style={{
@@ -33,16 +48,7 @@ export function SearchPage({ navigation }) {
                 
             </View>
             <View style={styles.row}>
-                <TouchableOpacity style={styles.addButton} 
-                    onPress={() => {
-                       let json = getBook(text);
-                       console.log(json);
-                      // deleteBook(text);
-                        }}>
-                    <Text style={styles.addButtonText}>
-                        Pesquisar                       
-                    </Text>
-                </TouchableOpacity>
+                <Button title="Pesquisar" onPress={handleSearch} />
             </View>
         </View>
     );
