@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "koobi-v2.appspot.com",
   messagingSenderId: "269945970865",
   appId: "1:269945970865:web:d869d4272636f4f3fbc290",
-  measurementId: "G-26D3FRXL2F"
+  measurementId: "G-26D3FRXL2F",
 };
 
 // Initialize Firebase
@@ -26,6 +26,4 @@ const db = getFirestore(app);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-export default db
-
-
+export { db, auth };

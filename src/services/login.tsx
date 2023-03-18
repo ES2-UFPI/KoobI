@@ -1,9 +1,8 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebaseConfig";
 
-
-async function singIn(email, password){
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+async function login(email, password) {
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
@@ -15,4 +14,4 @@ async function singIn(email, password){
     });
 }
 
-export default singIn
+export default login;
