@@ -1,11 +1,11 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
-const livros = collection(db, "livros");
-
-let book = {}
-
 async function getBook(text) {
+
+  const livros = collection(db, "livros");
+
+  let book = {}
 
   try {
     const queryTitle = query(livros, where("title", "==", text));
