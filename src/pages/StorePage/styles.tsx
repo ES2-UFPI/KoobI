@@ -5,7 +5,7 @@ import themes from "../../themes"
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themes.colors.primaryBackground,
+        backgroundColor: themes.colors.tela.primaryBackground,
 
     },
 
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 
     labelImgSell: {
         maxHeight: 68,
-        backgroundColor: themes.colors.colorTextClear,
+        backgroundColor: themes.colors.texto.colorTextClear,
         borderBottomRightRadius: 15,
         borderBottomLeftRadius: 15,
         

@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
     headerButton: {
         width: '100%',
         height: 'auto',
-        backgroundColor: themes.colors.principalHeaderColor,
+        backgroundColor: themes.colors.tela.principalHeaderColor,
     },
 
     areaProduct: {
-        backgroundColor: themes.colors.primaryBackground,
+        backgroundColor: themes.colors.tela.primaryBackground,
         width: '100%',
         height: '100%',
 
@@ -112,25 +112,25 @@ const styles = StyleSheet.create({
     },
 
     tittleText:{
-        color: themes.colors.colorTextDark,
+        color: themes.colors.texto.colorTextDark,
         fontSize: 25,
         fontWeight: 'bold'
     },
 
     labelsText: {
-        color: themes.colors.labelsText,
+        color: themes.colors.texto.labelsText,
         fontSize: 15,
         fontWeight: 'bold'
     },
 
     namesText: {
-        color: themes.colors.colorTextDark,
+        color: themes.colors.texto.colorTextDark,
         fontSize: 16,
         fontWeight: "500"
     },
 
     textValor: {
-        color: themes.colors.colorTextDark,
+        color: themes.colors.texto.colorTextDark,
         fontWeight: 'bold',
         fontSize: 20
     },
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     },
 
     botaoText: {
-        color: themes.colors.colorTextClear,
+        color: themes.colors.texto.colorTextClear,
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',

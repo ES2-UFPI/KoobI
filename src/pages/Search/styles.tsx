@@ -3,7 +3,7 @@ import themes from "../../themes";
 
 const styles = StyleSheet.create({
     headerBox: {
-        backgroundColor: themes.colors.principalHeaderColor
+        backgroundColor: themes.colors.tela.principalHeaderColor
     },
 
     labelPesquisa: {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         margin: 15,
         padding: 15,
         borderRadius: 15,
-        backgroundColor: themes.colors.inputColorBackground
+        backgroundColor: themes.colors.inputs.inputColorBackground
     },
     addButton: {
         flex: 2,
