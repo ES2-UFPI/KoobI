@@ -3,7 +3,7 @@ import themes from "../../themes"
 
 const styles = StyleSheet.create({
     principalPage: {
-        backgroundColor: themes.colors.primaryBackground,
+        backgroundColor: themes.colors.tela.primaryBackground,
         width: '100%',
         height: '100%'
     },
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 
     elementProduct: {
         justifyContent: 'flex-end',
-        backgroundColor: themes.colors.elementToSelect,
+        backgroundColor: themes.colors.inputs.elementToSelect,
         width: '95%',
         height: 200,
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         width: '50%',
         fontSize: 15,
         fontWeight: 'bold',
-        color: themes.colors.colorTextDark,
+        color: themes.colors.texto.colorTextDark,
     }
 
 })

@@ -22,11 +22,11 @@ const styles = StyleSheet.create({
         padding: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: themes.colors.principalHeaderColor
+        backgroundColor: themes.colors.tela.principalHeaderColor
     },
 
     textCabecalho: {
-      color: themes.colors.colorTextClear,
+      color: themes.colors.texto.colorTextClear,
       fontStyle: 'italic',
       fontSize: 30,
       fontWeight: 'bold'

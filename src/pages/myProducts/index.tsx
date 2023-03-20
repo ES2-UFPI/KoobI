@@ -12,7 +12,7 @@ export function MyProducts({ navigation }) {
   return (
     <View
       style={{
-        backgroundColor: themes.colors.primaryBackground,
+        backgroundColor: themes.colors.tela.primaryBackground,
         height: "100%",
         width: "100%",
         alignItems: "center",
@@ -45,7 +45,7 @@ export function MyProducts({ navigation }) {
 
 const styles = StyleSheet.create({
   headerBox: {
-    backgroundColor: themes.colors.principalHeaderColor,
+    backgroundColor: themes.colors.tela.principalHeaderColor,
     justifyContent: "flex-start",
     width: "100%",
   },
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
     borderRadius: 15,
     elevation: 2,
-    backgroundColor: themes.colors.addButtonsColor,
+    backgroundColor: themes.colors.inputs.addButtonsColor,
 
     position: 'relative',
   },
@@ -73,15 +73,8 @@ const styles = StyleSheet.create({
 
   textAdd: {
     fontSize: 18,
-    color: themes.colors.colorTextClear,
+    color: themes.colors.texto.colorTextClear,
     fontWeight: "bold",
   },
 });
 
-
-// setViews([
-//   ...views,
-//   <View key={views.length} style={{alignItems: 'center'}}>
-//     <BookToSell/>
-//   </View>,
-// ])

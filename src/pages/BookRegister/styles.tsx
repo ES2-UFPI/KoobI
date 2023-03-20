@@ -7,7 +7,7 @@ import themes from "../../themes";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themes.colors.primaryBackground,
+        backgroundColor: themes.colors.tela.primaryBackground,
         alignItems: 'center',
         justifyContent: 'center'
     },

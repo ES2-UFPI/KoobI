@@ -9,7 +9,7 @@ import styles from './styles'
 
 export function Profile({ navigation }) {
     return (
-        <View style={{ backgroundColor: themes.colors.primaryBackground, height: '100%' }}>
+        <View style={{ backgroundColor: themes.colors.tela.primaryBackground, height: '100%' }}>
             <View style={styles.boxHeadProfile}>
                 <TouchableOpacity
                 onPress={() => navigation.goBack()}
