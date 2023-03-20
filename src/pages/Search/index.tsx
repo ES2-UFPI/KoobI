@@ -29,7 +29,7 @@ export function SearchPage({ navigation }) {
     return (
         <View style={{
             height: '100%',
-            backgroundColor: themes.colors.primaryBackground
+            backgroundColor: themes.colors.tela.primaryBackground
         }}>
             <View style={styles.headerBox}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
