@@ -5,13 +5,14 @@ import themes from "../../themes"
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: themes.colors.primaryBackground,
+        backgroundColor: themes.colors.tela.primaryBackground,
 
     },
 
     scrollContainer: {
         // alignItems: 'center',
         flexGrow: 1,
+        width: "100%",
         height: '120%',
     },
 
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
 
     labelImgSell: {
         maxHeight: 68,
-        backgroundColor: themes.colors.colorTextClear,
+        backgroundColor: themes.colors.texto.colorTextClear,
         borderBottomRightRadius: 15,
         borderBottomLeftRadius: 15,
         
@@ -119,6 +120,18 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "bold",
         textAlign: "right",
+    },
+
+    styTextInput: {
+        width: "90%",
+        height: 60,
+        
+        backgroundColor: "#d9d9d9",
+        padding: 15,
+        borderRadius: 30,
+
+        marginLeft: 'auto',
+        marginRight: 'auto'
     }
 })
 
