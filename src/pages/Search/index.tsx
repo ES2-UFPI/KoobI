@@ -15,8 +15,7 @@ export function SearchPage({ navigation }) {
 
     async function handleSearch() {
     try {
-      //const result = await getBook(text);
-      const result = await deleteBook(text);
+      const result = await getBook(text);
       setBook(result);
       setError(null);
       console.log("BOOK = ", book)
