@@ -21,6 +21,7 @@ export function StorePage( { navigation } ) {
             uri: "https://th.bing.com/th/id/OIP.ASOA1yrBSoU9AbIlZIc52QHaKm?pid=ImgDet&rs=1"
         },
     ]
+
     const items = [
         <TouchableOpacity key="v1" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
             <ImageBackground source={img[1]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
@@ -37,30 +38,16 @@ export function StorePage( { navigation } ) {
             </ImageBackground>
         </TouchableOpacity>,
 
-        <TouchableOpacity key="v2" style={styles.itemsToSell} onPress={() => navigation.navigate('CompraProduto')}>
-            <ImageBackground source={img[2]} style={styles.blockImgBook} imageStyle={styles.imageBooktoSell}>
-                <View style={styles.labelImgSell}>
-                    <View style={styles.labelTittle}>
-                        <Text style={styles.titulo}>Dom Quixote</Text>
-                        <Text style={styles.estadoUso}>Novo</Text>
-                    </View>
-                    <View style={styles.labelTittle}>
-                        <Text style={[styles.titulo, {color: "#515050"}]}>R$ 49,90</Text>
-                        <Text style={styles.estadoUso}>Avaliação fica aqui</Text>
-                    </View>
-                </View>
-            </ImageBackground>
-        </TouchableOpacity>,
-
     ];
 
     const [isFirstButtonPressed, setIsFirstButtonPressed] = useState(false);
+    const [resultsSearch, setResultsSearch] = useState([]);
 
-    const handleFirstButtonPress = () => {
+    const handleSecondButtonPress = () => {
         setIsFirstButtonPressed(true);
     }
 
-    const handleSecondButtonPress = () => {
+    const handleFirstButtonPress = () => {
         setIsFirstButtonPressed(false)
     }
 
@@ -74,12 +61,23 @@ export function StorePage( { navigation } ) {
                 </ImageBackground>
                 <View style={styles.labelStore}>
                     <Text style={styles.textLabel}>{nameStore}</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate()}>
                         <AntDesign name="shoppingcart" size={40} color="black" />
                     </TouchableOpacity>
-                </View>
                 
+                {/* Buttons de acesso as áreas da loja */}
+                </View>
                     {isFirstButtonPressed ? 
+                        (
+                            <View style={styles.menuOptions}>
+                                <TouchableOpacity style={[styles.optionMenu, { borderRightWidth: 1 }]} onPress={handleFirstButtonPress}>
+                                    <Text style={[styles.textMenuOptions]}>Produtos</Text>
+                                </TouchableOpacity><TouchableOpacity style={[styles.optionMenu, { paddingLeft: 25 }]} onPress={handleSecondButtonPress}>
+                                    <Text style={[styles.textMenuOptions, { justifyContent: 'center', fontWeight: "bold" }]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
+                                </TouchableOpacity>
+                            </View>
+                        )
+                        :
                         (
                         <View style={styles.menuOptions}>
                             <TouchableOpacity style={[styles.optionMenu, { borderRightWidth: 1 }]} onPress={handleFirstButtonPress}>
@@ -89,38 +87,37 @@ export function StorePage( { navigation } ) {
                             </TouchableOpacity>
                         </View>
                         )
-                        :
-                        (
-                        <View style={styles.menuOptions}>
-                            <TouchableOpacity style={[styles.optionMenu, { borderRightWidth: 1 }]} onPress={handleFirstButtonPress}>
-                                <Text style={[styles.textMenuOptions]}>Produtos</Text>
-                            </TouchableOpacity><TouchableOpacity style={[styles.optionMenu, { paddingLeft: 25 }]} onPress={handleSecondButtonPress}>
-                                <Text style={[styles.textMenuOptions, { justifyContent: 'center', fontWeight: "bold" }]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
-                            </TouchableOpacity>
-                        </View>
-                        )
+                        
                     }
                     
-                
-                <View style={{alignItems: 'center',}}>
-                    {isFirstButtonPressed ? 
-                        items
-                        :
-                        <ScrollView contentContainerStyle={{width: 400}}>
+                {/* área de pesquisa e amostra dos ícones pesquisados */}
+                <View style={{alignItems: 'center', height: "100%"}}>
+                    {isFirstButtonPressed ?                         
+                        <ScrollView contentContainerStyle={{width: 400, height: "100%"}}>
                             <View style={{alignItems: 'flex-start', paddingTop: 15}}>
                                 <Text style={[styles.textLabel, {fontStyle: 'normal', fontSize: 20, paddingLeft: 30, paddingBottom: 10}]}>Pesquisar</Text>
                                 <TextInput
-                                style={{width: "90%", height: 60, backgroundColor: "#d9d9d9", padding: 15, borderRadius: 30, marginLeft: 'auto', marginRight: 'auto'}}
+                                style={styles.searchLabel}
                                 placeholder="Pesquisar"
-                                >
-                                    {}
-                                </TextInput>
+                                />
+                                    {
+                                    resultsSearch.length != 0 ?
+                                    null
+                                    :
+                                    <View style={styles.notFounded}>
+                                        <Text style={styles.textNotFounded}>
+                                            O livro que você procura infelizmente não se encontra no nosso banco de dados
+                                        </Text>
+                                        <Image
+                                            source={require('../../../assets/notFounded.png')}
+                                        />
+                                    </View>
+                                    
+                                    }
                             </View>
                         </ScrollView>
-                        
-                        
-                        
-                        
+                        :
+                        items
                     }
                 </View>
 

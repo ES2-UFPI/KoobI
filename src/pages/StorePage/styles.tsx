@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         flexGrow: 1,
         width: "100%",
-        height: '120%',
+        height: '100%',
     },
 
     headerImgStore: {
@@ -132,6 +132,37 @@ const styles = StyleSheet.create({
 
         marginLeft: 'auto',
         marginRight: 'auto'
+    },
+
+    searchLabel:{
+        width: "90%",
+        height: 60,
+        backgroundColor: "#FAFAFA",
+        padding: 15,
+        borderRadius: 30,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        fontSize: 20
+    },
+
+    notFounded: {
+        width: "90%",
+        height: "70%",
+        
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        marginLeft: 'auto',
+        marginRight: 'auto'
+    },
+
+    textNotFounded: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 22,
+        marginBottom: 15,
+        textAlign: 'center',
+
+        color: "#00000060"
     }
 })
 
