@@ -31,6 +31,63 @@ const styles = StyleSheet.create({
 
         padding: 15,
     },
+    labelStore: {
+        backgroundColor: "#75757550",
+        justifyContent: "center",
+
+        height: 50,
+
+        paddingLeft: 15,
+        paddingRight: 15,
+    },
+
+    textLabel: {
+        fontSize: 28,
+        fontFamily: 'Nunito_400Regular',
+        fontStyle: "italic",
+    },
+
+    somaTotal: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+
+        marginTop: 17,
+        marginHorizontal: 12,
+        paddingVertical: 12,
+
+        borderBottomWidth: 1,
+        borderTopWidth: 1,
+    },
+
+    total: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 28,
+    },
+
+    confirmButton: {
+        width: "80%",
+        height: 'auto',
+        backgroundColor: themes.colors.inputs.addButton,
+
+        marginRight: 'auto',
+        marginLeft: 'auto',
+
+        marginVertical: 38,
+        paddingVertical: 10,
+        borderRadius: 20,
+
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    textConfirmButton: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: themes.colors.texto.colorTextClear,
+
+    }
+
 })
 
 export default styles

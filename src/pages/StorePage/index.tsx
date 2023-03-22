@@ -62,34 +62,34 @@ export function StorePage( { navigation } ) {
                 </ImageBackground>
                 <View style={styles.labelStore}>
                     <Text style={styles.textLabel}>{nameStore}</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate()}>
+                    <TouchableOpacity onPress={() => navigation.navigate("CarrinhoComp")}>
                         <AntDesign name="shoppingcart" size={40} color="black" />
                     </TouchableOpacity>
+                </View>
                 
                 {/* Buttons de acesso as áreas da loja */}
-                </View>
-                    {isFirstButtonPressed ? 
-                        (
-                            <View style={styles.menuOptions}>
-                                <TouchableOpacity style={[styles.optionMenu, { borderRightWidth: 1 }]} onPress={handleFirstButtonPress}>
-                                    <Text style={[styles.textMenuOptions]}>Produtos</Text>
-                                </TouchableOpacity><TouchableOpacity style={[styles.optionMenu, { paddingLeft: 25 }]} onPress={handleSecondButtonPress}>
-                                    <Text style={[styles.textMenuOptions, { justifyContent: 'center', fontWeight: "bold" }]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
-                                </TouchableOpacity>
-                            </View>
-                        )
-                        :
-                        (
+                {isFirstButtonPressed ? 
+                    (
                         <View style={styles.menuOptions}>
                             <TouchableOpacity style={[styles.optionMenu, { borderRightWidth: 1 }]} onPress={handleFirstButtonPress}>
-                                <Text style={[styles.textMenuOptions, { fontWeight: "bold" }]}>Produtos</Text>
+                                <Text style={[styles.textMenuOptions]}>Produtos</Text>
                             </TouchableOpacity><TouchableOpacity style={[styles.optionMenu, { paddingLeft: 25 }]} onPress={handleSecondButtonPress}>
-                                <Text style={[styles.textMenuOptions, { justifyContent: 'center' }]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
+                                <Text style={[styles.textMenuOptions, { justifyContent: 'center', fontWeight: "bold" }]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
                             </TouchableOpacity>
                         </View>
-                        )
-                        
-                    }
+                    )
+                    :
+                    (
+                    <View style={styles.menuOptions}>
+                        <TouchableOpacity style={[styles.optionMenu, { borderRightWidth: 1 }]} onPress={handleFirstButtonPress}>
+                            <Text style={[styles.textMenuOptions, { fontWeight: "bold" }]}>Produtos</Text>
+                        </TouchableOpacity><TouchableOpacity style={[styles.optionMenu, { paddingLeft: 25 }]} onPress={handleSecondButtonPress}>
+                            <Text style={[styles.textMenuOptions, { justifyContent: 'center' }]}>Pesquisa <Ionicons name="search-outline" size={24} color="black" /></Text>
+                        </TouchableOpacity>
+                    </View>
+                    )
+                    
+                }
                     
                 {/* área de pesquisa e amostra dos ícones pesquisados */}
                 <View style={{alignItems: 'center', height: "100%"}}>

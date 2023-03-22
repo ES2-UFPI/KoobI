@@ -11,8 +11,10 @@ export default {
         inputs: {
             inputColorBackground: '#f5f5f5',
             elementToSelect: '#eee9ca',
+            addButton: '#2173EE',
             addButtonsColor: "#2b404d",
             cancelButton: '#B4C5E4',
+
         },
 
         // Cores de texto
