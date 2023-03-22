@@ -39,6 +39,7 @@ export function StorePage( { navigation } ) {
         </TouchableOpacity>,
 
     ];
+    
 
     const [isFirstButtonPressed, setIsFirstButtonPressed] = useState(false);
     const [resultsSearch, setResultsSearch] = useState([]);
