@@ -4,8 +4,7 @@ import BackButton from '../../components/BackButton'
 import themes from '../../themes';
 import styles from '../Search/styles';
 
-import getBook from '../../services/getBook';
-import deleteBook from "../../services/deleteBook"
+import getBook from '../../services/getBook'
 
 export function SearchPage({ navigation }) {
 
@@ -18,8 +17,7 @@ export function SearchPage({ navigation }) {
       const result = await getBook(text);
       setBook(result);
       setError(null);
-      console.log("RESULT = ", result);
-      console.log("BOOK = ", book)
+      console.log("BOOK = ", book);
     } catch (e) {
       console.error(e);
       setError("Error searching for book");

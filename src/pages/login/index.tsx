@@ -5,6 +5,20 @@ import themes from "../../themes";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import styles from "../Profile/styles";
 
+
+import login from "../../services/login"
+/*
+const LoginScreen = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    console.log(email,password)
+    login(email, password)
+    }
+*/
+
+
 export function Login({ navigation }) {
   const [loginUser, setLoginUser] = useState("")
 
