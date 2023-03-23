@@ -1,17 +1,17 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
-const livros = collection(db, "livros");
+export default async function getBook(text) {
 
-let book = {}
+  const livros = collection(db, "livros");
 
-async function getBook(text) {
+  let book = {}
 
   try {
     const queryTitle = query(livros, where("title", "==", text));
     const querySnapshotTitle = await getDocs(queryTitle);
     querySnapshotTitle.forEach((doc) => {
-    console.warn("Por Titulo =  ", doc.id, " => ", doc.data());
+    //console.warn("Por Titulo =  ", doc.id, " => ", doc.data());
     book = doc.data();
   });
   } catch (e) {
@@ -23,7 +23,7 @@ async function getBook(text) {
     const queryAuthor = query(livros, where("author", "==", text));
     const querySnapshotAuthor = await getDocs(queryAuthor);
     querySnapshotAuthor.forEach((doc) => {
-    console.warn("Por Autor =  ", doc.id, " => ", doc.data());
+    //console.warn("Por Autor =  ", doc.id, " => ", doc.data());
     book = doc.data();
   });
   } catch (e) {
@@ -33,5 +33,3 @@ async function getBook(text) {
 return book;
 
 }
-
-export default getBook;
