@@ -1,24 +1,14 @@
-import React , {useState} from "react";
-import { Modal, View, Text, TouchableOpacity, Dimensions, Image } from "react-native";
-import TextInputWithLabel from "../../components/TextInputWithLabel";
-import Radio from "../../components/Radio/index" 
-import styles from "../UserRegister/styles"
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
 import { Masks } from "react-native-mask-input";
+import { LinearGradient } from "expo-linear-gradient";
 
+import TextInputWithLabel from "../../components/TextInputWithLabel";
 
-export default function UserRegister({ navigation }){
-    return(
-        <View style={styles.container}>
+import styles from "../UserRegister/styles";
 
-        </View>
+import addNewUser from "../../services/addNewUser";
 
-
-
-    )
-
-
-}
-import addNewUser from "../../services/addNewUser"
 /*
 const RegisterScreen = () => {
   const [email, setEmail] = useState('');
@@ -29,3 +19,33 @@ const RegisterScreen = () => {
     addNewUser(email, password)
     }
 */
+
+export function UserRegister({ navigation }) {
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <LinearGradient
+        style={styles.scrollScreen}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1.4, y: 0.87 }}
+        colors={["#004E7D", "#ffb9007f"]}
+      >
+        <Image source={require("../../../assets/LogoMarca.png")} />
+        <Text>Crie sua conta</Text>
+        <View>
+            <TextInputWithLabel
+            name=""
+            />
+            <TextInputWithLabel
+            />
+            <TextInputWithLabel
+            />
+            <TextInputWithLabel
+            />
+        </View>
+        <TouchableOpacity>
+
+        </TouchableOpacity>
+      </LinearGradient>
+    </ScrollView>
+  );
+}

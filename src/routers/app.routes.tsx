@@ -13,6 +13,7 @@ import { ProductPurchase } from '../pages/ProductPurchase/index';
 import { StorePage } from '../pages/StorePage/index';
 import { ShoppingCart } from '../pages/ShoppingCart/index';
 import { Login } from '../pages/Login/index';
+import { UserRegister } from '../pages/UserRegister/index';
 
 import { Feather } from '@expo/vector-icons'
 
@@ -93,6 +94,7 @@ export default function AppRoutes() {
       <Stack.Navigator initialRouteName="PaginaInicial" screenOptions={{headerShown: false}}>
         <Stack.Screen name="LoginPage" component={Login} />
         <Stack.Screen name="Telas" component={TabInicialPages}/>
+        <Stack.Screen name="RegistroUsuario" component={UserRegister}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
