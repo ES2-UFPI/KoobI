@@ -10,6 +10,8 @@ import ImageViewer from "../../components/ImageViewer";
 import styles from "../BookRegister/styles"
 import { Masks } from "react-native-mask-input";
 
+import { format } from "date-fns"
+
 const placeholderImage = require('../../../assets/background.png')
 
 import addBook from "../../services/addBook";
@@ -36,8 +38,9 @@ export function BookRegister({ navigation }){
         setDatePickerVisibility(false);
     }
 
-    const handleConfirm = (date) => {
-        console.warn("Data escolhida!");
+    const handleConfirm = (date:any) => {
+        setDebutDate(format(date, 'dd/MM/yyyy'));
+        hideDatePicker();
     }
 
     async function getCameraPermissionsAsync() {
@@ -75,7 +78,7 @@ export function BookRegister({ navigation }){
         let result = await ImagePicker.launchCameraAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true,
-            aspect: [4, 3],
+            aspect: [3, 4],
             quality: 1
         });
 
@@ -96,7 +99,7 @@ export function BookRegister({ navigation }){
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true,
-            aspect: [4, 3],
+            aspect: [3, 4],
             quality: 1
         });
 
@@ -148,23 +151,26 @@ export function BookRegister({ navigation }){
             />
 
             <View style={styles.row}>
+                <View style={styles.genderArea}>
+                    <TextInputWithLabel
+                        name="Gênero"
+                        value={gender}
+                        onChangeText={setGender}
+                        ktype="default"
+                        style={styles.genderInput}
+                    />
+                </View>
                 
-                <TextInputWithLabel
-                    name="Gênero"
-                    value={gender}
-                    onChangeText={setGender}
-                    ktype="default"
-                    style={styles.genderInput}
-                />
-                
-                <TextInputWithLabel
-                    name="Idioma"
-                    value={language}
-                    onChangeText={setLanguage}
-                    ktype="default"
-                    style={styles.languageInput}
+                <View style={styles.languageArea}>
+                    <TextInputWithLabel
+                        name="Idioma"
+                        value={language}
+                        onChangeText={setLanguage}
+                        ktype="default"
+                        style={styles.languageInput}
 
-                />
+                    />
+                </View>
             </View>
 
             <View style={styles.row}>
@@ -203,19 +209,19 @@ export function BookRegister({ navigation }){
                 onChangeText={setDescription}
                 ktype="default"
                 multiline={true}
-                style={{marginTop: 10}}
+                style={{ height: "auto"}}
             />
 
 
-                <TextInputWithLabel
-                    name="Preço"
-                    value={prize}
-                    onChangeText={setPrize}
-                    ktype="numeric"
-                    placeholder="R$"
-                    mask={Masks.BRL_CURRENCY}
-                    style={{width: 130}}
-                />   
+            <TextInputWithLabel
+                name="Preço"
+                value={prize}
+                onChangeText={setPrize}
+                ktype="numeric"
+                placeholder="R$"
+                mask={Masks.BRL_CURRENCY}
+                style={{width: "45%"}}
+            />   
 
 
             <View style={styles.row}>

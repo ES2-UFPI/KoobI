@@ -14,8 +14,7 @@ const styles = StyleSheet.create({
 
     textLabel:{
         textAlign: "left",
-        fontFamily: "Inter",
-        fontWeight: "700",
+        fontFamily: "Inter_700Bold",
         color: "#000000",
         fontSize: 18,
     },

@@ -21,26 +21,40 @@ const styles = StyleSheet.create({
       fontWeight: "bold"
     },
     textInput: {
-      width: Dimensions.get('window').width * 0.85,
-      borderRadius: 15,
-      backgroundColor: "#F6F6F6",
+      width: '100%',
       fontSize: 15,
-      fontFamily: "Nunito",
-      fontWeight: "400",
-      padding: 10,
-      marginTop: 5,
-      marginBottom: 10
+      fontFamily: "Nunito_400Regular",
+      backgroundColor: "#F6F6F6",
     },
     textLabelArea: {
       width: '100%',
       justifyContent: 'flex-start',
-      paddingLeft: 5
+      paddingLeft: 5,
+      marginTop: 5
     },  
     textLabel: {
-      fontFamily: "Inter",
-      fontWeight: "700",
+      fontFamily: "Inter_700Bold",
       fontSize: 18
-    }
+    },
+    inputArea: {
+      flexDirection: "row",
+      alignItems: "center",
+      width: Dimensions.get('window').width * 0.85,
+      backgroundColor: "#F6F6F6",
+      borderRadius: 15,
+      height: 50, 
+      padding: 10,     
+      marginTop: 5,
+      marginBottom: 10,
+    }, 
+    icon: {
+      width: '15%',
+      justifyContent: "center",
+      alignItems: "center",
+      height: 50,
+      backgroundColor: "#F6F6F6",
+      borderRadius: 15
+    }  
 });
 
 export default styles

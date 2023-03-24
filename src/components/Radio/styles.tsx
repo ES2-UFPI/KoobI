@@ -30,8 +30,7 @@ const styles = StyleSheet.create({
         marginLeft: 7,
         marginRight: 15,
         fontSize: 14,
-        fontFamily: "Inter",
-        fontWeight: "700"
+        fontFamily: "Inter_700Bold",
     }
 })
 
