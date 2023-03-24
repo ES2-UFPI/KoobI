@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { View, Image, Text, TextInput, TouchableOpacity} from "react-native";
+import { View, Image, Text, TouchableOpacity} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import themes from "../../themes";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import styles from "./styles";
 
