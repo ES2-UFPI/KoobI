@@ -65,7 +65,8 @@ const styles = StyleSheet.create({
         padding: 10, 
     },
     labelText: {
-        fontFamily: "Inter_700Bold",
+        fontFamily: "Inter",
+        fontWeight: "700",
         fontSize: 18,
         marginBottom: 20,
     },
@@ -83,7 +84,13 @@ const styles = StyleSheet.create({
         fontFamily: "Inter_400Regular",
         fontSize: 12,
         padding: 10
-    }
+    },
+    imageContainer: {
+        width: 250,
+        height: 250,
+        justifyContent: "center",
+        alignItems: "center"
+    }    
 })
 
 export default styles

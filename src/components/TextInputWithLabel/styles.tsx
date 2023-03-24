@@ -1,6 +1,4 @@
-import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
-import { useFonts, Inter_700Bold } from '@expo-google-fonts/inter';
 import themes from "../../themes";
 
 
@@ -27,7 +25,8 @@ const styles = StyleSheet.create({
       borderRadius: 15,
       backgroundColor: "#F6F6F6",
       fontSize: 15,
-      fontFamily: 'Nunito_400Regular',
+      fontFamily: "Nunito",
+      fontWeight: "400",
       padding: 10,
       marginTop: 5,
       marginBottom: 10
@@ -38,7 +37,8 @@ const styles = StyleSheet.create({
       paddingLeft: 5
     },  
     textLabel: {
-      fontFamily: "Inter_700Bold",
+      fontFamily: "Inter",
+      fontWeight: "700",
       fontSize: 18
     }
 });
