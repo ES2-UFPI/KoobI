@@ -57,7 +57,7 @@ export function Login({ navigation }) {
         />
 
       </View>
-      <TouchableOpacity style={styles.buttonEntry} onPress={() => navigation.navigate("Screens")}>
+      <TouchableOpacity style={styles.buttonEntry} onPress={() => navigation.navigate("Telas")}>
         <LinearGradient
         style={[{width: "100%", height: "100%"}, styles.buttonEntry]}
         start={{x:0,y:0}}
