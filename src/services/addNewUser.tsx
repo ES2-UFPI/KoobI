@@ -1,7 +1,7 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebaseConfig";
 
-async function addNewUser(email, password){
-  const auth = getAuth();
+async function addNewUser(email, password) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -15,4 +15,4 @@ async function addNewUser(email, password){
     });
 }
 
-export default addNewUser
+export default addNewUser;

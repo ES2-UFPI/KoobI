@@ -8,7 +8,7 @@ export function MyRequests() {
             flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: themes.colors.primaryBackground
+            backgroundColor: themes.colors.tela.primaryBackground
         }}>
             <Text>Pedidos</Text>
         </View>

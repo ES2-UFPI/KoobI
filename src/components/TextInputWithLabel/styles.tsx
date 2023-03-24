@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       left: 20,
       bottom: 28,
-      backgroundColor: themes.colors.cancelButton,
+      backgroundColor: themes.colors.inputs.cancelButton,
       borderRadius: 12,
     },
 

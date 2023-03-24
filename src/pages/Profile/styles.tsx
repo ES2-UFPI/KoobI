@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     boxHeadProfile: {
         width: '100%',
         height: 153,
-        backgroundColor: themes.colors.principalHeaderColor,
+        backgroundColor: themes.colors.tela.principalHeaderColor,
     },
 
     imageProfile: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     },
 
     textName: {
-        color: themes.colors.colorTextDark,
+        color: themes.colors.texto.colorTextDark,
         fontSize: 30,
         fontWeight: 'bold',
     },
