@@ -8,9 +8,8 @@ const styles = StyleSheet.create({
         paddingLeft: 5
     },
     textLabel: {
-        fontFamily: "Inter",
+        fontFamily: "Inter_700Bold",
         fontSize: 18,
-        fontWeight: "700"
     },    
     horizontal: {
         flexDirection: "row",
@@ -38,8 +37,7 @@ const styles = StyleSheet.create({
         marginLeft: 20
     },
     buttonText: {
-        fontFamily: 'Inter',
-        fontWeight: "bold",
+        fontFamily: 'Inter_700Bold',
         color: "#F6F6F6",
         fontSize: 15
     }

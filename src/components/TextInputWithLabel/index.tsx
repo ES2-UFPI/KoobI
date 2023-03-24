@@ -1,6 +1,6 @@
-import React, { Children, useState} from "react";
-import { Text,  View, TextInput, TouchableOpacity } from 'react-native'; 
-import { Icon } from 'react-native-elements';
+import React, { useState } from "react";
+import { Text,  View, TouchableOpacity } from 'react-native'; 
+import { Ionicons } from '@expo/vector-icons';
 import InputMask, { Mask } from 'react-native-mask-input'
 
 
@@ -20,6 +20,7 @@ interface textInputProps{
 }
 
 export default function TextInputWithLabel({...props}:textInputProps){
+    const [hidePass, setHidePass] = useState(props.isPassword);
     return(
     <View>
         <View style={styles.textLabelArea}>
@@ -27,15 +28,30 @@ export default function TextInputWithLabel({...props}:textInputProps){
                 {props.name}
             </Text>
         </View>
-        <InputMask
-            multiline = {props.multiline}
-            style = {[styles.textInput, props.style]}
-            keyboardType = {props.ktype}
-            value = {props.value}
-            onChangeText = {text => props.onChangeText(text)}
-            mask = {props.mask}
-            placeholder={props.placeholder}
-        />
+        <View style={[styles.inputArea, props.style]}>
+            <InputMask
+                multiline = {props.multiline}
+                style = {[styles.textInput, props.style, {width: "100%"}]}
+                keyboardType = {props.ktype}
+                value = {props.value}
+                secureTextEntry={hidePass && props.isPassword}
+                onChangeText = {text => props.onChangeText(text)}
+                mask = {props.mask}
+                placeholder={props.placeholder}
+            />
+            <TouchableOpacity style={[styles.icon, {display: props.isPassword? "flex" : "none"}]} onPress={ () => setHidePass(!hidePass)}>
+                { hidePass? 
+                    <Ionicons
+                        name="eye" color="black" size={15}
+                    />
+                    :
+                    <Ionicons
+                        name="eye-off" color="black" size={15}
+                    />
+                }
+            </TouchableOpacity>
+
+        </View>
     </View>
     )
 }
