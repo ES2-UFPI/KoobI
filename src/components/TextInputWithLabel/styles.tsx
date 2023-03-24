@@ -16,17 +16,17 @@ const styles = StyleSheet.create({
     },
 
     buttonText: {
-      fontFamily: "Inter",
+      fontFamily: "Inter_700Bold",
       fontSize: 18,
-      fontWeight: "bold"
+      // fontWeight: "bold"
     },
     textInput: {
       width: Dimensions.get('window').width * 0.85,
       borderRadius: 15,
       backgroundColor: "#F6F6F6",
       fontSize: 15,
-      fontFamily: "Nunito",
-      fontWeight: "400",
+      fontFamily: "Nunito_400Regular",
+      // fontWeight: "400",
       padding: 10,
       marginTop: 5,
       marginBottom: 10
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
       paddingLeft: 5
     },  
     textLabel: {
-      fontFamily: "Inter",
-      fontWeight: "700",
+      fontFamily: "Inter_700Bold",
+      // fontWeight: "700",
       fontSize: 18
     }
 });

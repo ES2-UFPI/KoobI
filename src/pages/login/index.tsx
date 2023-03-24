@@ -74,7 +74,7 @@ export function Login({ navigation }) {
 
       <View style={{flexDirection: "row"}}>
         <Text>Ou registre-se </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("RegistroUsuario")}>
           <Text style={{textDecorationLine: "underline"}}>aqui</Text>
         </TouchableOpacity>
       </View>
