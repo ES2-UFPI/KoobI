@@ -1,11 +1,16 @@
 import React , {useState} from "react";
-import { Modal, View, Text, TouchableOpacity, Dimensions, Image } from "react-native";
+import { Modal, View, Text, TouchableOpacity, Dimensions, Image , ScrollView} from "react-native";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import * as ImagePicker from "expo-image-picker"
 import DatePicker from "../../components/DatePicker";
-import Radio from "../../components/Radio/index" 
+import Radio from "../../components/Radio/index"
+import ImageSelector from "../../components/ImageSelector";
+import ImageViewer from "../../components/ImageViewer";
 import styles from "../BookRegister/styles"
 import { Masks } from "react-native-mask-input";
+
+const placeholderImage = require('../../../assets/background.png')
 
 import addBook from "../../services/addBook";
 
@@ -17,6 +22,7 @@ export function BookRegister({ navigation }){
     const [debutDate, setDebutDate] = useState('');
     const [description, setDescription] = useState('');
     const [prize, setPrize] = useState('');
+    const [selectedImage, setSelectedImage] = useState(null)
 
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
@@ -34,6 +40,73 @@ export function BookRegister({ navigation }){
         console.warn("Data escolhida!");
     }
 
+    async function getCameraPermissionsAsync() {
+       
+        const { status } = await ImagePicker.requestCameraPermissionsAsync();
+            
+        if(status !== "granted"){
+            alert('Você precisa conceder permissão para acessar a câmera'); 
+            return false;
+        }
+        return true;
+        
+    }
+    
+    async function getLibraryPermissionsAsync() {
+       
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+            
+        if(status !== "granted"){
+            alert('Você precisa conceder permissão para acessar a galeria'); 
+            return false;
+        }
+        return true;
+        
+    }
+
+    async function takeImageAsync() {
+        const hasPermission = await getCameraPermissionsAsync();
+        
+        if(!hasPermission){
+            return
+        }
+
+
+        let result = await ImagePicker.launchCameraAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1
+        });
+
+        if(!result.canceled) {
+            setSelectedImage(result.assets[0].uri)
+        } else {
+            alert("Você não capturou nenhuma imagem")
+        }
+    };
+
+    async function pickImageAsync() {
+        const hasPermission = await getLibraryPermissionsAsync();
+        
+        if(!hasPermission){
+            return
+        }
+
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1
+        });
+
+        if(!result.canceled) {
+            setSelectedImage(result.assets[0].uri)
+        } else {
+            alert("Você não selecionou nenhuma imagem")
+        }
+    };
+
 // ESTRUTURA DO LIVRO NO BD
     const book = { 
         title: title,
@@ -47,8 +120,20 @@ export function BookRegister({ navigation }){
 
 
     return (
-    <View style={styles.container}>
-        <View>
+    <ScrollView>
+        <View style={styles.container}>
+            <View style={styles.imageContainer}>
+                <ImageViewer
+                    placeholderImageSource={placeholderImage}
+                    selectedImage={selectedImage}
+                />
+            </View>
+
+            <ImageSelector
+                OnClickCamera={takeImageAsync}
+                OnClickGallery={pickImageAsync}        
+            />
+
             <TextInputWithLabel
                 name="Título" 
                 value={title}
@@ -150,7 +235,7 @@ export function BookRegister({ navigation }){
             </View>
 
         </View>
-    </View>
+    </ScrollView>
 
 
     );
