@@ -31,19 +31,19 @@ function StackPagesProfile() {
 
 function StackPagesCat() {
   return (
-    <Stack.Navigator initialRouteName="Catalog Options" screenOptions={{headerShown: false}}>
+    <Stack.Navigator initialRouteName="Catalogo" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Catalogo" component={Catalog} />
-      <Stack.Screen name="Loja" component={Login}/>
+      <Stack.Screen name="Loja" component={StorePage}/>
       <Stack.Screen name="CompraProduto" component={ProductPurchase}/>
       <Stack.Screen name="CarrinhoComp" component={ShoppingCart}/>
     </Stack.Navigator>
   );
 }
 
-export default function AppRoutes() {
+function TabInicialPages() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown: false, }}>
+    // <NavigationContainer>
+      <Tab.Navigator screenOptions={{headerShown: false, tabBarActiveBackgroundColor: "#dadadf"}} >
         <Tab.Screen
         name="Home"
         component={StackPagesCat}
@@ -83,6 +83,17 @@ export default function AppRoutes() {
         }}
         />
       </Tab.Navigator>
+    //  </NavigationContainer> 
+  );
+}
+
+export default function AppRoutes() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="PaginaInicial" screenOptions={{headerShown: false}}>
+        <Stack.Screen name="LoginPage" component={Login} />
+        <Stack.Screen name="Screens" component={TabInicialPages}/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

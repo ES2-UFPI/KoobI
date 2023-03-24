@@ -3,7 +3,7 @@ import { View, Image, Text, TextInput, TouchableOpacity} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import themes from "../../themes";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
-import styles from "../Profile/styles";
+import styles from "./styles";
 
 
 import login from "../../services/login"
@@ -21,6 +21,7 @@ const LoginScreen = () => {
 
 export function Login({ navigation }) {
   const [loginUser, setLoginUser] = useState("")
+  const [passwordUser, setPasswordUser] = useState("")
 
   return (
     <LinearGradient 
@@ -32,25 +33,35 @@ export function Login({ navigation }) {
       <Image
       source={require('../../../assets/LogoMarca.png')}
       />
-      <View style={styles.loginPass}>
-        <Text style={styles.login}>Login</Text>
-        <TextInput
-        style={[styles.inputLoginPass,{backgroundColor: "#FFF5D3"}]}
+      <View>
+        <TextInputWithLabel
+        name="Login"
+        placeholder="Usuário"
+        ktype="default"
+        styleName={{color: "#fafafa", paddingLeft: 12}}
+        style={styles.inputLoginPass}
         value={loginUser}
         onChangeText={setLoginUser}
         />
 
-        <Text>Senha</Text>
-        <TextInput
-        style={[styles.inputLoginPass,{backgroundColor: "#FFF5D3"}]}
-        value={loginUser}
-        onChangeText={setLoginUser}
+        <TextInputWithLabel
+        name={"Senha"}
+        isPassword={true}
+        value={passwordUser}
+        onChangeText={setPasswordUser}
+        placeholder="Senha"
+        ktype="default"
+        style={styles.inputLoginPass}
+        styleName={{color: "#fafafa", paddingLeft: 8}}
+
         />
+
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity style={styles.buttonEntry} onPress={() => navigation.navigate("Screens")}>
         <LinearGradient
+        style={[{width: "100%", height: "100%"}, styles.buttonEntry]}
         start={{x:0,y:0}}
-        end={{x:1.4,y:0.87}}
+        end={{x:0.14,y:1.5}}
         colors={["#004E7D", "#ffb9007f"]}
         >
           <Text style={styles.textEntry}>Entrar</Text>
@@ -63,9 +74,9 @@ export function Login({ navigation }) {
       </View>
 
       <View style={{flexDirection: "row"}}>
-        <Text>Ou registre-se</Text>
+        <Text>Ou registre-se </Text>
         <TouchableOpacity>
-          <Text>aqui</Text>
+          <Text style={{textDecorationLine: "underline"}}>aqui</Text>
         </TouchableOpacity>
       </View>
 
