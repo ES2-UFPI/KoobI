@@ -1,10 +1,10 @@
 import React from "react";
-import { Text,  View, TouchableOpacity } from 'react-native'; 
+import { Text,  View, TouchableOpacity, TouchableOpacityProps } from 'react-native'; 
 import styles from "./styles"
 
 interface ImageSelectorProps {
-    OnClickCamera?: Function,
-    OnClickGallery?: Function
+    OnClickCamera?: TouchableOpacityProps["onPress"],
+    OnClickGallery?: TouchableOpacityProps["onPress"]
 }
 
 export default function ImageSelector({...props}: ImageSelectorProps){
@@ -19,7 +19,7 @@ export default function ImageSelector({...props}: ImageSelectorProps){
             <View style={styles.horizontal}>
                 <TouchableOpacity 
                     style={styles.cameraButton}
-                    onPress={() => props.OnClickCamera}
+                    onPress={props.OnClickCamera}
                     >
                     <Text style={styles.buttonText}>
                         Abrir a Câmera
@@ -28,7 +28,7 @@ export default function ImageSelector({...props}: ImageSelectorProps){
 
                 <TouchableOpacity 
                     style={styles.galleryButton}
-                    onPress={() => props.OnClickGallery}
+                    onPress={props.OnClickGallery}
                     >
                     <Text style={styles.buttonText}>
                         Abrir a Galeria 
