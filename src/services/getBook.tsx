@@ -11,8 +11,7 @@ export default async function getBook(text) {
     const queryTitle = query(livros, where("title", "==", text));
     const querySnapshotTitle = await getDocs(queryTitle);
     querySnapshotTitle.forEach((doc) => {
-    //console.warn("Por Titulo =  ", doc.id, " => ", doc.data());
-    booklist.push(doc.id ,doc.data());
+    booklist.push({id: doc.id ,...doc.data()});
   });
   } catch (e) {
     console.error("Error getting document: ", e);
@@ -23,8 +22,7 @@ export default async function getBook(text) {
     const queryAuthor = query(livros, where("author", "==", text));
     const querySnapshotAuthor = await getDocs(queryAuthor);
     querySnapshotAuthor.forEach((doc) => {
-    //console.warn("Por Autor =  ", doc.id, " => ", doc.data());
-    booklist.push(doc.id, doc.data());
+    booklist.push({id: doc.id ,...doc.data()});
   });
   } catch (e) {
     console.error("Error getting document: ", e);
