@@ -1,9 +1,9 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "./firebaseConfig";
+import { database } from "./firebaseConfig";
 
 export default async function getBook(text) {
 
-  const livros = collection(db, "livros");
+  const livros = collection(database, "livros");
   const booklist = [];
 
   try {
