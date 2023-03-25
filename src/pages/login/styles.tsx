@@ -1,5 +1,4 @@
-import react from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import themes from "../../themes";
 
 const styles = StyleSheet.create({
@@ -13,6 +12,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF5D3",
     paddingLeft: 27,
     borderRadius: 22,
+  },
+
+  inputPass:{
+    backgroundColor: "#FFF5D3",
+    width: "86%",
+    paddingLeft: 27,
+    
+    borderBottomLeftRadius: 22,
+    borderTopLeftRadius: 22,
+    borderBottomRightRadius: 0,
+    borderTopRightRadius: 0
   },
 
   buttonEntry: {

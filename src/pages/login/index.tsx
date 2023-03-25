@@ -50,7 +50,7 @@ export function Login({ navigation }) {
         onChangeText={setPasswordUser}
         placeholder="Senha"
         ktype="default"
-        style={styles.inputLoginPass}
+        style={styles.inputPass}
         styleName={{color: "#fafafa", paddingLeft: 8}}
 
         />
