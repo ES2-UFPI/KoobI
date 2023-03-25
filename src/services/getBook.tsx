@@ -1,5 +1,4 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { useState } from "react";
 import { db } from "./firebaseConfig";
 
 export default async function getBook(text) {

@@ -6,6 +6,7 @@ export default async function logout() {
     .then(() => {
       // Sign-out successful.
       return "Sign-out successful.";
+      //navigation.navigate("LOGIN")
     })
     .catch((error) => {
       // An error happened.
