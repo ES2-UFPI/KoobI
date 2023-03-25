@@ -1,51 +1,70 @@
-import React , {useState} from "react";
-import { Modal, View, Text, TouchableOpacity, Dimensions, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Image, Text, TouchableOpacity} from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
+import styles from "./styles";
 
-import styles from  "../Login/styles"
+export function Login({ navigation }) {
+  const [loginUser, setLoginUser] = useState("")
+  const [passwordUser, setPasswordUser] = useState("")
 
+  return (
+    <LinearGradient 
+      style={styles.container}
+      start={{x:0,y:0}}
+      end={{x:1.4,y:0.87}}
+      colors={["#004E7D", "#ffb9007f"]}
+    >
+      <Image
+      source={require('../../../assets/LogoMarca.png')}
+      />
+      <View>
+        <TextInputWithLabel
+        name="Login"
+        placeholder="Usuário"
+        ktype="default"
+        styleName={{color: "#fafafa", paddingLeft: 12}}
+        style={styles.inputLoginPass}
+        value={loginUser}
+        onChangeText={setLoginUser}
+        />
 
-export default function Login({ navigation }){
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+        <TextInputWithLabel
+        name={"Senha"}
+        isPassword={true}
+        value={passwordUser}
+        onChangeText={setPasswordUser}
+        placeholder="Senha"
+        ktype="default"
+        style={styles.inputPass}
+        styleName={{color: "#fafafa", paddingLeft: 12}}
 
-    return(
-        <View style={styles.container}>
+        />
 
-            <TextInputWithLabel
-                name="Email"
-                value={email}
-                ktype="email-address"
-                onChangeText={setEmail}
+      </View>
+      <TouchableOpacity style={styles.buttonEntry} onPress={() => navigation.navigate("Telas")}>
+        <LinearGradient
+        style={[{width: "100%", height: "100%"}, styles.buttonEntry]}
+        start={{x:0,y:0}}
+        end={{x:0.05,y:1.5}}
+        colors={["#004E7D", "#ffb90020"]}
+        >
+          <Text style={styles.textEntry}>Entrar</Text>
+        </LinearGradient>
+      </TouchableOpacity>
 
-            />
+      <View style={{flexDirection: "row"}}>
+        <Text>Esqueceu a senha? </Text>
+        <TouchableOpacity><Text style={{color: "#0066ff"}}>Recuperar Senha</Text></TouchableOpacity>
+      </View>
 
-            <TextInputWithLabel
-                name="Senha"
-                value={password}
-                ktype="default"
-                onChangeText={setPassword}
-                isPassword = {true}
-            />
+      <View style={{flexDirection: "row"}}>
+        <Text>Ou registre-se </Text>
+        <TouchableOpacity onPress={() => navigation.navigate("RegistroUsuario")}>
+          <Text style={{textDecorationLine: "underline"}}>aqui</Text>
+        </TouchableOpacity>
+      </View>
 
-            <TouchableOpacity
-            
-            >
-                <Text>
-                    Entrar
-                </Text>
-            </TouchableOpacity>
-
-
-
-
-        </View>
-
-
-
-
-    )
+    </LinearGradient>
+  );
 }
-
-

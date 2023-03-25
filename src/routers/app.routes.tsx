@@ -11,6 +11,9 @@ import { Catalog } from '../pages/Catalog/index';
 import { BookRegister } from '../pages/BookRegister/index';
 import { ProductPurchase } from '../pages/ProductPurchase/index';
 import { StorePage } from '../pages/StorePage/index';
+import { ShoppingCart } from '../pages/ShoppingCart/index';
+import { Login } from '../pages/Login/index';
+import { UserRegister } from '../pages/UserRegister/index';
 
 import { Feather } from '@expo/vector-icons'
 
@@ -29,18 +32,19 @@ function StackPagesProfile() {
 
 function StackPagesCat() {
   return (
-    <Stack.Navigator initialRouteName="Catalog Options" screenOptions={{headerShown: false}}>
+    <Stack.Navigator initialRouteName="Catalogo" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Catalogo" component={Catalog} />
       <Stack.Screen name="Loja" component={StorePage}/>
       <Stack.Screen name="CompraProduto" component={ProductPurchase}/>
+      <Stack.Screen name="CarrinhoComp" component={ShoppingCart}/>
     </Stack.Navigator>
   );
 }
 
-export default function AppRoutes() {
+function TabInicialPages() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown: false, }}>
+    // <NavigationContainer>
+      <Tab.Navigator screenOptions={{headerShown: false, tabBarActiveBackgroundColor: "#dadadf"}} >
         <Tab.Screen
         name="Home"
         component={StackPagesCat}
@@ -80,6 +84,18 @@ export default function AppRoutes() {
         }}
         />
       </Tab.Navigator>
+    //  </NavigationContainer> 
+  );
+}
+
+export default function AppRoutes() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="PaginaInicial" screenOptions={{headerShown: false}}>
+        <Stack.Screen name="LoginPage" component={Login} />
+        <Stack.Screen name="Telas" component={TabInicialPages}/>
+        <Stack.Screen name="RegistroUsuario" component={UserRegister}/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

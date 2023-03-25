@@ -16,11 +16,11 @@ const styles = StyleSheet.create({
     elementProduct: {
         justifyContent: 'flex-end',
         backgroundColor: themes.colors.inputs.elementToSelect,
-        width: '95%',
-        height: 200,
+        width: '85%',
+        height: 150,
 
-        marginTop: 14,
-        marginBottom: 4,
+        marginTop: 28,
+        marginBottom: 8,
         borderRadius: 15,
         elevation: 5
     },

@@ -1,12 +1,15 @@
-import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import React from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import themes from '../../themes';
 
 export default function Header(){
     return (
         <View style={styles.cabecalho}>
             <View>
-                <Text style={styles.textCabecalho}>KoobI </Text>
+                {/* <Text style={styles.textCabecalho}>KoobI </Text> */}
+                <Image        
+                source={require('../../../assets/Koobi.png')}
+                />
                 
             </View>
         </View>
@@ -25,10 +28,4 @@ const styles = StyleSheet.create({
         backgroundColor: themes.colors.tela.principalHeaderColor
     },
 
-    textCabecalho: {
-      color: themes.colors.texto.colorTextClear,
-      fontStyle: 'italic',
-      fontSize: 30,
-      fontWeight: 'bold'
-    }
 })
