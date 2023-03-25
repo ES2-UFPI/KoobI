@@ -6,6 +6,7 @@ export default async function login(email, password) {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
+      return user.uid
       // ...
     })
     .catch((error) => {

@@ -232,7 +232,8 @@ export function BookRegister({ navigation }){
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.addButton} 
                     onPress={() => {
-                        addBook(book);}}>
+                        //addBook(route.params.userID, book);
+                        }}>
                     <Text style={styles.addButtonText}>
                         Adicionar                        
                     </Text>
