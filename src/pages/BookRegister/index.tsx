@@ -36,7 +36,7 @@ export function BookRegister({ navigation }) {
 
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState("");
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);

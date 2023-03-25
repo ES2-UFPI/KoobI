@@ -4,6 +4,7 @@ import { Masks } from "react-native-mask-input";
 import { LinearGradient } from "expo-linear-gradient";
 
 import TextInputWithLabel from "../../components/TextInputWithLabel";
+import Radio from "../../components/Radio";
 
 import styles from "../UserRegister/styles";
 import themes from "../../themes";
@@ -148,6 +149,19 @@ export function UserRegister({ navigation }) {
                 ktype="numeric"
               />
             </View>
+          </View>
+
+          <View style={{paddingLeft: 8,}}>
+            <Text style={[styles.labelStyle, {fontSize: 18, fontWeight: 'bold', marginBottom: 12}]}>Tipo de usuário</Text>
+
+            <Radio
+              selected={isStore}
+              options={["Pessoa física", "Loja"]}
+              horizontal={true}
+              onChangeSelect={(opt: any) => {
+                setIsStore(opt);
+              }}
+            />
           </View>
 
         </View>
