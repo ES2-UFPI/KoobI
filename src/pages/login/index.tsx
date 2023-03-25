@@ -4,6 +4,8 @@ import TextInputWithLabel from "../../components/TextInputWithLabel";
 
 import styles from  "../Login/styles"
 
+import login from "../../services/login"
+
 export default function Login({ navigation }){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -47,7 +49,6 @@ export default function Login({ navigation }){
     )
 }
 
-import login from "../../services/login"
 /*
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -57,4 +58,7 @@ const LoginScreen = () => {
     console.log(email,password)
     login(email, password)
     }
+
+    onPress={() => {
+    handleLogin(email, password);}
 */
