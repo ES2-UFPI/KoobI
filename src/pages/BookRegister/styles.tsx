@@ -53,20 +53,21 @@ const styles = StyleSheet.create({
         width: Dimensions.get("window").width * 0.85
     },
     genderInput: {
-        width: "100%",
+        width: "40%",
         height: "auto",
         padding: 5,
     },
     languageInput: {
-        width: "100%",
+        width: "50%",
         height: "auto",
         padding: 5, 
     },
     genderArea: {
-        width: "45%"
+        width: "45%",
     },
     languageArea: {
-        width: "45%"
+        width: "45%",
+
     },
     labelText: {
         fontFamily: "Inter_700Bold",
