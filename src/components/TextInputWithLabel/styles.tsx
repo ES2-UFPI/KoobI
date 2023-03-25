@@ -1,3 +1,4 @@
+import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
 import themes from "../../themes";
 
@@ -18,47 +19,54 @@ const styles = StyleSheet.create({
     buttonText: {
       fontFamily: "Inter_700Bold",
       fontSize: 18,
-      // fontWeight: "bold"
     },
-    textInput: {
-      width: '100%',
-      fontSize: 15,
-      fontFamily: "Nunito_400Regular",
-      // fontWeight: "400",
-      padding: 10,
-      marginTop: 5,
-      marginBottom: 10,
-      backgroundColor: "#F6F6F6",
-    },
+    
     textLabelArea: {
       width: '100%',
       justifyContent: 'flex-start',
       paddingLeft: 5,
       marginTop: 5
     },  
+    
     textLabel: {
       fontFamily: "Inter_700Bold",
-      // fontWeight: "700",
       fontSize: 18
     },
+
+    textInput: {
+      width: "100%",
+      height: "100%",
+      borderRadius: 15,
+      fontSize: 16,
+      fontFamily: "Nunito_400Regular",
+      paddingLeft: 5,
+      marginTop: 5,
+      marginBottom: 10,
+      backgroundColor: "#F6F6F6",
+    },
+
+
     inputArea: {
       flexDirection: "row",
       alignItems: "center",
       width: Dimensions.get('window').width * 0.85,
-      backgroundColor: "#F6F6F6",
-      borderRadius: 15,
       height: 50, 
-      padding: 10,     
+
       marginTop: 5,
       marginBottom: 10,
     }, 
+
     icon: {
       width: '15%',
+      height: 50,
+
       justifyContent: "center",
       alignItems: "center",
-      height: 50,
+
+      marginBottom: 5,
       backgroundColor: "#F6F6F6",
-      borderRadius: 15
+      borderBottomRightRadius: 15,
+      borderTopRightRadius: 15
     }  
 });
 

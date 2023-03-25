@@ -11,7 +11,7 @@ interface textInputProps{
     isPassword?: boolean,
     multiline?: boolean,
     style?: {},
-    styleName?:{},
+    styleName?: {},
     value: string,
     onChangeText: Function,
     ktype: "default" | "email-address" | "numeric" | "phone-pad" | "number-pad" | "decimal-pad" | "visible-password" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | undefined,
@@ -28,10 +28,10 @@ export default function TextInputWithLabel({...props}:textInputProps){
                 {props.name}
             </Text>
         </View>
-        <View style={[styles.inputArea, props.style]}>
+        <View style={styles.inputArea}>
             <InputMask
                 multiline = {props.multiline}
-                style = {[styles.textInput, props.style, {width: "100%"}]}
+                style = {[styles.textInput, props.style]}
                 keyboardType = {props.ktype}
                 value = {props.value}
                 secureTextEntry={hidePass && props.isPassword}
