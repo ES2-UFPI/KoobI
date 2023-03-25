@@ -21,7 +21,7 @@ export default {
         texto: {
             colorTextDark: '#252525',
             colorTextClear: '#ececec',
-            labelsText: '#686868'
+            labelsText: '#FAFAFA'
         }
     }
 }

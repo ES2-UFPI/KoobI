@@ -51,7 +51,7 @@ export function Login({ navigation }) {
         placeholder="Senha"
         ktype="default"
         style={styles.inputPass}
-        styleName={{color: "#fafafa", paddingLeft: 8}}
+        styleName={{color: "#fafafa", paddingLeft: 12}}
 
         />
 
@@ -60,8 +60,8 @@ export function Login({ navigation }) {
         <LinearGradient
         style={[{width: "100%", height: "100%"}, styles.buttonEntry]}
         start={{x:0,y:0}}
-        end={{x:0.14,y:1.5}}
-        colors={["#004E7D", "#ffb9007f"]}
+        end={{x:0.05,y:1.5}}
+        colors={["#004E7D", "#ffb90020"]}
         >
           <Text style={styles.textEntry}>Entrar</Text>
         </LinearGradient>
