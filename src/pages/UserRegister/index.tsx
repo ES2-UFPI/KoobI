@@ -165,15 +165,15 @@ export function UserRegister({ navigation }) {
           </View>
 
         </View>
-        <TouchableOpacity style={styles.registerButton}>
-        <LinearGradient
-        style={[{width: "100%", height: "100%"}, styles.registerButton]}
-        start={{x:0,y:0}}
-        end={{x:0.05,y:1.5}}
-        colors={["#004E7D", "#ffb90001"]}
-        >
-          <Text style={styles.textRegister}>Cadastrar</Text>
-        </LinearGradient>  
+        <TouchableOpacity style={styles.registerButton} onPress={() => navigation.goBack()}>
+          <LinearGradient
+          style={[{width: "100%", height: "100%"}, styles.registerButton]}
+          start={{x:0,y:0}}
+          end={{x:0.05,y:1.5}}
+          colors={["#004E7D", "#ffb90001"]}
+          >
+            <Text style={styles.textRegister}>Cadastrar</Text>
+          </LinearGradient>  
         
         </TouchableOpacity>
 
