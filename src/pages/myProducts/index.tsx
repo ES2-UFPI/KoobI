@@ -4,6 +4,9 @@ import BackButton from "../../components/BackButton/index";
 import BookToSell from "../../components/BookToSell";
 import themes from "../../themes"
 
+import listAllBooksByUser from "../../services/listAllBooksByUser";
+
+//listAllBooksByUser(userID);
 
 export function MyProducts({ navigation }) {
   const [views, setViews] = useState([]);
