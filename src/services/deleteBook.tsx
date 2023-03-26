@@ -1,13 +1,13 @@
 import { doc, deleteDoc } from "firebase/firestore";
-import { db } from "./firebaseConfig";
+import { database } from "./firebaseConfig";
 
-export default async function deleteBook(text) {
+export default async function deleteBook(userID, bookID) {
 
-  const bookRef = doc(db, "livros", text);
+  const bookRef = doc(database, userID, bookID);
   
   try{
+    console.warn(bookRef, " => será deletado");
     await deleteDoc(bookRef);
-    console.warn(bookRef, " => foi deletado");
   } catch (e) {
     console.error('Error deleting document: ', e)
   }

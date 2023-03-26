@@ -11,17 +11,6 @@ import themes from "../../themes";
 
 import addNewUser from "../../services/addNewUser";
 
-/*
-const RegisterScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleRegister = () => {
-    console.log(email,password)
-    addNewUser(email, password)
-    }
-*/
-
 export function UserRegister({ navigation }) {
   const [isStore, setIsStore] = useState("");
   const [cpf, setCpf] = useState("");

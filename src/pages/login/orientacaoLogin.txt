@@ -1,0 +1,20 @@
+/*
+import login from "../../services/login"
+
+const LoginScreen = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userID, setUserID] = useState('');
+
+  const handleLogin = () => {
+    console.log(email,password)
+    setUserID(login(email, password));
+    //Esse userID deve ser passado como parâmetro para as páginas seguintes
+    // se não me engano é assim:
+    // export default function Login({ navigation , route })
+    // navigation.navigate("Rota-desejada", { userID: userID })
+    }
+
+    onPress={() => {
+    handleLogin(email, password);}
+*/

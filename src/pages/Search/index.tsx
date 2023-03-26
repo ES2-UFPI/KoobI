@@ -17,7 +17,7 @@ export function SearchPage({ navigation }) {
       const result = await getBook(text);
       setBook(result);
       setError(null);
-      console.log("BOOK = ", book);
+      console.log("BOOKs = \n", result.map((book) => JSON.stringify(book)).join("\n"));
     } catch (e) {
       console.error(e);
       setError("Error searching for book");

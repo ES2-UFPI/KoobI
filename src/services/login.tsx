@@ -1,11 +1,12 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebaseConfig";
 
-async function login(email, password) {
+export default async function login(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
+      return user.uid
       // ...
     })
     .catch((error) => {
@@ -13,5 +14,3 @@ async function login(email, password) {
       const errorMessage = error.message;
     });
 }
-
-export default login;
