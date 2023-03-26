@@ -12,18 +12,16 @@ import themes from "../../themes";
 import styles from "../Search/styles";
 
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../../services/firebaseConfig";
+import { database } from "../../services/firebaseConfig";
 
 export function SearchPage({ navigation }) {
   const [text, setText] = useState("");
-  // const [book, setBook] = useState(null);
-  // const [error, setError] = useState(null);
   const [results, setResults] = useState([]);
 
   
   useEffect(() => {
     async function getLivros(){
-      const livros = collection(db, "livros");
+      const livros = collection(database, "livros");
 
       const queryTitle = query(livros, where("title", "==", text));
       const querySnapshotTitle = await getDocs(queryTitle);

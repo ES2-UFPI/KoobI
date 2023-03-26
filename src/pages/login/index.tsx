@@ -4,20 +4,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import styles from "./styles";
 
-
-import login from "../../services/login"
-/*
-const LoginScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    console.log(email,password)
-    login(email, password)
-    }
-*/
-
-
 export function Login({ navigation }) {
   const [loginUser, setLoginUser] = useState("")
   const [passwordUser, setPasswordUser] = useState("")
