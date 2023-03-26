@@ -40,12 +40,49 @@ const styles = StyleSheet.create({
 
     buttonSearch: {
         height: "auto",
-        backgroundColor: themes.colors.inputs.cancelButton ,
+        backgroundColor: themes.colors.inputs.inputColorBackground,
 
         borderBottomRightRadius: 15,
         borderTopRightRadius: 15,
         padding: 16.7,
         marginTop: 15,
+    },
+
+    blockResultItems: {
+        width: "100%",
+        alignItems: "center",
+        marginBottom: 15
+    },
+
+    resultItems: {
+        backgroundColor: themes.colors.inputs.elementToSelect,
+        width: 360,
+        justifyContent: 'center',
+
+        padding: 15,
+        marginTop: 15,
+
+        borderRadius: 15
+    },
+
+    resultRow: {
+        backgroundColor: themes.colors.inputs.elementToSelect,
+        flexDirection: "row",
+        justifyContent: 'space-between',
+    },
+
+    tituloPrize: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+
+    descript: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 18,
+        marginTop: 10,
+        marginRight: 20,
+        
     }
 })
 
