@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { TextInput, TouchableOpacity, View, Text, StyleSheet, Dimensions, Button } from 'react-native'
+import { TextInput, TouchableOpacity, View, Text } from 'react-native'
+import { Feather } from '@expo/vector-icons';
 import BackButton from '../../components/BackButton'
 import themes from '../../themes';
 import styles from '../Search/styles';
@@ -34,20 +35,19 @@ export function SearchPage({ navigation }) {
                     <BackButton/>
                 </TouchableOpacity>
             </View>
-            <View>
-                <Text style={styles.labelPesquisa}>Pesquisar</Text>
+            <Text style={styles.labelPesquisa}>Pesquisar</Text>
+            <View style={styles.row}>
                 <TextInput
                 placeholder='Digite aqui'
                 style={styles.areaPesquisa}
                 value={text}
                 onChangeText={setText}
                 >
-
                 </TextInput>
-                
-            </View>
-            <View style={styles.row}>
-                <Button title="Pesquisar" onPress={handleSearch} />
+              
+                <TouchableOpacity style={styles.buttonSearch} onPress={handleSearch}>
+                    <Feather name="search" size={24} color="black" />
+                </TouchableOpacity>
             </View>
         </View>
     );
