@@ -102,7 +102,13 @@ const styles = StyleSheet.create({
   footerText: {
     textDecorationLine: "underline",
     color: themes.colors.inputs.addButton,
-  }
+  },
+  imageContainer: {
+    width: 270,
+    height: 250,
+    justifyContent: "center",
+    alignItems: "flex-end"
+},
 
 });
 

@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView, Image, Dimensions } from "react-native";
 import { Masks } from "react-native-mask-input";
 import { LinearGradient } from "expo-linear-gradient";
+import  * as ImagePicker from "expo-image-picker"
 
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import Radio from "../../components/Radio";
+import ImageSelector from "../../components/ImageSelector";
+import ImageViewer from "../../components/ImageViewer";
+
+const placeholderImage = require("../../../assets/background.png");
 
 import styles from "../UserRegister/styles";
 import themes from "../../themes";
@@ -22,6 +27,79 @@ export function UserRegister({ navigation }) {
   const [neighborhood, setNeighborhood] = useState("");
   const [street, setStreet] = useState("");
   const [numbH, setNumbH] = useState("");
+
+  const [selectedImage, setSelectedImage] = useState(null)
+
+  async function getCameraPermissionsAsync() {
+    const { status } = await ImagePicker.requestCameraPermissionsAsync();
+
+    if (status !== "granted") {
+      alert("Você precisa conceder permissão para acessar a câmera");
+      return false;
+    }
+    return true;
+  }
+
+  async function getLibraryPermissionsAsync() {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (status !== "granted") {
+      alert("Você precisa conceder permissão para acessar a galeria");
+      return false;
+    }
+    return true;
+  }
+
+  async function takeImageAsync() {
+    try{
+
+      const hasPermission = await getCameraPermissionsAsync();
+      
+      if (!hasPermission) {
+        return;
+      }
+      
+      let result = await ImagePicker.launchCameraAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [3, 4],
+        quality: 1,
+      });
+      
+      if (!result.canceled) {
+        setSelectedImage(result.assets[0].uri);
+      } else {
+        alert("Você não capturou nenhuma imagem");
+      }
+    }catch(e){
+      console.log(e);
+    }  
+}
+
+ async function pickImageAsync() {
+  try{
+    const hasPermission = await getLibraryPermissionsAsync();
+    
+    if (!hasPermission) {
+      return;
+    }
+    
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [3, 4],
+      quality: 1,
+    });
+    
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+    } else {
+      alert("Você não selecionou nenhuma imagem");
+    }
+  }catch(e){
+    console.log(e);
+  }    
+};
 
   const user = {
     cpf,
@@ -54,6 +132,21 @@ export function UserRegister({ navigation }) {
         />
         <Text style={styles.tittleUserReg}>Crie sua conta</Text>
         <View>
+          <View style={styles.imageContainer}>
+            <ImageViewer
+              placeholderImageSource={placeholderImage}
+              selectedImage={selectedImage}
+            />
+          </View>
+
+          <ImageSelector
+            OnClickCamera={takeImageAsync}
+            OnClickGallery={pickImageAsync}
+            style={styles.labelStyle}
+          />
+
+
+
           <TextInputWithLabel
             styleName={styles.labelStyle}
             style={styles.inputTextStyle}
