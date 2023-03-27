@@ -24,8 +24,9 @@ const placeholderImage = require("../../../assets/background.png");
 
 import addBook from "../../services/addBook";
 import { useContext } from 'react';
+import { UserContext } from "../../context/token";
 
-export function BookRegister({ navigation , route }) {
+export function BookRegister({ navigation }) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [gender, setGender] = useState("");
@@ -39,7 +40,7 @@ export function BookRegister({ navigation , route }) {
 
   const [selected, setSelected] = useState("");
 
-  const { userID } = route.parms;
+  const { user } = useContext(UserContext);
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -232,7 +233,7 @@ export function BookRegister({ navigation , route }) {
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => {
-            addBook(userID, book);
+            addBook(user.uid, book);
             }}
           >
             <Text style={styles.addButtonText}>Adicionar</Text>

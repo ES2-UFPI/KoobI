@@ -33,22 +33,26 @@ export function UserRegister({ navigation, route }) {
   const [numbH, setNumbH] = useState("");
 
   const userData = {
-    cpf: cpf,
-    name: name,
-    passWord: passWord,
-    email: email,
-    state: state,
-    city: city,
-    neighborhood: neighborhood,
-    street: street,
-    numbH: numbH,
-    isStore: isStore,
+    cpf,
+    name,
+    password: passWord,
+    email,
+    adress: {
+      state: state,
+      city: city,
+      neighborhood: neighborhood,
+      street: street,
+      number: numbH,
+    },
+    livros: [],
+    shopCart: [],
+    isStore,
   };
 
   const registerFirebase = () => {
     createUserWithEmailAndPassword(auth, email, passWord)
       .then(async (userCredential) => {
-        // Signed in
+        // Sicgned in
         const user = userCredential.user;
         console.log(user.uid);
         userData["userID"] = user.uid;
