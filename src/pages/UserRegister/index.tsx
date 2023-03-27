@@ -23,6 +23,23 @@ export function UserRegister({ navigation }) {
   const [street, setStreet] = useState("");
   const [numbH, setNumbH] = useState("");
 
+  const user = {
+    cpf,
+    name,
+    password: passWord,
+    email,
+    adress: {
+      state: state,
+      city: city,
+      neighborhood: neighborhood,
+      street: street,
+      number: numbH,
+    },
+    livros: [],
+    shopCart: [],
+    isStore,
+  };
+
   return (
     <ScrollView>
       <LinearGradient
@@ -154,7 +171,11 @@ export function UserRegister({ navigation }) {
           </View>
 
         </View>
-        <TouchableOpacity style={styles.registerButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+        style={styles.registerButton}
+        onPress={() => {
+          navigation.goBack();
+          }}>
           <LinearGradient
           style={[{width: "100%", height: "100%"}, styles.registerButton]}
           start={{x:0,y:0}}
