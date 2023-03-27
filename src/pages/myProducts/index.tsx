@@ -1,8 +1,11 @@
-import React, { useState, useRef } from "react";
-import { Text, View, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, View, TouchableOpacity, FlatList} from "react-native";
 import BackButton from "../../components/BackButton/index";
 import BookToSell from "../../components/BookToSell";
 import themes from "../../themes"
+import styles from "./styles";
+import { collection, getDocs, query } from "firebase/firestore"
+import { database } from "../../services/firebaseConfig";
 
 import listAllBooksByUser from "../../services/listAllBooksByUser";
 
@@ -10,7 +13,23 @@ import listAllBooksByUser from "../../services/listAllBooksByUser";
 
 export function MyProducts({ navigation }) {
   const [views, setViews] = useState([]);
-  const scrollViewRef = useRef(null);
+
+  useEffect(() => {
+    async function getLivros(){
+      const livros = collection(database, "livros");
+
+      const queryTitle = query(livros);
+      const querySnapshotTitle = await getDocs(queryTitle);
+      const list = [];
+      querySnapshotTitle.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        // console.log(doc.id, " => ", doc.data());
+        list.push({ ...doc.data(), id: doc.id});
+      });
+      setViews(list);
+    }
+    getLivros();
+  }, []);
 
   return (
     <View
@@ -26,58 +45,34 @@ export function MyProducts({ navigation }) {
           <BackButton/>
         </TouchableOpacity>
       </View>
-      <ScrollView
-        contentContainerStyle={styles.contentContainer}
-        ref={scrollViewRef}
-        style={{ width: "100%" }}
-        onContentSizeChange={() =>
-          scrollViewRef?.current?.scrollToEnd({ animated: true })
-        }
+      
+      <FlatList
+      data={views}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => {
+        return (
+          <View style={styles.resultItems}>
+            <View style={styles.resultRow}>
+              <Text style={styles.tituloPrize}>{item.title}</Text>
+              <Text style={styles.tituloPrize}>{item.prize}</Text>
+            </View>
+
+            <Text style={styles.descript}>{item.description}</Text>
+          </View>
+        );
+      }}
+      />
+
+      <TouchableOpacity
+        style={styles.addLivro}
+        onPress={() => navigation.navigate('BookRegister')}
       >
-        <View>{views}</View>
-        <TouchableOpacity
-          style={styles.addLivro}
-          onPress={() => navigation.navigate('BookRegister')}
-        >
-          <Text style={styles.textAdd}>Adicionar Livro</Text>
-        </TouchableOpacity>
-      </ScrollView>
+        <Text style={styles.textAdd}>Adicionar Livro</Text>
+      </TouchableOpacity>
+    
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  headerBox: {
-    backgroundColor: themes.colors.tela.principalHeaderColor,
-    justifyContent: "flex-start",
-    width: "100%",
-  },
 
-  addLivro: {
-    width: 250,
-    height: 60,
-
-    margin: 20,
-    padding: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    borderRadius: 15,
-    elevation: 2,
-    backgroundColor: themes.colors.inputs.addButtonsColor,
-
-    position: 'relative',
-  },
-
-  contentContainer: {
-      justifyContent: 'center',
-      alignItems: "center",
-  },
-
-  textAdd: {
-    fontSize: 18,
-    color: themes.colors.texto.colorTextClear,
-    fontWeight: "bold",
-  },
-});
 

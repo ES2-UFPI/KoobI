@@ -18,9 +18,8 @@ export function SearchPage({ navigation }) {
   const [text, setText] = useState("");
   const [results, setResults] = useState([]);
 
-  
   useEffect(() => {
-    async function getLivros(){
+    async function getLivros() {
       const livros = collection(database, "livros");
 
       const queryTitle = query(livros, where("title", "==", text));
@@ -28,8 +27,8 @@ export function SearchPage({ navigation }) {
       const list = [];
       querySnapshotTitle.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        list.push({ ...doc.data(), id: doc.id});
-        console.log(doc.id, " => ", doc.data());
+        // console.log(doc.id, " => ", doc.data());
+        list.push({ ...doc.data(), id: doc.id });
       });
       setResults(list);
     }
@@ -48,7 +47,9 @@ export function SearchPage({ navigation }) {
           <BackButton />
         </TouchableOpacity>
       </View>
+
       <Text style={styles.labelPesquisa}>Pesquisar</Text>
+
       <View style={styles.row}>
         <TextInput
           placeholder="Digite aqui"
@@ -73,7 +74,7 @@ export function SearchPage({ navigation }) {
                 <Text style={styles.tituloPrize}>{item.title}</Text>
                 <Text style={styles.tituloPrize}>{item.prize}</Text>
               </View>
-              
+
               <Text style={styles.descript}>{item.description}</Text>
             </View>
           );
