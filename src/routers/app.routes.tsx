@@ -93,7 +93,7 @@ export default function AppRoutes() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="PaginaInicial" screenOptions={{headerShown: false}}>
         <Stack.Screen name="LoginPage" component={Login} />
-        <Stack.Screen name="Telas" component={StackPagesProfile}/>
+        <Stack.Screen name="Telas" component={TabInicialPages}/>
         <Stack.Screen name="RegistroUsuario" component={UserRegister}/>
       </Stack.Navigator>
     </NavigationContainer>
