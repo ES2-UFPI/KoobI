@@ -12,6 +12,8 @@ export function EditProduct({ navigation, route }) {
     contentContainerStyle={styles.container}
     >
       <View>
+        <Text>{idTask}</Text>
+        <Text>{descriptionEdit}</Text>
       </View>
 
     </ScrollView>
