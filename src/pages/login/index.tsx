@@ -11,16 +11,14 @@ import { UserContext } from "../../context/token";
 export function Login({ navigation }) {
   const [loginUser, setLoginUser] = useState("");
   const [passwordUser, setPasswordUser] = useState("");
-  //const { setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const loginFirebase = () => {
     signInWithEmailAndPassword(auth, loginUser, passwordUser)
       .then((userCredential) => {
-        const user = userCredential.user
-        //setUser(user);
+        setUser(userCredential.user);
         navigation.navigate("Telas", {
           screen: "Profile",
-          params: { userID: user.uid }
         });
       })
       .catch((error) => {

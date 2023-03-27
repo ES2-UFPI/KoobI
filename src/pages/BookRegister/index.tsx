@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Modal,
   View,
@@ -19,14 +19,15 @@ import styles from "../BookRegister/styles";
 import { Masks } from "react-native-mask-input";
 
 import { format } from "date-fns";
+import addBook from "../../services/addBook";
+import { UserContext } from "../../context/token";
+
 
 const placeholderImage = require("../../../assets/background.png");
 
-import addBook from "../../services/addBook";
-import { useContext } from 'react';
-import { UserContext } from "../../context/token";
 
 export function BookRegister({ navigation }) {
+
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [gender, setGender] = useState("");
@@ -233,7 +234,7 @@ export function BookRegister({ navigation }) {
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => {
-            addBook(user.uid, book);
+              addBook(user.uid, book);
             }}
           >
             <Text style={styles.addButtonText}>Adicionar</Text>

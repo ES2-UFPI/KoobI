@@ -8,7 +8,9 @@ const styles = StyleSheet.create({
 
     labelPesquisa: {
         fontSize: 20,
-        // height: 100,
+        fontFamily: "Nunito_400Regular",
+        fontWeight: 'bold',
+        color: themes.colors.texto.colorTextDark,
 
         marginLeft: 20,
         marginRight: 20,
@@ -16,34 +18,71 @@ const styles = StyleSheet.create({
     },
 
     areaPesquisa: {
-        margin: 15,
+        backgroundColor: themes.colors.inputs.inputColorBackground,
+        width: "80%",
+
+        marginTop: 15,
         padding: 15,
-        borderRadius: 15,
-        backgroundColor: themes.colors.inputs.inputColorBackground
+
+        fontSize: 18,
+
+        borderBottomLeftRadius: 15,
+        borderTopLeftRadius: 15,
     },
-    addButton: {
-        flex: 2,
-        backgroundColor: "#2E4756",
-        borderRadius: 12,
-        alignItems: "center",
-        justifyContent: "center",
-        height: 52,
-        width: "35%",
-        padding: 10,
-        marginTop: 30,
-        marginLeft: 15
-    },
-    addButtonText: {
-        fontFamily: 'Inter_700Bold',
-        fontWeight: "bold",
-        color: "#F6F6F6",
-        fontSize: 18
-    },
+    
     row: {
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-between",
+        marginLeft: "auto",
+        marginRight: "auto",
         width: Dimensions.get("window").width * 0.85
+    },
+
+    buttonSearch: {
+        height: "auto",
+        backgroundColor: themes.colors.inputs.inputColorBackground,
+
+        borderBottomRightRadius: 15,
+        borderTopRightRadius: 15,
+        padding: 16.7,
+        marginTop: 15,
+    },
+
+    blockResultItems: {
+        width: "100%",
+        alignItems: "center",
+        marginBottom: 15
+    },
+
+    resultItems: {
+        backgroundColor: themes.colors.inputs.elementToSelect,
+        width: 360,
+        justifyContent: 'center',
+
+        padding: 15,
+        marginTop: 15,
+
+        borderRadius: 15
+    },
+
+    resultRow: {
+        backgroundColor: themes.colors.inputs.elementToSelect,
+        flexDirection: "row",
+        justifyContent: 'space-between',
+    },
+
+    tituloPrize: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+
+    descript: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 18,
+        marginTop: 10,
+        marginRight: 20,
+        
     }
 })
 
