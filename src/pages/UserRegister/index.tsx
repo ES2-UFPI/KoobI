@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, ScrollView, Image, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+  Dimensions,
+} from "react-native";
 import { Masks } from "react-native-mask-input";
 import { LinearGradient } from "expo-linear-gradient";
 import  * as ImagePicker from "expo-image-picker"
@@ -14,9 +21,11 @@ const placeholderImage = require("../../../assets/background.png");
 import styles from "../UserRegister/styles";
 import themes from "../../themes";
 
-import addNewUser from "../../services/addNewUser";
+import { createUserWithEmailAndPassword, deleteUser } from "firebase/auth";
+import { auth, database } from "../../services/firebaseConfig";
+import { collection, doc, setDoc } from "firebase/firestore";
 
-export function UserRegister({ navigation }) {
+export function UserRegister({ navigation, route }) {
   const [isStore, setIsStore] = useState("");
   const [cpf, setCpf] = useState("");
   const [name, setName] = useState("");
@@ -28,6 +37,23 @@ export function UserRegister({ navigation }) {
   const [street, setStreet] = useState("");
   const [numbH, setNumbH] = useState("");
 
+  const userData = {
+      cpf,
+    name,
+    password: passWord,
+    email,
+    adress: {
+      state: state,
+      city: city,
+      neighborhood: neighborhood,
+      street: street,
+      number: numbH,
+    },
+    livros: [],
+    shopCart: [],
+    isStore,
+  };
+  
   const [selectedImage, setSelectedImage] = useState(null)
 
   async function getCameraPermissionsAsync() {
@@ -101,21 +127,42 @@ export function UserRegister({ navigation }) {
   }    
 };
 
-  const user = {
-    cpf,
-    name,
-    password: passWord,
-    email,
-    adress: {
-      state: state,
-      city: city,
-      neighborhood: neighborhood,
-      street: street,
-      number: numbH,
-    },
-    livros: [],
-    shopCart: [],
-    isStore,
+
+  const registerFirebase = () => {
+    createUserWithEmailAndPassword(auth, email, passWord)
+      .then(async (userCredential) => {
+        // Sicgned in
+        const user = userCredential.user;
+        console.log(user.uid);
+        userData["userID"] = user.uid;
+
+        try {
+          console.log(userData);
+          const docRef = await setDoc(
+            doc(database, "Users", user.uid),
+            userData
+          );
+          console.warn("Document written with ID: ", user.uid);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+          deleteUser(user)
+            .then(() => {
+              // User deleted.
+            })
+            .catch((error) => {
+              // An error ocurred
+              // ...
+            });
+        }
+
+        navigation.navigate("Telas");
+        // ...
+
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   };
 
   return (
@@ -186,11 +233,10 @@ export function UserRegister({ navigation }) {
             onChangeText={setEmail}
             placeholder="fulano@email.com"
             ktype="default"
-            
           />
 
           <View style={styles.rowView}>
-            <View style={{width: "30%"}}>
+            <View style={{ width: "30%" }}>
               <TextInputWithLabel
                 styleName={styles.labelStyle}
                 style={styles.inputState}
@@ -201,7 +247,7 @@ export function UserRegister({ navigation }) {
                 ktype="default"
               />
             </View>
-            <View style={{ width: "70%"}}>
+            <View style={{ width: "70%" }}>
               <TextInputWithLabel
                 styleName={styles.labelStyle}
                 style={styles.inputCity}
@@ -212,7 +258,6 @@ export function UserRegister({ navigation }) {
                 ktype="default"
               />
             </View>
-
           </View>
 
           <TextInputWithLabel
@@ -226,7 +271,7 @@ export function UserRegister({ navigation }) {
           />
 
           <View style={styles.rowView}>
-            <View style={{ width: "65%"}}>
+            <View style={{ width: "65%" }}>
               <TextInputWithLabel
                 styleName={styles.labelStyle}
                 style={styles.inputStreet}
@@ -237,7 +282,7 @@ export function UserRegister({ navigation }) {
                 ktype="default"
               />
             </View>
-            <View style={{ width: "35%"}}>
+            <View style={{ width: "35%" }}>
               <TextInputWithLabel
                 styleName={styles.labelStyle}
                 style={styles.inputNumbH}
@@ -250,8 +295,15 @@ export function UserRegister({ navigation }) {
             </View>
           </View>
 
-          <View style={{paddingLeft: 8,}}>
-            <Text style={[styles.labelStyle, {fontSize: 18, fontWeight: 'bold', marginBottom: 12}]}>Tipo de usuário</Text>
+          <View style={{ paddingLeft: 8 }}>
+            <Text
+              style={[
+                styles.labelStyle,
+                { fontSize: 18, fontWeight: "bold", marginBottom: 12 },
+              ]}
+            >
+              Tipo de usuário
+            </Text>
 
             <Radio
               selected={isStore}
@@ -262,33 +314,27 @@ export function UserRegister({ navigation }) {
               }}
             />
           </View>
-
         </View>
         <TouchableOpacity
-        style={styles.registerButton}
-        onPress={() => {
-          navigation.goBack();
-          }}>
+          style={styles.registerButton}
+          onPress={registerFirebase}
+        >
           <LinearGradient
-          style={[{width: "100%", height: "100%"}, styles.registerButton]}
-          start={{x:0,y:0}}
-          end={{x:0.05,y:1.5}}
-          colors={["#004E7D", "#ffb90001"]}
+            style={[{ width: "100%", height: "100%" }, styles.registerButton]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0.05, y: 1.5 }}
+            colors={["#004E7D", "#ffb90001"]}
           >
             <Text style={styles.textRegister}>Cadastrar</Text>
-          </LinearGradient>  
-        
+          </LinearGradient>
         </TouchableOpacity>
 
         <View style={styles.footer}>
           <Text>Já tem uma conta? </Text>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={styles.footerText}>
-              Clique aqui
-            </Text>
+            <Text style={styles.footerText}>Clique aqui</Text>
           </TouchableOpacity>
         </View>
-
       </LinearGradient>
     </ScrollView>
   );

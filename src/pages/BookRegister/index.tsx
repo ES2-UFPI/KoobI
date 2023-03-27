@@ -27,7 +27,6 @@ const placeholderImage = require("../../../assets/background.png");
 
 
 export function BookRegister({ navigation }) {
-  const { user } = useContext(UserContext);
 
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -41,6 +40,8 @@ export function BookRegister({ navigation }) {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const [selected, setSelected] = useState("");
+
+  const { user } = useContext(UserContext);
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
