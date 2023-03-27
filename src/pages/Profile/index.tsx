@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons';
 
 import BackButton from '../../components/BackButton';
 import themes from '../../themes';
 import styles from './styles'
+import { UserContext } from '../../context/token';
 
 
-export function Profile({ navigation, route }) {
+export function Profile({ navigation }) {
 
-    const { userID } = route.parms;
-    
+    const { user } = useContext(UserContext);
+
     return (
         <ScrollView contentContainerStyle={{ backgroundColor: themes.colors.tela.primaryBackground, height: '120%' }}>
             <View style={styles.boxHeadProfile}>
@@ -31,10 +32,8 @@ export function Profile({ navigation, route }) {
                 <TouchableOpacity
                 style={styles.line}
                 onPress={() => {
-
-                    console.warn(userID);
-                    navigation.navigate('Produtos', { userID: userID })
-                
+                    console.warn(user.uid);
+                    navigation.navigate('Produtos')
                 }}
                 >
                     <Image
