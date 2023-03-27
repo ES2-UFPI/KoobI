@@ -229,7 +229,7 @@ export function BookRegister({ navigation }) {
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => {
-              addBook(book);
+              addBook(1,book);
             }}
           >
             <Text style={styles.addButtonText}>Adicionar</Text>

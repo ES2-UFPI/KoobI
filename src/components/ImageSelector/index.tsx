@@ -5,13 +5,14 @@ import styles from "./styles"
 interface ImageSelectorProps {
     OnClickCamera?: TouchableOpacityProps["onPress"],
     OnClickGallery?: TouchableOpacityProps["onPress"]
+    style?: {}
 }
 
 export default function ImageSelector({...props}: ImageSelectorProps){
     return(
         <View>
             <View style={styles.textLabelArea}>
-                <Text style={styles.textLabel}>
+                <Text style={[styles.textLabel, props.style]}>
                     Adicione uma foto
                 </Text>
             </View>
