@@ -21,16 +21,16 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     innerCircle: {
-        width: 10,
-        height: 10,
-        borderRadius: 5,
+        width: 12,
+        height: 12,
+        borderRadius: 6,
         backgroundColor: "#000000"
     },
     optText: {
         marginLeft: 7,
         marginRight: 15,
         fontSize: 14,
-        fontFamily: "Inter_700Bold"
+        fontFamily: "Inter_700Bold",
     }
 })
 

@@ -1,12 +1,11 @@
-import React from "react";
 import { StyleSheet , Dimensions} from 'react-native';
-import { useFonts, Inter_700Bold, Inter_400Regular } from "@expo-google-fonts/inter";
+import themes from "../../themes";
 
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FFFDEA",
+        backgroundColor: themes.colors.tela.primaryBackground,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -54,14 +53,21 @@ const styles = StyleSheet.create({
         width: Dimensions.get("window").width * 0.85
     },
     genderInput: {
-        width: 155,
+        width: "40%",
         height: "auto",
-        padding: 10
+        padding: 5,
     },
     languageInput: {
-        width: 155,
+        width: "50%",
         height: "auto",
-        padding: 10, 
+        padding: 5, 
+    },
+    genderArea: {
+        width: "45%",
+    },
+    languageArea: {
+        width: "45%",
+
     },
     labelText: {
         fontFamily: "Inter_700Bold",
@@ -82,7 +88,13 @@ const styles = StyleSheet.create({
         fontFamily: "Inter_400Regular",
         fontSize: 12,
         padding: 10
-    }
+    },
+    imageContainer: {
+        width: 250,
+        height: 250,
+        justifyContent: "center",
+        alignItems: "center"
+    },  
 })
 
 export default styles
