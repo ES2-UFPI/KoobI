@@ -5,10 +5,10 @@ import { database } from "./firebaseConfig";
 
 
 export default async function addBook(userID ,book) {
-  const { user } = React.useContext(UserContext);
+  //const { user } = React.useContext(UserContext);
   try {
     console.log(book);
-    const docRef = await addDoc(collection(database, user.uid), book);
+    const docRef = await addDoc(collection(database, userID), book);
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);

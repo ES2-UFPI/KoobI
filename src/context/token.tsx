@@ -17,5 +17,3 @@ const UserProvider = (props: TokenProviterProps) => {
 };
 
 export default UserProvider;
-
-export default UserProvider;
