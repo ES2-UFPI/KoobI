@@ -235,6 +235,7 @@ export function BookRegister({ navigation }) {
             style={styles.addButton}
             onPress={() => {
               addBook(user.uid, book);
+              navigation.goBack();
             }}
           >
             <Text style={styles.addButtonText}>Adicionar</Text>
