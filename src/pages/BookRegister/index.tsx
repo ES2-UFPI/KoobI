@@ -21,13 +21,12 @@ import { Masks } from "react-native-mask-input";
 import { format } from "date-fns";
 import addBook from "../../services/addBook";
 import { UserContext } from "../../context/token";
-
+import { ref, uploadBytes } from "firebase/storage";
+import { storage } from "../../services/firebaseConfig";
 
 const placeholderImage = require("../../../assets/background.png");
 
-
 export function BookRegister({ navigation }) {
-
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [gender, setGender] = useState("");
@@ -117,6 +116,22 @@ export function BookRegister({ navigation }) {
       alert("Você não selecionou nenhuma imagem");
     }
   }
+
+  const handleUpload = async () => {
+    // Converte a URI da imagem selecionada em um Blob
+    const response = await fetch(selectedImage);
+    const blob = await response.blob();
+
+    // Cria uma referência para o local onde você deseja armazenar a imagem no Firebase Storage
+    const storageRef = ref(storage, 'users/' + user.uid + '/imagem.jpg' );
+
+    // Envia o arquivo Blob para o Firebase Storage
+    uploadBytes(storageRef, blob).then((snapshot) => {
+      console.log('Upload concluído com sucesso');
+    }).catch((error) => {
+      console.error(error);
+    });
+  };
 
   // ESTRUTURA DO LIVRO NO BD
   const book = {
@@ -234,6 +249,7 @@ export function BookRegister({ navigation }) {
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => {
+              handleUpload()
               addBook(user.uid, book);
             }}
           >

@@ -1,11 +1,8 @@
 import { collection, addDoc } from "firebase/firestore";
-import React from "react";
-import { UserContext } from "../context/token";
 import { database } from "./firebaseConfig";
 
 
 export default async function addBook(userID ,book) {
-  //const { user } = React.useContext(UserContext);
   try {
     console.log(book);
     const docRef = await addDoc(collection(database, userID), book);
