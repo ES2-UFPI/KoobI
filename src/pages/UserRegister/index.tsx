@@ -9,9 +9,10 @@ import Radio from "../../components/Radio";
 import styles from "../UserRegister/styles";
 import themes from "../../themes";
 
-import addNewUser from "../../services/addNewUser";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../services/firebaseConfig";
 
-export function UserRegister({ navigation }) {
+export function UserRegister({ navigation , route }) {
   const [isStore, setIsStore] = useState("");
   const [cpf, setCpf] = useState("");
   const [name, setName] = useState("");
@@ -22,6 +23,22 @@ export function UserRegister({ navigation }) {
   const [neighborhood, setNeighborhood] = useState("");
   const [street, setStreet] = useState("");
   const [numbH, setNumbH] = useState("");
+
+  const registerFirebase = () => {
+    createUserWithEmailAndPassword(auth, email, passWord)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log(user.uid)
+      navigation.navigate("Telas")
+     // navigation.goBack()
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+  }
 
   return (
     <ScrollView>
@@ -154,7 +171,7 @@ export function UserRegister({ navigation }) {
           </View>
 
         </View>
-        <TouchableOpacity style={styles.registerButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity style={styles.registerButton} onPress={registerFirebase}>
           <LinearGradient
           style={[{width: "100%", height: "100%"}, styles.registerButton]}
           start={{x:0,y:0}}

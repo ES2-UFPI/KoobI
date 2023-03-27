@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity } from 'rea
 import Header from '../../components/Header'
 import styles from './styles'
 
-export function Catalog( {navigation} ) {
+export function Catalog( { navigation } ) {
     const views = [
         <TouchableOpacity key="view1" style={styles.elementProduct} onPress={() => navigation.navigate('Loja')}>
             <Image

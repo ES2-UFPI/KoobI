@@ -23,8 +23,9 @@ import { format } from "date-fns";
 const placeholderImage = require("../../../assets/background.png");
 
 import addBook from "../../services/addBook";
+import { useContext } from 'react';
 
-export function BookRegister({ navigation }) {
+export function BookRegister({ navigation , route }) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [gender, setGender] = useState("");
@@ -37,6 +38,8 @@ export function BookRegister({ navigation }) {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const [selected, setSelected] = useState("");
+
+  const { userID } = route.parms;
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -229,7 +232,7 @@ export function BookRegister({ navigation }) {
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => {
-              addBook(book);
+            addBook(userID, book);
             }}
           >
             <Text style={styles.addButtonText}>Adicionar</Text>

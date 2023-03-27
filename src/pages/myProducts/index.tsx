@@ -8,9 +8,10 @@ import listAllBooksByUser from "../../services/listAllBooksByUser";
 
 //listAllBooksByUser(userID);
 
-export function MyProducts({ navigation }) {
+export function MyProducts({ navigation , route }) {
   const [views, setViews] = useState([]);
   const scrollViewRef = useRef(null);
+  const { userID } = route.parms;
 
   return (
     <View
@@ -37,7 +38,7 @@ export function MyProducts({ navigation }) {
         <View>{views}</View>
         <TouchableOpacity
           style={styles.addLivro}
-          onPress={() => navigation.navigate('BookRegister')}
+          onPress={() => navigation.navigate('BookRegister', { userID: userID })}
         >
           <Text style={styles.textAdd}>Adicionar Livro</Text>
         </TouchableOpacity>

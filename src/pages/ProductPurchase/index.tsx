@@ -41,7 +41,7 @@ const OnBoardingItem = ( {item} ) => {
     )
 }
 
-export function ProductPurchase( {navigation} ){
+export function ProductPurchase( { navigation } ){
     const [activeIndex, setActiveIndex] = useState(0)
 
     return (

@@ -1,12 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, Image, Text, TouchableOpacity} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import styles from "./styles";
 
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../services/firebaseConfig";
+
 export function Login({ navigation }) {
   const [loginUser, setLoginUser] = useState("")
   const [passwordUser, setPasswordUser] = useState("")
+
+  
+  const loginFirebase = () => {
+    signInWithEmailAndPassword(auth, loginUser, passwordUser)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log(user.uid)
+      navigation.navigate("Telas",{ 
+        screen: 'Profile',
+        params: { userID: user.uid },
+      })
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+  }
 
   return (
     <LinearGradient 
@@ -42,7 +64,7 @@ export function Login({ navigation }) {
         />
 
       </View>
-      <TouchableOpacity style={styles.buttonEntry} onPress={() => navigation.navigate("Telas")}>
+      <TouchableOpacity style={styles.buttonEntry} onPress={loginFirebase}>
         <LinearGradient
         style={[{width: "100%", height: "100%"}, styles.buttonEntry]}
         start={{x:0,y:0}}

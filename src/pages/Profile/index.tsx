@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity, ScrollView} from 'react-native'
+import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons';
 
 import BackButton from '../../components/BackButton';
@@ -7,7 +7,10 @@ import themes from '../../themes';
 import styles from './styles'
 
 
-export function Profile({ navigation }) {
+export function Profile({ navigation, route }) {
+
+    const { userID } = route.parms;
+    
     return (
         <ScrollView contentContainerStyle={{ backgroundColor: themes.colors.tela.primaryBackground, height: '120%' }}>
             <View style={styles.boxHeadProfile}>
@@ -27,7 +30,12 @@ export function Profile({ navigation }) {
                 
                 <TouchableOpacity
                 style={styles.line}
-                onPress={() => navigation.navigate('Produtos')}
+                onPress={() => {
+
+                    console.warn(userID);
+                    navigation.navigate('Produtos', { userID: userID })
+                
+                }}
                 >
                     <Image
                     source={require('../../../assets/prod.png')}
