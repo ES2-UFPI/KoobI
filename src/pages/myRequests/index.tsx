@@ -7,7 +7,7 @@ export function MyRequests() {
         <View style={{
             flex: 1,
             alignItems: 'center',
-            justifyContent: 'center',git
+            justifyContent: 'center',
             backgroundColor: themes.colors.tela.primaryBackground
         }}>
             <Text>Pedidos</Text>
