@@ -166,7 +166,7 @@ export function EditProfile({ navigation, route }) {
             style={styles.addButton}
             onPress={() => {
               updateUser(user.uid, name, passWord, email, state, city, neighborhood, street, numbH);
-              navigation.navigate("Perfil");
+              navigation.navigate("LoginPage");
             }}
           >
             <Text style={styles.addButtonText}>Salvar</Text>
