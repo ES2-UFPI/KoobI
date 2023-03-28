@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
 
     textValor: {
         color: themes.colors.texto.colorTextDark,
+
         fontWeight: 'bold',
         fontSize: 20
     },

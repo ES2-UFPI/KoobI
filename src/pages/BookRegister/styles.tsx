@@ -94,7 +94,16 @@ const styles = StyleSheet.create({
         height: 250,
         justifyContent: "center",
         alignItems: "center"
-    },  
+    },
+    inputDescription: {
+        height: "auto",
+        marginTop: 20,
+        maxHeight: 100,
+        minHeight: 60,
+        padding: 10,
+        justifyContent: 'flex-start',
+        textAlign: 'left',
+    }
 })
 
 export default styles
