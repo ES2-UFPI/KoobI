@@ -16,7 +16,7 @@ import addItemToCart from "../../services/addItemToCart";
 import { doc, getDoc } from "firebase/firestore";
 import { database } from "../../services/firebaseConfig";
 
-const { users } = React.useContext(UserContext)
+const { user } = React.useContext(UserContext)
 
 const images = [
   {
@@ -58,7 +58,7 @@ export function ProductPurchase({ navigation }) {
   if (bookDoc.exists()) {
     const bookData = bookDoc.data();
 
-    addItemToCart('id-do-usuario', bookData)
+    addItemToCart(user.uid, bookData)
       .then(() => setAdicionado(true))
       .catch((error) => console.error(error));
   };
