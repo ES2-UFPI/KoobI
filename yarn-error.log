@@ -1,5 +1,6 @@
-Arguments: 
+
   C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js install --check-files
+
 
 PATH: 
   C:\Users\davij\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\davij\bin;C:\Python310\Scripts;C:\Python310;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk-11.0.15\bin;C:\Program Files\Java\jdk-11.0.15;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Git\cmd;C:\Users\davij\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\davij\AppData\Local\Programs\Python\Python39;C:\Users\davij\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\davij\AppData\Local\Microsoft\WindowsApps;C:\Users\davij\AppData\Roaming\npm;C:\Program Files\Java\jdk-11.0.15\bin;C:\Program Files\Java\jdk-11.0.15;C:\Users\davij\AppData\Roaming\cabal\bin;C:\tools\ghc-9.2.3\bin;C:\Users\davij\AppData\Local\Yarn\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl

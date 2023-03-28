@@ -27,6 +27,7 @@ export function Catalog( { navigation } ) {
             </View>
         </TouchableOpacity>,
 
+
     ];
 
     return (
