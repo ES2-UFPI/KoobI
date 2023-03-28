@@ -227,7 +227,7 @@ export function BookRegister({ navigation }) {
           onChangeText={setDescription}
           ktype="default"
           multiline={true}
-          style={{ height: "auto" }}
+          style={styles.inputDescription}
         />
 
         <TextInputWithLabel
