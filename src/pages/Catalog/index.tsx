@@ -76,15 +76,11 @@ export function Catalog({ navigation }) {
   const [views, setViews] = useState([]);
 
   useEffect(() => {
-    async function getLivros() {
+    async function getUsers() {
       try {
         // console.log(user.uid);
         const userRef = collection(database, "Users");
-        const q = query(
-          userRef,
-          where("userID", "!=", user.uid),
-          where("isStore", "==", "Loja")
-        );
+        const q = query(userRef, where("isStore", "==", "Loja"));
 
         const querySnapshotTitle = await getDocs(q);
         const list = [];
@@ -96,6 +92,8 @@ export function Catalog({ navigation }) {
         console.error("Error adding document: ", e);
       }
     }
+
+    getUsers();
   }, []);
 
   return (
@@ -111,7 +109,7 @@ export function Catalog({ navigation }) {
             <View style={styles.elementProduct}>
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate("CompraProduto", {
+                  navigation.navigate("Loja", {
                     id: item.id,
                     name: item.name,
                     livros: item.livros,
@@ -126,7 +124,7 @@ export function Catalog({ navigation }) {
                       { textAlign: "right", color: "#515050" },
                     ]}
                   >
-                    {item.livros.length}
+                    {item.livros.length} títulos
                   </Text>
                 </View>
               </TouchableOpacity>
