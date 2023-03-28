@@ -6,17 +6,17 @@ import { Masks } from "react-native-mask-input";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DatePicker from "../../components/DatePicker";
 import Radio from "../../components/Radio";
-import { Entypo } from '@expo/vector-icons';
+import { Entypo } from "@expo/vector-icons";
 
 import styles from "./styles";
 import { database } from "../../services/firebaseConfig";
 import updateBook from "../../services/updateBook";
 import { UserContext } from "../../context/token";
-
+import deleteBook from "../../services/deleteBook";
 
 export function EditProduct({ navigation, route }) {
   const { user } = useContext(UserContext);
-  
+
   // Recebimento do parâmetro "id" do livro selecionado
   const idTask = route.params.id;
 
@@ -55,13 +55,15 @@ export function EditProduct({ navigation, route }) {
     description,
     prize,
   };
-  
+
   return (
     <ScrollView>
       <View style={styles.container}>
-        
-        <Text style={styles.pageTitle}>Editar<Entypo name="edit" size={24} color="black" /></Text>
-        
+        <Text style={styles.pageTitle}>
+          Editar
+          <Entypo name="edit" size={24} color="black" />
+        </Text>
+
         {/* <View style={styles.imageContainer}>
           <ImageViewer
             placeholderImageSource={placeholderImage}
@@ -166,7 +168,7 @@ export function EditProduct({ navigation, route }) {
             style={styles.addButton}
             onPress={() => {
               updateBook(user.uid, idTask, book);
-              navigation.goBack();
+              navigation.navigate("Produtos");
             }}
           >
             <Text style={styles.addButtonText}>Salvar</Text>
@@ -174,11 +176,14 @@ export function EditProduct({ navigation, route }) {
         </View>
 
         <TouchableOpacity
-        style={styles.deleteButton}
+          style={styles.deleteButton}
+          onPress={() => {
+            deleteBook(user.uid, idTask, book.title, book.description);
+            navigation.navigate("Produtos");
+          }}
         >
           <Text style={styles.addButtonText}>Excluir</Text>
         </TouchableOpacity>
-
       </View>
     </ScrollView>
   );
