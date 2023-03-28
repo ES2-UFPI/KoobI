@@ -10,7 +10,7 @@ export default function BackButton() {
         style={styles.trownBackButton}
         start={{x:0,y:1}}
 	    end={{x:1,y:1}}
-        colors={[themes.colors.secondHeaderColor, themes.colors.principalHeaderColor]}
+        colors={[themes.colors.tela.secondHeaderColor, themes.colors.tela.principalHeaderColor]}
         >
             <Image
             source={require('../../../assets/BackIconNormal.png')}

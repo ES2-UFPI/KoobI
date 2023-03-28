@@ -1,18 +1,50 @@
-import React, { useState, useRef } from "react";
-import { Text, View, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, View, TouchableOpacity, FlatList } from "react-native";
 import BackButton from "../../components/BackButton/index";
-import BookToSell from "../../components/BookToSell";
-import themes from "../../themes"
+import themes from "../../themes";
+import styles from "./styles";
+import { collection, getDoc, doc } from "firebase/firestore";
+import { database } from "../../services/firebaseConfig";
 
+import { UserContext } from "../../context/token";
+
+//listAllBooksByUser(userID);
 
 export function MyProducts({ navigation }) {
   const [views, setViews] = useState([]);
-  const scrollViewRef = useRef(null);
+
+  const { user } = React.useContext(UserContext);
+
+  useEffect(() => {
+    async function getLivros() {
+      try {// console.log(user.uid);
+        const docRef = doc(database, "Users", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          const currentBooks = userData.livros || [];
+          // console.log(currentBooks);
+          const booksWithIds = currentBooks.map((book) => {
+            return { ...book, id: currentBooks.indexOf(book) };
+          });
+          setViews(booksWithIds);
+          // console.log(userData.livros);
+
+        } else {
+          console.log("Documento não encontrado!");
+        }
+      }catch(e){
+        console.error("Error adding document: ", e);
+      }
+    }
+    getLivros();
+  }, []);
 
   return (
     <View
       style={{
-        backgroundColor: themes.colors.primaryBackground,
+        backgroundColor: themes.colors.tela.primaryBackground,
         height: "100%",
         width: "100%",
         alignItems: "center",
@@ -20,68 +52,49 @@ export function MyProducts({ navigation }) {
     >
       <View style={styles.headerBox}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <BackButton/>
+          <BackButton />
         </TouchableOpacity>
       </View>
-      <ScrollView
-        contentContainerStyle={styles.contentContainer}
-        ref={scrollViewRef}
-        style={{ width: "100%" }}
-        onContentSizeChange={() =>
-          scrollViewRef?.current?.scrollToEnd({ animated: true })
-        }
+
+      <FlatList
+        data={views}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => {
+          return (
+            <View style={styles.resultItems}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("EditProduct", {
+                    id: item.id,
+                    title: item.title,
+                    author: item.author,
+                    gender: item.gender,
+                    language: item.language,
+                    debutDate: item.debutDate,
+                    category: item.selected,
+                    description: item.description,
+                    prize: item.prize,
+                  });
+                }}
+              >
+                <View style={styles.resultRow}>
+                  <Text style={styles.tituloName}>{item.title}</Text>
+                  <Text style={styles.tituloPrize}>{item.prize}</Text>
+                </View>
+
+                <Text style={styles.descript}>{item.description}</Text>
+              </TouchableOpacity>
+            </View>
+          );
+        }}
+      />
+
+      <TouchableOpacity
+        style={styles.addLivro}
+        onPress={() => navigation.navigate("BookRegister")}
       >
-        <View>{views}</View>
-        <TouchableOpacity
-          style={styles.addLivro}
-          onPress={() => navigation.navigate('BookRegister')}
-        >
-          <Text style={styles.textAdd}>Adicionar Livro</Text>
-        </TouchableOpacity>
-      </ScrollView>
+        <Text style={styles.textAdd}>Adicionar Livro</Text>
+      </TouchableOpacity>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  headerBox: {
-    backgroundColor: themes.colors.principalHeaderColor,
-    justifyContent: "flex-start",
-    width: "100%",
-  },
-
-  addLivro: {
-    width: 250,
-    height: 60,
-
-    margin: 20,
-    padding: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    borderRadius: 15,
-    elevation: 2,
-    backgroundColor: themes.colors.addButtonsColor,
-
-    position: 'relative',
-  },
-
-  contentContainer: {
-      justifyContent: 'center',
-      alignItems: "center",
-  },
-
-  textAdd: {
-    fontSize: 18,
-    color: themes.colors.colorTextClear,
-    fontWeight: "bold",
-  },
-});
-
-
-// setViews([
-//   ...views,
-//   <View key={views.length} style={{alignItems: 'center'}}>
-//     <BookToSell/>
-//   </View>,
-// ])
