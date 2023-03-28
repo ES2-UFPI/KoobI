@@ -140,6 +140,7 @@ export function BookRegister({ navigation }) {
     gender: gender,
     language: language,
     debutDate: debutDate,
+    category: selected,
     description: description,
     prize: prize,
   };
@@ -251,6 +252,7 @@ export function BookRegister({ navigation }) {
             onPress={() => {
               handleUpload()
               addBook(user.uid, book);
+              navigation.goBack();
             }}
           >
             <Text style={styles.addButtonText}>Adicionar</Text>

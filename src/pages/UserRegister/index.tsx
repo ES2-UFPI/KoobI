@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Masks } from "react-native-mask-input";
 import { LinearGradient } from "expo-linear-gradient";
-import  * as ImagePicker from "expo-image-picker"
+import * as ImagePicker from "expo-image-picker";
 
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import Radio from "../../components/Radio";
@@ -44,7 +44,7 @@ export function UserRegister({ navigation, route }) {
   const { user } = useContext(UserContext);
 
   const userData = {
-      cpf,
+    cpf,
     name,
     password: passWord,
     email,
@@ -59,8 +59,8 @@ export function UserRegister({ navigation, route }) {
     shopCart: [],
     isStore,
   };
-  
-  const [selectedImage, setSelectedImage] = useState(null)
+
+  const [selectedImage, setSelectedImage] = useState(null);
 
   async function getCameraPermissionsAsync() {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
@@ -83,56 +83,54 @@ export function UserRegister({ navigation, route }) {
   }
 
   async function takeImageAsync() {
-    try{
-
+    try {
       const hasPermission = await getCameraPermissionsAsync();
-      
+
       if (!hasPermission) {
         return;
       }
-      
+
       let result = await ImagePicker.launchCameraAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
         aspect: [3, 4],
         quality: 1,
       });
-      
+
       if (!result.canceled) {
         setSelectedImage(result.assets[0].uri);
       } else {
         alert("Você não capturou nenhuma imagem");
       }
-    }catch(e){
+    } catch (e) {
       console.log(e);
-    }  
-}
-
- async function pickImageAsync() {
-  try{
-    const hasPermission = await getLibraryPermissionsAsync();
-    
-    if (!hasPermission) {
-      return;
     }
-    
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [3, 4],
-      quality: 1,
-    });
-    
-    if (!result.canceled) {
-      setSelectedImage(result.assets[0].uri);
-    } else {
-      alert("Você não selecionou nenhuma imagem");
-    }
-  }catch(e){
-    console.log(e);
-  }    
-};
+  }
 
+  async function pickImageAsync() {
+    try {
+      const hasPermission = await getLibraryPermissionsAsync();
+
+      if (!hasPermission) {
+        return;
+      }
+
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [3, 4],
+        quality: 1,
+      });
+
+      if (!result.canceled) {
+        setSelectedImage(result.assets[0].uri);
+      } else {
+        alert("Você não selecionou nenhuma imagem");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   const registerFirebase = () => {
     createUserWithEmailAndPassword(auth, email, passWord)
@@ -165,7 +163,6 @@ export function UserRegister({ navigation, route }) {
 
         navigation.navigate("Telas");
         // ...
-
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -202,6 +199,7 @@ export function UserRegister({ navigation, route }) {
           source={require("../../../assets/LogoMarca.png")}
         />
         <Text style={styles.tittleUserReg}>Crie sua conta</Text>
+        
         <View>
           <View style={styles.imageContainer}>
             <ImageViewer
@@ -215,8 +213,6 @@ export function UserRegister({ navigation, route }) {
             OnClickGallery={pickImageAsync}
             style={styles.labelStyle}
           />
-
-
 
           <TextInputWithLabel
             styleName={styles.labelStyle}
