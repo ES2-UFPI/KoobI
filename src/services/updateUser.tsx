@@ -1,9 +1,23 @@
 import { doc, updateDoc } from "firebase/firestore";
 import { database } from "./firebaseConfig";
 
-export default async function updateUser(userID) {
+export default async function updateUser(userID, userName, userPass, userEmail, userState, userCity, userNeigh, userStreet, userNumberH) {
 
-  const washingtonRef = doc(database, "Users", userID);
+  try {
+    const userRef = doc(database, "Users", userID);
+    await updateDoc(userRef, {
+      "name": userName,
+      "password": userPass,
+      "email": userEmail,
+      "adress.state": userState,
+      "adress.city": userCity,
+      "adress.neighborhood": userNeigh,
+      "adress.street": userStreet,
+      "adress.number": userNumberH,
+    });
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
 /*
   await updateDoc(washingtonRef, {
     capital: true,

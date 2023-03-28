@@ -15,6 +15,7 @@ import { ShoppingCart } from "../pages/ShoppingCart/index";
 import { Login } from "../pages/Login/index";
 import { UserRegister } from "../pages/UserRegister/index";
 import { EditProduct } from "../pages/EditProduct/index";
+import { EditProfile } from "../pages/EditProfile/index";
 
 import { Feather } from "@expo/vector-icons";
 
@@ -31,6 +32,7 @@ function StackPagesProfile() {
       <Stack.Screen name="Produtos" component={MyProducts} />
       <Stack.Screen name="BookRegister" component={BookRegister} />
       <Stack.Screen name="EditProduct" component={EditProduct} />
+      <Stack.Screen name="EditProfile" component={EditProfile} />
     </Stack.Navigator>
   );
 }
