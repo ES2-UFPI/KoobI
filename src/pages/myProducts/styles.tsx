@@ -57,6 +57,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
+    
+    tituloName: {
+      fontFamily: 'Nunito_400Regular',
+      fontSize: 20,
+      fontWeight: 'bold',
+      maxWidth: "70%",
+    },
 
     descript: {
         fontFamily: 'Nunito_400Regular',

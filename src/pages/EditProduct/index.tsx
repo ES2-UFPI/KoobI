@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { ScrollView, View, Text, TouchableOpacity } from "react-native";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
 import { format } from "date-fns";
@@ -10,10 +10,14 @@ import { Entypo } from '@expo/vector-icons';
 
 import styles from "./styles";
 import { database } from "../../services/firebaseConfig";
+import updateBook from "../../services/updateBook";
+import { UserContext } from "../../context/token";
+
 
 export function EditProduct({ navigation, route }) {
-  // Recebimento do parâmetro "id" do livro selecionado
+  const { user } = useContext(UserContext);
   
+  // Recebimento do parâmetro "id" do livro selecionado
   const idTask = route.params.id;
 
   const [title, setTitle] = useState(route.params.title);
@@ -26,7 +30,7 @@ export function EditProduct({ navigation, route }) {
 
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
-  const [selected, setSelected] = useState("");
+  // const [selected, setSelected] = useState("");
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -47,6 +51,7 @@ export function EditProduct({ navigation, route }) {
     gender,
     language,
     debutDate,
+    // category: selected,
     description,
     prize,
   };
@@ -54,6 +59,7 @@ export function EditProduct({ navigation, route }) {
   return (
     <ScrollView>
       <View style={styles.container}>
+        
         <Text style={styles.pageTitle}>Editar<Entypo name="edit" size={24} color="black" /></Text>
         
         {/* <View style={styles.imageContainer}>
@@ -115,7 +121,7 @@ export function EditProduct({ navigation, route }) {
             onConfirm={handleConfirm}
           />
 
-          <View>
+          {/* <View>
             <Text style={styles.labelText}>Tipo</Text>
 
             <Radio
@@ -126,7 +132,7 @@ export function EditProduct({ navigation, route }) {
                 setSelected(i);
               }}
             />
-          </View>
+          </View> */}
         </View>
 
         <TextInputWithLabel
@@ -159,6 +165,7 @@ export function EditProduct({ navigation, route }) {
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => {
+              updateBook(user.uid, idTask, book);
               navigation.goBack();
             }}
           >
