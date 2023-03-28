@@ -159,9 +159,9 @@ export function UserRegister({ navigation, route }) {
             });
         }
 
-        handleUpload(user.uid)
+        handleUpload(user.uid);
 
-        navigation.navigate("Telas");
+        navigation.navigate("LoginPage");
         // ...
       })
       .catch((error) => {
