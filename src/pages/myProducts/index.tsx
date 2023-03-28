@@ -17,23 +17,26 @@ export function MyProducts({ navigation }) {
 
   useEffect(() => {
     async function getLivros() {
-      // console.log(user.uid);
-      const docRef = doc(database, "Users", user.uid);
-      const docSnap = await getDoc(docRef);
+      try {// console.log(user.uid);
+        const docRef = doc(database, "Users", user.uid);
+        const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        const userData = docSnap.data();
-        const currentBooks = userData.livros || [];
-        const booksWithIds = currentBooks.map((book) => {
-          return { ...book, id: book.id };
-        });
-        setViews(booksWithIds);
-        console.log(userData.livros);
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          const currentBooks = userData.livros || [];
+          // console.log(currentBooks);
+          const booksWithIds = currentBooks.map((book) => {
+            return { ...book, id: currentBooks.indexOf(book) };
+          });
+          setViews(booksWithIds);
+          // console.log(userData.livros);
 
-      } else {
-        console.log("Documento não encontrado!");
+        } else {
+          console.log("Documento não encontrado!");
+        }
+      }catch(e){
+        console.error("Error adding document: ", e);
       }
-
     }
     getLivros();
   }, []);
@@ -75,7 +78,7 @@ export function MyProducts({ navigation }) {
                 }}
               >
                 <View style={styles.resultRow}>
-                  <Text style={styles.tituloPrize}>{item.title}</Text>
+                  <Text style={styles.tituloName}>{item.title}</Text>
                   <Text style={styles.tituloPrize}>{item.prize}</Text>
                 </View>
 

@@ -140,7 +140,7 @@ export function BookRegister({ navigation }) {
     gender: gender,
     language: language,
     debutDate: debutDate,
-    category: selected,
+    // category: selected,
     description: description,
     prize: prize,
   };
