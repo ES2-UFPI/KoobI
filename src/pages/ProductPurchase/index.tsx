@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -11,6 +11,12 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import styles from "./styles";
 import BackButton from "../../components/BackButton";
+import { UserContext } from "../../context/token";
+import addItemToCart from "../../services/addItemToCart";
+import { doc, getDoc } from "firebase/firestore";
+import { database } from "../../services/firebaseConfig";
+
+const { users } = React.useContext(UserContext)
 
 const images = [
   {
@@ -43,6 +49,20 @@ const OnBoardingItem = ({ item }) => {
 
 export function ProductPurchase({ navigation }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [adicionado, setAdicionado] = useState(false);
+
+  async function handleAddToCart(bookId: string){
+    const bookRef = doc(database, "livros", bookId);
+    const bookDoc = await getDoc(bookRef);
+
+  if (bookDoc.exists()) {
+    const bookData = bookDoc.data();
+
+    addItemToCart('id-do-usuario', bookData)
+      .then(() => setAdicionado(true))
+      .catch((error) => console.error(error));
+  };
+}
 
   return (
     <SafeAreaView style={styles.container}>
@@ -122,9 +142,10 @@ export function ProductPurchase({ navigation }) {
                 <Text style={styles.labelsText}>Valor</Text>
                 <Text style={styles.textValor}>R$ 15,00</Text>
               </View>
-              <TouchableOpacity style={styles.botaoAddCar}>
+              <TouchableOpacity style={styles.botaoAddCar} onPress={() => {handleAddToCart}}>
                 <Text style={styles.botaoText}>Adicionar ao carrinho</Text>
               </TouchableOpacity>
+              {adicionado && <Text style={{ color: 'green' }}>Adicionado ao carrinho!</Text>}
             </View>
           </View>
         </View>
