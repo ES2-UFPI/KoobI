@@ -17,22 +17,7 @@ import { database } from "../../services/firebaseConfig";
 
 const nameStore = "Leitura Livraria";
 
-export function StorePage({ navigation }) {
-  //   const img = [
-  //     {
-  //       uri: "https://th.bing.com/th/id/OIP.knGOtQhXQcQr5yfBYSRmRAHaEK?pid=ImgDet&rs=1",
-  //     },
-
-  //     {
-  //       uri: "https://http2.mlstatic.com/livro-harry-potter-e-as-reliquias-da-morte-ed-econmica--D_NQ_NP_757301-MLB20312596696_062015-F.jpg",
-  //     },
-  //     {
-  //       uri: "https://th.bing.com/th/id/OIP.cHvwABogsVcbK-z6dJEYrAHaKi?pid=ImgDet&rs=1",
-  //     },
-  //     {
-  //       uri: "https://th.bing.com/th/id/OIP.ASOA1yrBSoU9AbIlZIc52QHaKm?pid=ImgDet&rs=1",
-  //     },
-  //   ];
+export function StorePage({ navigation, route }) {
 
   //   const items = [
   //     <TouchableOpacity
@@ -64,6 +49,8 @@ export function StorePage({ navigation }) {
   const [isFirstButtonPressed, setIsFirstButtonPressed] = useState(false);
   const [resultsSearch, setResultsSearch] = useState([]);
   const [views, setViews] = useState([]);
+  const [storeID, setStoreID] = useState(route.params.id);
+
 
   const handleSecondButtonPress = () => {
     setIsFirstButtonPressed(true);
@@ -79,7 +66,7 @@ export function StorePage({ navigation }) {
     async function getLivros() {
       try {
         // console.log(user.uid);
-        const docRef = doc(database, "Users", user.uid);
+        const docRef = doc(database, "Users", storeID);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
@@ -204,6 +191,7 @@ export function StorePage({ navigation }) {
             </View>
           </ScrollView>
         ) : (
+          
           <FlatList
             // style={styles.scrollContainer}
             data={views}
@@ -211,6 +199,7 @@ export function StorePage({ navigation }) {
             renderItem={({ item }) => {
               return (
                 <View style={styles.resultItems}>
+                  {/* <Text>{storeID}</Text> */}
                   <TouchableOpacity
                     onPress={() => {
                       navigation.navigate("EditProduct", {
