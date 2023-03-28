@@ -1,4 +1,4 @@
-import { collection, getDoc, doc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, getDoc, doc, updateDoc } from "firebase/firestore";
 import { database } from "./firebaseConfig";
 
 
@@ -12,10 +12,17 @@ export default async function addBook(userID, book) {
       const currentBooks = userData.livros || []; // Se o array não existir, crie um novo
       const newBooks = [...currentBooks, book];
       await updateDoc(docRef, { livros: newBooks });
-      console.log("Document written with ID: ", docSnap.data());
+      console.log("Document written with ID: ", userData.livros);
     } else {
       console.log("Documento não encontrado!");
     }
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+
+  try {
+    const docRef = await addDoc(collection(database, "livros"), book);
+    console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
