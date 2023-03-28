@@ -163,7 +163,45 @@ const styles = StyleSheet.create({
         textAlign: 'center',
 
         color: "#00000060"
-    }
+    },
+
+    resultItems: {
+        backgroundColor: themes.colors.inputs.elementToSelect,
+        width: 360,
+        justifyContent: 'center',
+  
+        padding: 15,
+        marginTop: 15,
+  
+        borderRadius: 15
+      },
+  
+      resultRow: {
+          backgroundColor: themes.colors.inputs.elementToSelect,
+          flexDirection: "row",
+          justifyContent: 'space-between',
+      },
+  
+      tituloPrize: {
+          fontFamily: 'Nunito_400Regular',
+          fontSize: 20,
+          fontWeight: 'bold',
+      },
+      
+      tituloName: {
+        fontFamily: 'Nunito_400Regular',
+        fontSize: 20,
+        fontWeight: 'bold',
+        maxWidth: "70%",
+      },
+  
+      descript: {
+          fontFamily: 'Nunito_400Regular',
+          fontSize: 18,
+          marginTop: 10,
+          marginRight: 20,
+          
+      }
 })
 
 
