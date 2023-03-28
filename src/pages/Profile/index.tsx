@@ -1,17 +1,70 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { UserContext } from "../../context/token";
 
 import BackButton from "../../components/BackButton";
 import themes from "../../themes";
 import styles from "./styles";
 
+import { database } from "../../services/firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+
 export function Profile({ navigation }) {
+  const [nameUser, setNameUSer] = useState("");
+  const [isPerson, setIsPerson] = useState(true)
+
+  const { user } = useContext(UserContext);
+
+
+  async function isStore(userID) {
+    try {
+      const docRef = doc(database, "Users", userID);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const userData = docSnap.data();
+        const userType = userData.isStore;
+        console.log(userType);
+        if (userType === "Loja") {
+          setIsPerson(true);
+        } else {
+          setIsPerson(false);
+        }
+      } else {
+        console.log("Documento não encontrado!");
+        setIsPerson(false);
+      }
+    } catch (e) {
+      console.error("Error: ", e);
+      setIsPerson(false);
+    }
+  }
+
+  useEffect(() => {
+    async function UserName(userID) {
+      try {
+        const docRef = doc(database, "Users", userID);
+        const docSnap = await getDoc(docRef);
+        const userData = docSnap.data();
+        setNameUSer(userData.name)
+          
+      } catch (e) {
+        console.error("Error: ", e);
+        setNameUSer("Default")
+      }
+    }
+
+    UserName(user.uid);
+    isStore(user.uid)
+  }, [])
+
   return (
     <ScrollView
       contentContainerStyle={{
         backgroundColor: themes.colors.tela.primaryBackground,
-        height: "120%",
+        height: "auto",
       }}
     >
       <View style={styles.boxHeadProfile}>
@@ -21,24 +74,23 @@ export function Profile({ navigation }) {
       </View>
       <View style={styles.imageProfile}>
         <Image source={require("../../../assets/IconeDePerfil.png")} />
-        <Text style={styles.textName}> Zezim Livros </Text>
+        <Text style={styles.textName}>{nameUser}</Text>
       </View>
       <View style={styles.boxAbout}>
-        <Text style={styles.aboutText}>Sobre</Text>
-        <Text style={styles.description}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur, in reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur.
-        </Text>
+        {
+          isPerson ? 
+          (<TouchableOpacity
+            style={styles.line}
+            onPress={() => navigation.navigate("Produtos")}
+          >
+            <MaterialIcons name="library-books" size={24} color="black" />
 
-        <TouchableOpacity
-          style={styles.line}
-          onPress={() => navigation.navigate("Produtos")}
-        >
-          <Image source={require("../../../assets/prod.png")} />
-
-          <Text style={styles.textLabels}>Meus Produtos</Text>
-        </TouchableOpacity>
+            <Text style={styles.textLabels}>Meus Produtos</Text>
+          </TouchableOpacity>)
+          :
+          null
+        }
+          
 
         <TouchableOpacity style={styles.line}>
           <FontAwesome5 name="user-edit" size={24} color="black" />
@@ -46,7 +98,7 @@ export function Profile({ navigation }) {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.line}>
-          <Image source={require("../../../assets/log-out.png")} />
+          <MaterialCommunityIcons name="logout" size={32} color="black" />
           <Text style={styles.textLabels}>Sair</Text>
         </TouchableOpacity>
       </View>

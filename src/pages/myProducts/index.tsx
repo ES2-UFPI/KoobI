@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, FlatList } from "react-native";
 import BackButton from "../../components/BackButton/index";
 import themes from "../../themes";
 import styles from "./styles";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDoc, doc } from "firebase/firestore";
 import { database } from "../../services/firebaseConfig";
 
 import { UserContext } from "../../context/token";
@@ -17,19 +17,23 @@ export function MyProducts({ navigation }) {
 
   useEffect(() => {
     async function getLivros() {
-      console.log(user.uid);
+      // console.log(user.uid);
+      const docRef = doc(database, "Users", user.uid);
+      const docSnap = await getDoc(docRef);
 
-      const livros = collection(database, "livros");
+      if (docSnap.exists()) {
+        const userData = docSnap.data();
+        const currentBooks = userData.livros || [];
+        const booksWithIds = currentBooks.map((book) => {
+          return { ...book, id: book.id };
+        });
+        setViews(booksWithIds);
+        console.log(userData.livros);
 
-      const queryTitle = query(livros);
-      const querySnapshotTitle = await getDocs(queryTitle);
-      const list = [];
-      querySnapshotTitle.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        // console.log(doc.id, " => ", doc.data());
-        list.push({ ...doc.data(), id: doc.id });
-      });
-      setViews(list);
+      } else {
+        console.log("Documento não encontrado!");
+      }
+
     }
     getLivros();
   }, []);
@@ -64,6 +68,7 @@ export function MyProducts({ navigation }) {
                     gender: item.gender,
                     language: item.language,
                     debutDate: item.debutDate,
+                    category: item.selected,
                     description: item.description,
                     prize: item.prize,
                   });

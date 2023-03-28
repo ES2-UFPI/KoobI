@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import themes from "../../themes";
 import { Nunito_400Regular } from '@expo-google-fonts/nunito'
 
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
 
     boxAbout: {
         width: '100%',
+        height: Dimensions.get('window').height * 0.60,
         padding: 30,
         position: 'relative',
         top: -60,
