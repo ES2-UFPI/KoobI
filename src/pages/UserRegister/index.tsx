@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -21,6 +21,8 @@ const placeholderImage = require("../../../assets/background.png");
 import styles from "../UserRegister/styles";
 import themes from "../../themes";
 
+
+import { UserContext } from "../../context/token";
 import { createUserWithEmailAndPassword, deleteUser } from "firebase/auth";
 import { auth, database } from "../../services/firebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
@@ -38,6 +40,8 @@ export function UserRegister({ navigation, route }) {
   const [neighborhood, setNeighborhood] = useState("");
   const [street, setStreet] = useState("");
   const [numbH, setNumbH] = useState("");
+
+  const { user } = useContext(UserContext);
 
   const userData = {
       cpf,
@@ -157,7 +161,7 @@ export function UserRegister({ navigation, route }) {
             });
         }
 
-        handleUpload()
+        handleUpload(user.uid)
 
         navigation.navigate("Telas");
         // ...
@@ -169,16 +173,16 @@ export function UserRegister({ navigation, route }) {
       });
   };
 
-  const handleUpload = async () => {
+  async function handleUpload(uid:string) {
     // Converte a URI da imagem selecionada em um Blob
     const response = await fetch(selectedImage);
     const blob = await response.blob();
 
     // Cria uma referência para o local onde você deseja armazenar a imagem no Firebase Storage
-    const storageRef = ref(storage, 'users/' + user.uid + '/imagem.jpg' );
+    const storageRef = ref(storage, "users/" + `user_${uid}` +  '/perfil.jpg' );
 
     // Envia o arquivo Blob para o Firebase Storage
-    uploadBytes(storageRef, blob).then((snapshot) => {
+    uploadBytes(storageRef, blob).then(() => {
       console.log('Upload concluído com sucesso');
     }).catch((error) => {
       console.error(error);
