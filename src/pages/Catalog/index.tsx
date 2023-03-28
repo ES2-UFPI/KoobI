@@ -80,7 +80,7 @@ export function Catalog({ navigation }) {
       try {
         // console.log(user.uid);
         const userRef = collection(database, "Users");
-        const q = query(userRef, where("isStore", "==", "Loja"));
+        const q = query(userRef, where("isStore", "==", "Loja"), where("userID", "!=", user.uid));
 
         const querySnapshotTitle = await getDocs(q);
         const list = [];
