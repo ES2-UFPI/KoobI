@@ -19,32 +19,6 @@ const nameStore = "Leitura Livraria";
 
 export function StorePage({ navigation, route }) {
 
-  //   const items = [
-  //     <TouchableOpacity
-  //       key="v1"
-  //       style={styles.itemsToSell}
-  //       onPress={() => navigation.navigate("CompraProduto")}
-  //     >
-  //       <ImageBackground
-  //         source={img[1]}
-  //         style={styles.blockImgBook}
-  //         imageStyle={styles.imageBooktoSell}
-  //       >
-  //         <View style={styles.labelImgSell}>
-  //           <View style={styles.labelTittle}>
-  //             <Text style={styles.titulo}>
-  //               Harry Potter e as Relíquias da Morte parte I
-  //             </Text>
-  //             <Text style={styles.estadoUso}>Novo</Text>
-  //           </View>
-  //           <View style={styles.labelTittle}>
-  //             <Text style={[styles.titulo, { color: "#515050" }]}>R$ 89,90</Text>
-  //             <Text style={styles.estadoUso}>Avaliação fica aqui</Text>
-  //           </View>
-  //         </View>
-  //       </ImageBackground>
-  //     </TouchableOpacity>,
-  //   ];
 
   const [isFirstButtonPressed, setIsFirstButtonPressed] = useState(false);
   const [resultsSearch, setResultsSearch] = useState([]);
@@ -106,8 +80,8 @@ export function StorePage({ navigation, route }) {
         </TouchableOpacity>
       </ImageBackground>
       <View style={styles.labelStore}>
-        <Text style={styles.textLabel}>{nameStore}</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("CarrinhoComp")}>
+        <Text style={styles.textLabel}>{route.params.name}</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("CarrinhoComp", {storeName: route.params.name})}>
           <AntDesign name="shoppingcart" size={40} color="black" />
         </TouchableOpacity>
       </View>
@@ -210,7 +184,6 @@ export function StorePage({ navigation, route }) {
                         gender: item.gender,
                         language: item.language,
                         debutDate: item.debutDate,
-                        category: item.selected,
                         description: item.description,
                         prize: item.prize,
                       });

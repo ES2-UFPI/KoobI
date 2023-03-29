@@ -14,7 +14,7 @@ import {
 import styles from "./styles";
 import { UserContext } from "../../context/token";
 
-export function ShoppingCart({ navigation }) {
+export function ShoppingCart({ navigation, route}) {
   const { user } = useContext(UserContext);
   const [views, setViews] = useState([]);
   const [valorTotal, setValorTotal] = useState(0);
@@ -69,7 +69,7 @@ export function ShoppingCart({ navigation }) {
       </ImageBackground>
 
       <View style={styles.labelStore}>
-        <Text style={styles.textLabel}>Leitura Livraria</Text>
+        <Text style={styles.textLabel}>{route.params.storeName}</Text>
       </View>
 
       <FlatList
@@ -98,7 +98,12 @@ export function ShoppingCart({ navigation }) {
         <Text style={styles.total}>R${valorTotal.toFixed(2)}</Text>
       </View>
 
-      <TouchableOpacity style={styles.confirmButton}>
+      <TouchableOpacity
+        style={styles.confirmButton}
+        onPress={() => {
+          navigation.navigate("Requests");
+        }}
+      >
         <Text style={styles.textConfirmButton}>Concluir Pedido</Text>
       </TouchableOpacity>
     </View>
