@@ -7,7 +7,7 @@ export default async function addItemToCart(userID, bookID) {
         const bookDoc = await getDoc(bookRef);
         if (bookDoc.exists()) {
           const bookData = bookDoc.data();
-          const userRef = doc(database, "users", userID);
+          const userRef = doc(database, "Users", userID);
           const userDoc = await getDoc(userRef);
           if (userDoc.exists()) {
             const userData = userDoc.data();

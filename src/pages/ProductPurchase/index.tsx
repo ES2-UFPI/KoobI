@@ -55,10 +55,10 @@ export function ProductPurchase({ navigation, route }) {
   async function handleAddToCart(bookID: string){
     try {
       const docRef = doc(database, "Livros", bookID);
-      const docSnap = await getDoc(docRef);
-      const book = docSnap.data();
-      setAddedBookID(book.id);
-      await addItemToCart(user.uid, book.id);
+      // const docSnap = await getDoc(docRef);
+      // const book = docSnap.data();
+      // setAddedBookID(book);
+      await addItemToCart(user.uid, bookID);
       setAdicionado(true);
     } catch (e) {
       console.error("Erro ao adicionar livro ao carrinho: ", e);
@@ -143,10 +143,10 @@ export function ProductPurchase({ navigation, route }) {
                 <Text style={styles.labelsText}>Valor</Text>
                 <Text style={styles.textValor}>R$ 15,00</Text>
               </View>
-              <TouchableOpacity style={styles.botaoAddCar} onPress={() => {handleAddToCart(route.params.id)}}>
+              <TouchableOpacity style={styles.botaoAddCar} onPress={() => {handleAddToCart('2G3UJ8p7kSKBfyDPECmX')}}>
                 <Text style={styles.botaoText}>Adicionar ao carrinho</Text>
               </TouchableOpacity>
-              {adicionado && <Text style={{ color: 'green' }}>Adicionado ao carrinho!</Text>}
+              {/* {adicionado && <Text style={{ color: 'green' }}>Adicionado ao carrinho!</Text>} */}
             </View>
           </View>
         </View>
