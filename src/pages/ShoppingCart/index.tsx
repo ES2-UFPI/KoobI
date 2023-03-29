@@ -42,8 +42,8 @@ export function ShoppingCart({ navigation, route }) {
             return { ...book, id: currentBooks.indexOf(book)  };
           });
           setValorTotal(value);
-          console.log([views]);
           setViews(booksWithIds);
+          console.log([views]);
         } else {
           console.log("Documento não encontrado!");
         }
@@ -52,7 +52,7 @@ export function ShoppingCart({ navigation, route }) {
       }
     }
     getLivros();
-  }, []);
+  }, [views]);
 
   return (
     <View style={styles.container}>
@@ -109,10 +109,8 @@ export function ShoppingCart({ navigation, route }) {
       <TouchableOpacity
         style={styles.confirmButton}
         onPress={() => {
-          // navigation.navigate("Requests", {
-          //   lists: [views]
-          // });
-          // updateCart(user.uid);
+          navigation.navigate("Requests");
+          updateCart(user.uid, {views});
         }}
       >
         <Text style={styles.textConfirmButton}>Concluir Pedido</Text>
