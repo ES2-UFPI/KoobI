@@ -142,7 +142,7 @@ export function ProductPurchase({ navigation, route }) {
                 style={styles.botaoAddCar}
                 onPress={() => {
                   addItemToCart(user.uid, route.params.store, parseInt(route.params.id));
-                  navigation.navigate("CarrinhoComp");
+                  navigation.navigate("CarrinhoComp", {storeName: route.params.storeName});
                 }}
               >
                 <Text style={styles.botaoText}>Adicionar ao carrinho</Text>

@@ -178,6 +178,7 @@ export function StorePage({ navigation, route }) {
                     onPress={() => {
                       navigation.navigate("CompraProduto", {
                         store: storeID,
+                        storeName: route.params.name,
                         id: item.id,
                         title: item.title,
                         author: item.author,

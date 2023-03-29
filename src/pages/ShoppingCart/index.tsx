@@ -1,4 +1,4 @@
-import { collection, getDoc, doc, query, where } from "firebase/firestore";
+import { collection, getDoc, doc } from "firebase/firestore";
 import { database } from "../../services/firebaseConfig";
 import { AntDesign } from "@expo/vector-icons";
 import React, { useState, useEffect, useContext } from "react";
@@ -13,8 +13,9 @@ import {
 } from "react-native";
 import styles from "./styles";
 import { UserContext } from "../../context/token";
+import remItemFromCart from "../../services/remItemFromCart";
 
-export function ShoppingCart({ navigation, route}) {
+export function ShoppingCart({ navigation, route }) {
   const { user } = useContext(UserContext);
   const [views, setViews] = useState([]);
   const [valorTotal, setValorTotal] = useState(0);
@@ -37,7 +38,7 @@ export function ShoppingCart({ navigation, route}) {
           const booksWithIds = currentBooks.map((book) => {
             value += parseFloat(book.prize.substring(3).replace(",", "."));
 
-            return { ...book };
+            return { ...book, id: currentBooks.indexOf(book)  };
           });
           setValorTotal(value);
 
@@ -84,7 +85,13 @@ export function ShoppingCart({ navigation, route}) {
                   <Text style={styles.tituloName}>{item.title}</Text>
                   <Text style={styles.tituloPrize}>{item.prize}</Text>
                 </View>
-                <TouchableOpacity style={styles.buttonDelete}>
+                <TouchableOpacity
+                  style={styles.buttonDelete}
+                  onPress={() => {
+                    remItemFromCart(user.uid, item.id);
+                    navigation.navigate('CarrinhoComp');
+                }}
+                >
                   <AntDesign name="delete" size={20} color="#FAFAFA" />
                 </TouchableOpacity>
               </View>
