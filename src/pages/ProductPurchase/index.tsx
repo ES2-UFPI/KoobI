@@ -13,7 +13,7 @@ import styles from "./styles";
 import BackButton from "../../components/BackButton";
 import { UserContext } from "../../context/token";
 import addItemToCart from "../../services/addItemToCart";
-import {doc, getDoc} from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { database } from "../../services/firebaseConfig";
 
 const images = [
@@ -38,7 +38,6 @@ const images = [
   },
 ];
 
-
 const OnBoardingItem = ({ item }) => {
   return (
     <Image source={{ uri: item.url }} style={{ width: 353, height: 300 }} />
@@ -47,23 +46,19 @@ const OnBoardingItem = ({ item }) => {
 
 export function ProductPurchase({ navigation, route }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [adicionado, setAdicionado] = useState(false);
-  const [addedBookID, setAddedBookID] = useState("");
+  // const [adicionado, setAdicionado] = useState(false);
+  // const [addedBookID, setAddedBookID] = useState("");
 
-  const { user } = React.useContext(UserContext)
+  const { user } = React.useContext(UserContext);
 
-  async function handleAddToCart(bookID: string){
-    try {
-      const docRef = doc(database, "Livros", bookID);
-      const docSnap = await getDoc(docRef);
-      const book = docSnap.data();
-      setAddedBookID(book.id);
-      await addItemToCart(user.uid, book.id);
-      setAdicionado(true);
-    } catch (e) {
-      console.error("Erro ao adicionar livro ao carrinho: ", e);
-    }
-  }
+  // async function handleAddToCart(bookID: string) {
+  //   try {
+  //     await 
+  //     // setAdicionado(true);
+  //   } catch (e) {
+  //     console.error("Erro ao adicionar livro ao carrinho: ", e);
+  //   }
+  // }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -143,10 +138,15 @@ export function ProductPurchase({ navigation, route }) {
                 <Text style={styles.labelsText}>Valor</Text>
                 <Text style={styles.textValor}>R$ 15,00</Text>
               </View>
-              <TouchableOpacity style={styles.botaoAddCar} onPress={() => {handleAddToCart(route.params.id)}}>
+              <TouchableOpacity
+                style={styles.botaoAddCar}
+                onPress={() => {
+                  addItemToCart(user.uid, route.params.store, parseInt(route.params.id));
+                  navigation.navigate("CarrinhoComp");
+                }}
+              >
                 <Text style={styles.botaoText}>Adicionar ao carrinho</Text>
               </TouchableOpacity>
-              {adicionado && <Text style={{ color: 'green' }}>Adicionado ao carrinho!</Text>}
             </View>
           </View>
         </View>
