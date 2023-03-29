@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     },
 
     labelsText: {
-        color: themes.colors.texto.labelsText,
+        color: themes.colors.texto.colorTextDark,
         fontSize: 15,
         fontWeight: 'bold'
     },

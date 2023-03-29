@@ -1,4 +1,4 @@
-import { collection, getDoc, doc, query, where } from "firebase/firestore";
+import { collection, getDoc, doc } from "firebase/firestore";
 import { database } from "../../services/firebaseConfig";
 import { AntDesign } from "@expo/vector-icons";
 import React, { useState, useEffect, useContext } from "react";
@@ -13,8 +13,10 @@ import {
 } from "react-native";
 import styles from "./styles";
 import { UserContext } from "../../context/token";
+import remItemFromCart from "../../services/remItemFromCart";
+import updateCart from "../../services/updateCart";
 
-export function ShoppingCart({ navigation }) {
+export function ShoppingCart({ navigation, route }) {
   const { user } = useContext(UserContext);
   const [views, setViews] = useState([]);
   const [valorTotal, setValorTotal] = useState(0);
@@ -37,11 +39,11 @@ export function ShoppingCart({ navigation }) {
           const booksWithIds = currentBooks.map((book) => {
             value += parseFloat(book.prize.substring(3).replace(",", "."));
 
-            return { ...book };
+            return { ...book, id: currentBooks.indexOf(book)  };
           });
           setValorTotal(value);
-
           setViews(booksWithIds);
+          console.log([views]);
         } else {
           console.log("Documento não encontrado!");
         }
@@ -50,7 +52,7 @@ export function ShoppingCart({ navigation }) {
       }
     }
     getLivros();
-  }, []);
+  }, [views]);
 
   return (
     <View style={styles.container}>
@@ -69,7 +71,7 @@ export function ShoppingCart({ navigation }) {
       </ImageBackground>
 
       <View style={styles.labelStore}>
-        <Text style={styles.textLabel}>Leitura Livraria</Text>
+        <Text style={styles.textLabel}>{route.params.storeName}</Text>
       </View>
 
       <FlatList
@@ -84,7 +86,13 @@ export function ShoppingCart({ navigation }) {
                   <Text style={styles.tituloName}>{item.title}</Text>
                   <Text style={styles.tituloPrize}>{item.prize}</Text>
                 </View>
-                <TouchableOpacity style={styles.buttonDelete}>
+                <TouchableOpacity
+                  style={styles.buttonDelete}
+                  onPress={() => {
+                    remItemFromCart(user.uid, item.id);
+                    navigation.navigate('CarrinhoComp');
+                }}
+                >
                   <AntDesign name="delete" size={20} color="#FAFAFA" />
                 </TouchableOpacity>
               </View>
@@ -98,7 +106,13 @@ export function ShoppingCart({ navigation }) {
         <Text style={styles.total}>R${valorTotal.toFixed(2)}</Text>
       </View>
 
-      <TouchableOpacity style={styles.confirmButton}>
+      <TouchableOpacity
+        style={styles.confirmButton}
+        onPress={() => {
+          navigation.navigate("Requests");
+          updateCart(user.uid, {views});
+        }}
+      >
         <Text style={styles.textConfirmButton}>Concluir Pedido</Text>
       </TouchableOpacity>
     </View>
