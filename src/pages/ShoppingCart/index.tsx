@@ -14,6 +14,7 @@ import {
 import styles from "./styles";
 import { UserContext } from "../../context/token";
 import remItemFromCart from "../../services/remItemFromCart";
+import updateCart from "../../services/updateCart";
 
 export function ShoppingCart({ navigation, route }) {
   const { user } = useContext(UserContext);
@@ -41,7 +42,7 @@ export function ShoppingCart({ navigation, route }) {
             return { ...book, id: currentBooks.indexOf(book)  };
           });
           setValorTotal(value);
-
+          console.log([views]);
           setViews(booksWithIds);
         } else {
           console.log("Documento não encontrado!");
@@ -108,7 +109,10 @@ export function ShoppingCart({ navigation, route }) {
       <TouchableOpacity
         style={styles.confirmButton}
         onPress={() => {
-          navigation.navigate("Requests");
+          // navigation.navigate("Requests", {
+          //   lists: [views]
+          // });
+          // updateCart(user.uid);
         }}
       >
         <Text style={styles.textConfirmButton}>Concluir Pedido</Text>

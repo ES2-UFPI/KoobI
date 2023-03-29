@@ -77,7 +77,7 @@ export function ProductPurchase({ navigation, route }) {
             end={{ x: 0, y: 0 }}
             colors={["#D1B56A", "#F8F4D9"]}
           >
-            <Text style={styles.tittleText}>Nome do livro</Text>
+            <Text style={styles.tittleText}>{route.params.title}</Text>
           </LinearGradient>
 
           <FlatList
@@ -112,22 +112,18 @@ export function ProductPurchase({ navigation, route }) {
           <View style={styles.description}>
             <Text style={styles.labelsText}> Description </Text>
             <Text style={styles.textStyle}>
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, Ut enim
-              ad minim veniam, quis nostrud exercitation ullamco. Quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.{" "}
+              {route.params.description}
             </Text>
           </View>
           <View style={styles.optionsBook}>
             <View style={styles.autorVend}>
               <View>
                 <Text style={styles.labelsText}>Autor</Text>
-                <Text style={styles.namesText}>Ariano Suassuna</Text>
+                <Text style={styles.namesText}>{route.params.author}</Text>
               </View>
               <View>
                 <Text style={styles.labelsText}>Vendedor</Text>
-                <Text style={styles.namesText}>Fulano Dital</Text>
+                <Text style={styles.namesText}>{route.params.storeName}</Text>
               </View>
             </View>
             <View
@@ -136,7 +132,7 @@ export function ProductPurchase({ navigation, route }) {
             <View style={styles.valorCompra}>
               <View>
                 <Text style={styles.labelsText}>Valor</Text>
-                <Text style={styles.textValor}>R$ 15,00</Text>
+                <Text style={styles.textValor}>{route.params.prize}</Text>
               </View>
               <TouchableOpacity
                 style={styles.botaoAddCar}
