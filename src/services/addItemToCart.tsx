@@ -1,25 +1,23 @@
 import { collection, addDoc, getDoc, doc, updateDoc } from "firebase/firestore";
 import { database } from "./firebaseConfig";
 
-export default async function addItemToCart(userID, bookID) {
+export default async function addItemToCart(userID, store, indexBook) {
     try {
-        const bookRef = doc(database, "livros", bookID);
-        const bookDoc = await getDoc(bookRef);
-        if (bookDoc.exists()) {
-          const bookData = bookDoc.data();
-          const userRef = doc(database, "Users", userID);
-          const userDoc = await getDoc(userRef);
-          if (userDoc.exists()) {
-            const userData = userDoc.data();
-            const shopCart = userData.shopCart || [];
-            const newShopCart = [...shopCart, bookData];
-            await updateDoc(userRef, { shopCart: newShopCart });
-            console.log("Livro adicionado ao carrinho com sucesso!");
-          } else {
-            console.log("Usuário não encontrado!");
-          }
+        const userRef = doc(database, "Users", userID);
+        const userStore = doc(database, "Users", store);
+        const userDoc = await getDoc(userRef);
+        const storeDoc = await getDoc(userStore);
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          const storeData = storeDoc.data()
+          const shopCart = userData.shopCart || [];
+          const livroToAdd = storeData.livros[indexBook];
+          console.log(livroToAdd);
+          const newShopCart = [...shopCart, livroToAdd]
+          await updateDoc(userRef, { shopCart: newShopCart });
+          console.log(`Livro ${storeData.livros.title} foi adicionado ao carrinho de ${userData.name}`);
         } else {
-          console.log("Livro não encontrado!");
+          console.log("Usuário não encontrado!");
         }
       } catch (e) {
         console.error("Erro ao adicionar livro ao carrinho: ", e);

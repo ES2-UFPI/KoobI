@@ -203,6 +203,7 @@ export function StorePage({ navigation, route }) {
                   <TouchableOpacity
                     onPress={() => {
                       navigation.navigate("CompraProduto", {
+                        store: storeID,
                         id: item.id,
                         title: item.title,
                         author: item.author,
