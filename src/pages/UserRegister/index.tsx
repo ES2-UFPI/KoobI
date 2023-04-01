@@ -142,7 +142,7 @@ export function UserRegister({ navigation, route }) {
         userData["userID"] = user.uid;
 
         try {
-          console.log(userData);
+          // console.log(userData);
           const docRef = await setDoc(
             doc(database, "Users", user.uid),
             userData
