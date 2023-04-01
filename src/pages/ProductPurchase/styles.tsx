@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
 
     boxProduct: {
-        backgroundColor: '#D1B56A',
+        backgroundColor: themes.colors.tela.secondHeaderColor,
         
         height: "80%",
         width: '90%',
@@ -32,8 +32,6 @@ const styles = StyleSheet.create({
         marginBottom: 64,
         alignItems: 'center',
         
-        // justifyContent: 'flex-end',
-
     },
 
     imageList: {
@@ -61,7 +59,7 @@ const styles = StyleSheet.create({
     description: {
         justifyContent: "flex-start",
 
-        backgroundColor: "#F8F4D9",
+        backgroundColor: themes.colors.inputs.cancelButton,
         
         width: '100%',
         height: '25%',
