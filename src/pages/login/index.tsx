@@ -32,7 +32,7 @@ export function Login({ navigation }) {
       style={styles.container}
       start={{ x: 0, y: 0 }}
       end={{ x: 1.4, y: 0.87 }}
-      colors={["#004E7D", "#ffb9007f"]}
+      colors={["#462B4D", "#E0B4E4"]}
     >
       <Image source={require("../../../assets/LogoMarca.png")} />
       <View>

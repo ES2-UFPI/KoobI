@@ -9,13 +9,13 @@ const styles = StyleSheet.create({
   },
   
   inputLoginPass: {
-    backgroundColor: "#FFF5D3",
+    backgroundColor: themes.colors.inputs.elementToSelect,
     paddingLeft: 27,
     borderRadius: 22,
   },
 
   inputPass:{
-    backgroundColor: "#FFF5D3",
+    backgroundColor: themes.colors.inputs.elementToSelect,
     width: "86%",
     paddingLeft: 27,
     
