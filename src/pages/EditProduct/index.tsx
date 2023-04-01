@@ -123,18 +123,6 @@ export function EditProduct({ navigation, route }) {
             onConfirm={handleConfirm}
           />
 
-          {/* <View>
-            <Text style={styles.labelText}>Tipo</Text>
-
-            <Radio
-              selected={selected}
-              options={["Novo", "Usado"]}
-              horizontal={true}
-              onChangeSelect={(i: any) => {
-                setSelected(i);
-              }}
-            />
-          </View> */}
         </View>
 
         <TextInputWithLabel
@@ -179,7 +167,7 @@ export function EditProduct({ navigation, route }) {
           style={styles.deleteButton}
           onPress={() => {
             deleteBook(user.uid, idTask, book.title, book.description);
-            navigation.navigate("Produtos");
+            navigation.navigate("Perfil");
           }}
         >
           <Text style={styles.addButtonText}>Excluir</Text>

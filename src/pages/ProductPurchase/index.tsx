@@ -27,15 +27,6 @@ const images = [
     url: "https://images.pexels.com/photos/15579372/pexels-photo-15579372.jpeg",
   },
 
-  {
-    id: 3,
-    url: "https://images.pexels.com/photos/14446665/pexels-photo-14446665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-
-  {
-    id: 4,
-    url: "https://images.pexels.com/photos/14790095/pexels-photo-14790095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
 ];
 
 const OnBoardingItem = ({ item }) => {
@@ -51,14 +42,6 @@ export function ProductPurchase({ navigation, route }) {
 
   const { user } = React.useContext(UserContext);
 
-  // async function handleAddToCart(bookID: string) {
-  //   try {
-  //     await 
-  //     // setAdicionado(true);
-  //   } catch (e) {
-  //     console.error("Erro ao adicionar livro ao carrinho: ", e);
-  //   }
-  // }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -75,7 +58,7 @@ export function ProductPurchase({ navigation, route }) {
             style={styles.labelBook}
             start={{ x: 0, y: 1 }}
             end={{ x: 0, y: 0 }}
-            colors={["#D1B56A", "#F8F4D9"]}
+            colors={["#462B4D", "#E0B4E4"]}
           >
             <Text style={styles.tittleText}>{route.params.title}</Text>
           </LinearGradient>
@@ -118,7 +101,7 @@ export function ProductPurchase({ navigation, route }) {
           <View style={styles.optionsBook}>
             <View style={styles.autorVend}>
               <View>
-                <Text style={styles.labelsText}>Autor</Text>
+                <Text style={[styles.labelsText]}>Autor</Text>
                 <Text style={styles.namesText}>{route.params.author}</Text>
               </View>
               <View>

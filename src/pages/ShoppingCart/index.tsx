@@ -43,7 +43,7 @@ export function ShoppingCart({ navigation, route }) {
           });
           setValorTotal(value);
           setViews(booksWithIds);
-          console.log([views]);
+          // console.log([views]);
         } else {
           console.log("Documento não encontrado!");
         }

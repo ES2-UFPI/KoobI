@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     },
     addButton: {
         flex: 2,
-        backgroundColor: "#2E4756",
+        backgroundColor: themes.colors.inputs.addButtonsColor,
         borderRadius: 12,
         alignItems: "center",
         justifyContent: "center",
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     cancelButton: {
         flex: 2,
-        backgroundColor: "#B4C5E4",
+        backgroundColor: themes.colors.inputs.cancelButton,
         borderRadius: 12,
         alignItems: "center",
         justifyContent: "center",

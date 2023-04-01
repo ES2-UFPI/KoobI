@@ -57,6 +57,7 @@ export function UserRegister({ navigation, route }) {
     },
     livros: [],
     shopCart: [],
+    pedidos: [],
     isStore,
   };
 
@@ -141,7 +142,7 @@ export function UserRegister({ navigation, route }) {
         userData["userID"] = user.uid;
 
         try {
-          console.log(userData);
+          // console.log(userData);
           const docRef = await setDoc(
             doc(database, "Users", user.uid),
             userData
@@ -192,7 +193,7 @@ export function UserRegister({ navigation, route }) {
         style={styles.container}
         start={{ x: 0, y: 0 }}
         end={{ x: 1.4, y: 0.87 }}
-        colors={["#004E7D", "#ffb9007f"]}
+        colors={["#462B4D", "#E0B4E4"]}
       >
         <Image
           style={styles.imagePrincipal}

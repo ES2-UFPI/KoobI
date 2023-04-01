@@ -11,7 +11,7 @@ export default async function updateCart(userID, listBooks) {
       const currentRequests = userData.pedidos || []; // Se o array não existir, crie um novo
       const newRequests = [...currentRequests, listBooks];
       await updateDoc(userRef, { pedidos: newRequests });
-      console.log("Document written with ID: ", userData.pedidos);
+      // console.log("Document written with ID: ", userData.pedidos);
     } else {
       console.log("Documento não encontrado!");
     }
