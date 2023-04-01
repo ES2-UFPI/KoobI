@@ -2,18 +2,18 @@ export default {
     colors: {
         // Estilos de tela
         tela: {
-            primaryBackground: '#F4DB99',
-            principalHeaderColor: '#16262E',
-            secondHeaderColor: '#2E4756',
+            primaryBackground: '#b5b6f3d1',
+            principalHeaderColor: '#130022',
+            secondHeaderColor: '#472e56',
         },
         
         // Cores para botões e entradas
         inputs: {
             inputColorBackground: '#f5f5f5',
-            elementToSelect: '#eee9ca',
+            elementToSelect: '#fef1ff',
             addButton: '#2173EE',
-            addButtonsColor: "#2b404d",
-            cancelButton: '#B4C5E4',
+            addButtonsColor: "#462b4d",
+            cancelButton: '#e0b4e4',
 
         },
 

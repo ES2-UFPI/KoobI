@@ -6,56 +6,52 @@ const styles = StyleSheet.create({
     backgroundColor: themes.colors.tela.principalHeaderColor,
   },
 
+  tituloPage: {
+    fontFamily: "Nunito_400Regular",
+    fontSize: 40,
+    fontWeight: "bold",
+    color: themes.colors.texto.colorTextDark,
+
+    marginTop: 14,
+    marginBottom: 12,
+  },
+
   scrollContainer: {
     // alignItems: 'center',
     flexGrow: 1,
-    width: "100%",
-    height: "120%",
+    width: Dimensions.get("window").width * 0.92,
+    height: 'auto',
+    alignItems: 'center',
+
   },
 
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: Dimensions.get("window").width * 0.85,
-  },
-
-  blockResultItems: {
-    width: "100%",
-    alignItems: "center",
-    marginBottom: 15,
-  },
-
-  resultItems: {
+  viewElement: {
+    width: Dimensions.get("window").width * 0.90,
     backgroundColor: themes.colors.inputs.elementToSelect,
-    width: 360,
-    justifyContent: "center",
-
-    padding: 15,
-    marginTop: 15,
-
-    borderRadius: 15,
-  },
-
-  resultRow: {
-    backgroundColor: themes.colors.inputs.elementToSelect,
-    flexDirection: "row",
+    alignItems: 'flex-start',
+    flexDirection: 'row',
     justifyContent: "space-between",
-  },
-
-  tituloPrize: {
-    fontFamily: "Nunito_400Regular",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-
-  descript: {
-    fontFamily: "Nunito_400Regular",
-    fontSize: 18,
+    
     marginTop: 10,
-    marginRight: 20,
+    marginBottom: 8,
+
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingBottom: 12,
+    paddingTop: 12,
+
+    borderRadius: 10,
+  
+    elevation: 5,
   },
+
+  labelsText: {
+    fontFamily: "Nunito_400Regular",
+    fontWeight: "bold",
+    fontSize: 18,
+    color: themes.colors.texto.colorTextDark,
+  }
+  
 });
 
 export default styles;

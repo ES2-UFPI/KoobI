@@ -21,6 +21,7 @@ export function MyRequests() {
           const currentRequests = userData.pedidos || [];
           // console.log(currentRequests);
           const RequestsWithIds = currentRequests.map((lists) => {
+
             return { ...lists, id: currentRequests.indexOf(lists) };
           });
           setViews(RequestsWithIds);
@@ -44,14 +45,17 @@ export function MyRequests() {
         backgroundColor: themes.colors.tela.primaryBackground,
       }}
     >
+      <Text style={styles.tituloPage} >Pedidos</Text>
+
       <FlatList
         contentContainerStyle={styles.scrollContainer}
         data={views}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
           return (
-            <View>
-                <Text>Lista de pedidos {item.id}</Text>
+            <View style={styles.viewElement}>
+                <Text style={styles.labelsText}>Pedido Nº {item.id}</Text>
+                <Text style={styles.labelsText}>Nº de itens: {item.views.length}</Text>
             </View>
           );
         }}
