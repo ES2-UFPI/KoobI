@@ -135,6 +135,7 @@ export function BookRegister({ navigation }) {
 
   // ESTRUTURA DO LIVRO NO BD
   const book = {
+    owner: user.uid,
     title: title,
     author: author,
     gender: gender,

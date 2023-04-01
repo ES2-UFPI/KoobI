@@ -57,6 +57,7 @@ export function UserRegister({ navigation, route }) {
     },
     livros: [],
     shopCart: [],
+    pedidos: [],
     isStore,
   };
 
